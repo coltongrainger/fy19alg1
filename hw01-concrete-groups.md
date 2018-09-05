@@ -66,11 +66,17 @@ for all $a, c \in A$ and for all $b,d \in B$. \qedsymbol
 
 ### Dihedral groups of odd regular polygons [@DF04, number 1.2.5]
 
-Suppose $n$ is odd and $n \geq 3$. Then the identity is the only element in the dihedral group $D_{2n}$ that commutes with all elements of $D_{2n}$.
+Suppose $n$ is odd and $n \geq 3$. Then the identity is the only element in the dihedral group $D_{2n}$ that commutes with all elements of $D_{2n}$. That is, for odd $n\geq 3$, the center $Z(D_{2n})$ is trivial. (My proof is attributable to the discussion of subgroups of $D_{2n}$ in [@CoDihedral].)
 
-*Proof.* We'll show such an element exists and that it's (uniquely) the identity. Now, by definition, the identity $e$ commutes with all $a \in D_{2n}$. For contradiction, suppose some element $c \neq e$ satisfies $ac = ca \iff c^{-1}a^{-1}ca$ for all elements $a$ as well.
+*Proof.* No reflections are in the center $Z(D_{2n})$ since if $r$ and $s$ commute, then
+$$(r^is)r = r^isr = r^ir^{-1}s = r^{i-1}s, \quad r(r^is) = r^{i+1}s,$$
+so if $r^is$ commutes with $s$ then $r^{i-1} = r^{i+1}$. Whence $r^2 = 1$, which is false when $n \geq 3$.
 
-TODO
+We'll find the rotations $r^j$ (without loss of generality for $0 \leq j \leq n-1$) in the center. Now, if it's in the center, we should have that $r^j$ commutes with $s$, so $r^js = sr^j$, whence (by induction on the relation $rs = sr^{-1}$) we have $sr^{-j} = sr^j$. It follows that $r^j = r^{-j}$ or $r^{2j} = 1$. Since the order of $r$ in $D_{2n}$ is $n$, we have must have $n \divides 2j$. For odd $n$ this implies $n \divides j$, i.e., $j$ is a multiple of $n$. We conclude $r^j = 1$. 
+
+So $1$ is the only element in the center, that is, $1$ is the only element in $D_{2n}$ that commutes with all other elements.[^why?]
+
+[^why?]: Is showing that $r^j \in Z(D_{2n})$ iff $j =0$ and $s \notin Z(D_{2n})$ sufficient to say that an arbitrary product $r^ks^j$ is not in the center?
 
 ### Computing permutations [@DF04, number 1.3.1]
 
@@ -149,5 +155,18 @@ So $\{1, 2, 3, 4, 5, 6\}$ is the image of $S_5$ under the map $\mathrm{lcm} \cir
 ### Hamilton's quaternion group [@DF04, number 1.5.1]
 
 To compute the order of each element in $Q_8 = \{1, -1, i, -i, j, -j, k, -k\}$ we recall Hamilton's fundamental formula [@Ha1866, Ch. II] $$i^2 = j^2 = k^2 = ijk.$$
+
+It's important to note $i^2 = -1$, and then we can proceed in tabulating
+
+element | order in $Q$
+---: | :---:
+$1$ | 1
+$-1$ | 2
+$i$ | 4
+$-i$ | 4
+$j$ | 4
+$-j$ | 4
+$k$ | 4
+$-k$ | 4
 
 ## References
