@@ -6,7 +6,10 @@ bibliography: /home/colton/pro/19/prelims.bib
 ---
 
 \newcommand{\RR}{\mathbf{R}}
+\newcommand{\NN}{\mathbf{N}}
 \newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\renewcommand{\phi}{\varphi}
 
 ## Assignment due 2018-09-05
 
@@ -88,9 +91,21 @@ $\tau^2\sigma$ | $\sigma$
 
 ### Cycle decompositions in $S_4$ [@DF04, number 1.3.6]
 
-We list the cycle decompositions for all elements in $S_4$ of order $4$.
+To list the cycle decompositions for all elements in $S_4$ of order $4$. Suppose that $\abs{\sigma}= 4$. Then the least common multiple of the $\abs{\sigma_i}$ in the cycle decomposition $\sigma = \prod\sigma_i$ is $4$ (to be proven below). We proceed to determine the order of each $\sigma_i$. I claim because there's only one partition $4 = \sum k_i$ for positive integers $k_i$ with $\mathrm{lcm}\{k_i\} = 4$, namely the partition $k = 4$, we know $\sigma_i$ must be a $4$-cycle (why?). It follows that the only elements of $S_4$ with order $4$ are $4$-cycles.
 
-### The l.c.m. of lengths of cycles [@DF04, number 1.3.15]
+How many such $4$-cycles are distinct? Well, there are $4!$ distinct strings of letters (with no letter repeated) from the alphabet of indices $\{i_1 i_2 i_3 i_4\}$. When such strings are considered as $4$-cycles, we recognize that each $4$-cycle has $4$ representations as a string. That is, $$(i_1i_2i_3i_4) = (i_2i_3i_4i_1) = (i_3i_4i_1i_2) = (i_4i_1i_2i_3)$$
+so the total number of distinct $4$-cycles in $S_n$ is $4!/4 = 6$. 
+
+We exhaustive enumerate these $6$ distinct $4$-cycles by listing them in lexicographic order: 
+
+- (1 2 3 4)
+- (1 2 4 3)
+- (1 3 2 4)
+- (1 3 4 2)
+- (1 4 2 3)
+- (1 4 3 2)
+
+### The least common multiple of lengths of disjoint cycles [@DF04, number 1.3.15]
 
 The order of an element in $S_n$ is equal to the least common multiple of the lengths of the cycles in its cycle decomposition. 
 
@@ -100,15 +115,36 @@ The order of an element in $S_n$ is equal to the least common multiple of the le
 
 Now suppose that $\sigma \in S_n$, and write $\sigma = \sigma_1\sigma_2\ldots\sigma_r$ with $\{\sigma_i\}$ disjoint cycles.
 Since disjoint cycles commute, $\sigma^m = \sigma_1^m\sigma_2^m\ldots\sigma_r^m$ for all integers $m$. 
-Now, the order $\lvert\sigma\rvert$ is defined as the least positive integer $m$ for which $\sigma^m = 1$.
+Now, the order $\abs{\sigma}$ is defined as the least positive integer $m$ for which $\sigma^m = 1$.
 We have $\sigma^m = 1$ if and only if $\sigma_i^m = 1$ for all $i$.
-So $\sigma^m = 1$ if and only if $\lvert\sigma_i\rvert$ divides $n$ for all $i$.
-Because $m$ is the least such integer, $m = \mathrm{lcm}\{\lvert \sigma_i \rvert \text{ where $\sigma_i$ is a disjoint cycle in the decomposition of $\sigma$}\}$. 
+So $\sigma^m = 1$ if and only if $\abs{\sigma_i}$ divides $n$ for all $i$.
+Because $m$ is the least such integer, $m = \mathrm{lcm}\{\abs{\sigma_i} \text{ where $\sigma_i$ is a disjoint cycle in the decomposition of $\sigma$}\}$. 
 \qedsymbol
 
 ### Order of elements in $S_5$ [@DF04, number 1.3.18]
 
-We find all numbers $n$ such that $S_5$ contains and element of order $n$.
+We find all numbers $n$ such that $S_5$ contains an element of order $n$. 
+
+To do so, we will find all the numbers $n$ such that $n = \mathrm{lcm}\left\{a_h \text{ for $a_h$ in a partition $5 = \sum a_h$}\right\}$. 
+
+There's a bijective map $\phi$ from the set of partitions of $5$ to the equivalence classes $S_5/E$ given by the equivalence relation $\sigma E \tau$ if and only if, for the cycle decompositions $$\sigma = \prod\sigma_i \text{ and } \tau = \prod\tau_j, \text{ we have }  \left(\abs{\sigma_{i_1}}, \ldots, \abs{\sigma_{i_m}}\right) = \left(\abs{\tau_{j_1}}, \ldots, \abs{\tau_{j_m}}\right),$$ choosing indices $1 \leq i_k \leq m -1$ so that $\abs{\sigma_{i_{k}}} \geq \abs{\sigma_{i_{k+1}}}$ (and respectively for $\tau_{j_k}$). Informally, $\sigma  E  \tau$ if they have cycle decompositions (for which we commute disjoint cycles to write the largest on the left) where order of the $k$th cycle in each is equal. The bijective map $\phi \colon S_5/E \to \{\text{partitions of }5\}$ associates each equivalence class of disjoint cycles with orders $(a_1, \ldots, a_m)$ to the partition $5 = a_1 + \ldots + a_m$ (verify this is a partition).
+
+Now, the map of an element to its order in the group $S_5$, call it $\abs{\cdot} \colon S_5 \to \NN$, is compatible with the equivalence relation $E$ in the sense that $\sigma E \tau$ implies $\abs{\sigma} = \abs{\tau}$. Because the order is compatible with the equivalence $E$, we can exhaustively describe the order of elements in $S_5$ by computing the order of a representative element in $S_5/E$. Fortunately, given our careful definition of $\phi$, the order of a representative element $a$ in the equivalence class $\overline{a}$ is given by the least common multiple of the image of $\overline{a}$ under $\phi$. That is, the following diagram commutes.
+
+![Symmetric group $S_5$ mapping to order of an element](hw01-diagram.jpg){width=5cm}
+
+We proceed to find the least common multiple of the $a_h$ for all partitions $\sum a_h = 5$. There are $6$ such partitions, 
+
+\begin{align*}
+5 &= 5, &\mathrm{lcm}\{5\} = 5\\
+  &=4+1, &\mathrm{lcm}\{4,1\} = 4\\
+  &=3+2, &\mathrm{lcm}\{3,2\} = 6\\
+  &=3+1+1, &\mathrm{lcm}\{3,1,1\} = 3\\
+  &=2+1+1+1, &\mathrm{lcm}\{2,1,1,1\} = 2\\
+  &=1+1+1+1+1, &\mathrm{lcm}\{1,1,1,1,1\} = 1
+\end{align*}
+
+So that $\{1, 2, 3, 4, 5, 6\}$ is the image of $S_5$ under the map $\abs{\cdot}$, i.e., there is an element of order $n$ in $S_5$ for $n = 1,2, \ldots, 6$.
 
 ### Hamilton's quaternion group [@DF04, number 1.5.1]
 
