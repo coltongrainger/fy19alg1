@@ -30,7 +30,7 @@ Let $G = \left\{a + b\sqrt{2} \in \RR : a,b \in \QQ\right\}$.
 (b) Now consider $G\setminus \{0\} = G^*$ with the binary operation multiplication, i.e., $G^* \leq (\RR, \cdot, 1)$. 
 
     - To show $G^*$ is closed, let $a + b \sqrt{2}$, $c + d \sqrt{2} \in G^*$. Their product is $(ac + 2bd) + (bc + ad)\sqrt{2}$, meeting the form of membership (atleast one of $ac$, $bd$, $bc$, $ad$ is nonzero) required of $G^*$.
-    - To show inverses exist. For any $a + b \sqrt{2} \in G^*$, it's inverse is $$\frac{a-b\sqrt{2}}{a^2 - 2b^2},$$ an element of $G^*$ since $a^2 \neq 2b^2$ (why?)[^believe] and $\QQ$ is closed under addition, multiplication, and inverses.
+    - To show inverses exist. For any $a + b \sqrt{2} \in G^*$, it's inverse is $$\frac{a-b\sqrt{2}}{a^2 - 2b^2},$$ an element of $G^*$ because $\QQ$ is closed under addition, multiplication, and inverses (noting[^believe] that $a^2 \neq 2b^2$).
     
 [^believe]: Suppose that $a,b$ are not both zero and $a^2 = 2 b^2$. Then either $(a/b)^2 = 2$ or $(2b/a)^2 = 2$, implying $\sqrt{2} \in \QQ$.
 
@@ -68,13 +68,11 @@ for all $a, c \in A$ and for all $b,d \in B$. \qedsymbol
 
 Suppose $n$ is odd and $n \geq 3$. Then the identity is the only element in the dihedral group $D_{2n}$ that commutes with all elements of $D_{2n}$. That is, for odd $n\geq 3$, the center $Z(D_{2n})$ is trivial. (My proof is attributable to the discussion of subgroups of $D_{2n}$ in [@CoDihedral].)
 
-*Proof.* No reflections are in the center $Z(D_{2n})$ since if $r$ and $s$ commute, then
+*Proof.* No reflections are in the center $Z(D_{2n})$. Why? If $r$ and $s$ commute, then
 $$(r^is)r = r^isr = r^ir^{-1}s = r^{i-1}s, \quad r(r^is) = r^{i+1}s,$$
-so if $r^is$ commutes with $s$ then $r^{i-1} = r^{i+1}$. Whence $r^2 = 1$, which is false when $n \geq 3$.
+and knowing $r^is$ commutes with $s$ we see $r^{i-1} = r^{i+1}$. Whence $r^2 = 1$, which is false when $n \geq 3$.
 
-We'll find the rotations $r^j$ (without loss of generality for $0 \leq j \leq n-1$) in the center. Now, if it's in the center, we should have that $r^j$ commutes with $s$, so $r^js = sr^j$, whence (by induction on the relation $rs = sr^{-1}$) we have $sr^{-j} = sr^j$. It follows that $r^j = r^{-j}$ or $r^{2j} = 1$. Since the order of $r$ in $D_{2n}$ is $n$, we have must have $n \divides 2j$. For odd $n$ this implies $n \divides j$, i.e., $j$ is a multiple of $n$. We conclude $r^j = 1$. 
-
-So $1$ is the only element in the center, that is, $1$ is the only element in $D_{2n}$ that commutes with all other elements.[^why?]
+Now we'll find the rotations $r^j$ in the center. Without loss of generality let $0 \leq j \leq n-1$. If $r^j$ is in the center, it should commute with $s$. In this case, we have $r^js = sr^j$, whence (by induction on the relation $rs = sr^{-1}$) it follows that $sr^{-j} = sr^j$. So $r^j = r^{-j}$ or $r^{2j} = 1$. Since the order of $r$ in $D_{2n}$ is $n$, we have must have $n | 2j$. For odd $n$ this implies $n | j$, i.e., $j$ is a multiple of $n$. We conclude $r^j = 1$. So $1$ is the only element in the center, that is, $1$ is the only element in $D_{2n}$ that commutes with all other elements.[^why?] \qedsymbol
 
 [^why?]: Is showing that $r^j \in Z(D_{2n})$ iff $j =0$ and $s \notin Z(D_{2n})$ sufficient to say that an arbitrary product $r^ks^j$ is not in the center?
 
@@ -133,7 +131,7 @@ We find all numbers $n$ such that $S_5$ contains an element of order $n$.
 
 To do so, we will find all the numbers $n$ such that $n = \mathrm{lcm}\left\{a_h \text{ for $a_h$ in a partition $5 = \sum a_h$}\right\}$. 
 
-There's a bijective map $\phi$ from the set of partitions of $5$ to the equivalence classes $S_5/E$ given by the equivalence relation $\sigma E \tau$ if and only if, for the cycle decompositions $$\sigma = \prod\sigma_i \text{ and } \tau = \prod\tau_j, \text{ we have }  \left(\abs{\sigma_{i_1}}, \ldots, \abs{\sigma_{i_m}}\right) = \left(\abs{\tau_{j_1}}, \ldots, \abs{\tau_{j_m}}\right),$$ choosing indices $1 \leq i_k \leq m -1$ so that $\abs{\sigma_{i_{k}}} \geq \abs{\sigma_{i_{k+1}}}$ (and respectively for $\tau_{j_k}$). Informally, $\sigma  E  \tau$ if they have cycle decompositions (for which we commute disjoint cycles to write the largest on the left) where order of the $k$th cycle in each is equal. The bijective map $\phi \colon S_5/E \to \{\text{partitions of }5\}$ associates each equivalence class of disjoint cycles with orders $(a_1, \ldots, a_m)$ to the partition $5 = a_1 + \ldots + a_m$ (verify this is a partition).
+There's a bijective map $\phi$ from the set of partitions of $5$ to the equivalence classes $S_5/E$ given by the equivalence relation $\sigma E \tau$ if and only if, for the cycle decompositions $$\sigma = \prod\sigma_i \text{ and } \tau = \prod\tau_j, \text{ we have }  \left(\abs{\sigma_{i_1}}, \ldots, \abs{\sigma_{i_m}}\right) = \left(\abs{\tau_{j_1}}, \ldots, \abs{\tau_{j_m}}\right),$$ choosing indices $1 \leq i_k \leq m -1$ so that $\abs{\sigma_{i_{k}}} \geq \abs{\sigma_{i_{k+1}}}$ (and respectively for $\tau_{j_k}$). Informally, $\sigma  E  \tau$ if they have cycle decompositions (for which we commute disjoint cycles to write the largest on the left) where order of the $k$th cycle in each is equal. The bijective map $\phi \colon S_5/E \to \{\text{partitions of }5\}$ associates each equivalence class of disjoint cycles with orders $(a_1, \ldots, a_m)$ to the partition $5 = a_1 + \ldots + a_m$ (verify this is a bijection).
 
 Now, the map of an element to its order in the group $S_5$, call it $\abs{\cdot} \colon S_5 \to \NN$, is compatible with the equivalence relation $E$ in the sense that $\sigma E \tau$ implies $\abs{\sigma} = \abs{\tau}$. Because the order is compatible with the equivalence $E$, we can exhaustively describe the order of elements in $S_5$ by computing the order of a representative element in $S_5/E$. Fortunately, given our careful definition of $\phi$, the order of a representative element $a$ in the equivalence class $\overline{a}$ is given by the least common multiple of the image of $\overline{a}$ under $\phi$. With $\nu$ the natural map (a surjection) from $S_5$ to $S_5/E$, the following diagram commutes.
 
