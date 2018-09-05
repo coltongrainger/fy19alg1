@@ -129,7 +129,7 @@ To do so, we will find all the numbers $n$ such that $n = \mathrm{lcm}\left\{a_h
 
 There's a bijective map $\phi$ from the set of partitions of $5$ to the equivalence classes $S_5/E$ given by the equivalence relation $\sigma E \tau$ if and only if, for the cycle decompositions $$\sigma = \prod\sigma_i \text{ and } \tau = \prod\tau_j, \text{ we have }  \left(\abs{\sigma_{i_1}}, \ldots, \abs{\sigma_{i_m}}\right) = \left(\abs{\tau_{j_1}}, \ldots, \abs{\tau_{j_m}}\right),$$ choosing indices $1 \leq i_k \leq m -1$ so that $\abs{\sigma_{i_{k}}} \geq \abs{\sigma_{i_{k+1}}}$ (and respectively for $\tau_{j_k}$). Informally, $\sigma  E  \tau$ if they have cycle decompositions (for which we commute disjoint cycles to write the largest on the left) where order of the $k$th cycle in each is equal. The bijective map $\phi \colon S_5/E \to \{\text{partitions of }5\}$ associates each equivalence class of disjoint cycles with orders $(a_1, \ldots, a_m)$ to the partition $5 = a_1 + \ldots + a_m$ (verify this is a partition).
 
-Now, the map of an element to its order in the group $S_5$, call it $\abs{\cdot} \colon S_5 \to \NN$, is compatible with the equivalence relation $E$ in the sense that $\sigma E \tau$ implies $\abs{\sigma} = \abs{\tau}$. Because the order is compatible with the equivalence $E$, we can exhaustively describe the order of elements in $S_5$ by computing the order of a representative element in $S_5/E$. Fortunately, given our careful definition of $\phi$, the order of a representative element $a$ in the equivalence class $\overline{a}$ is given by the least common multiple of the image of $\overline{a}$ under $\phi$. That is, the following diagram commutes.
+Now, the map of an element to its order in the group $S_5$, call it $\abs{\cdot} \colon S_5 \to \NN$, is compatible with the equivalence relation $E$ in the sense that $\sigma E \tau$ implies $\abs{\sigma} = \abs{\tau}$. Because the order is compatible with the equivalence $E$, we can exhaustively describe the order of elements in $S_5$ by computing the order of a representative element in $S_5/E$. Fortunately, given our careful definition of $\phi$, the order of a representative element $a$ in the equivalence class $\overline{a}$ is given by the least common multiple of the image of $\overline{a}$ under $\phi$. With $\nu$ the natural map (a surjection) from $S_5$ to $S_5/E$, the following diagram commutes.
 
 ![Symmetric group $S_5$ mapping to order of an element](hw01-diagram.jpg){width=5cm}
 
@@ -144,7 +144,7 @@ We proceed to find the least common multiple of the $a_h$ for all partitions $\s
   &=1+1+1+1+1, &\mathrm{lcm}\{1,1,1,1,1\} = 1
 \end{align*}
 
-So that $\{1, 2, 3, 4, 5, 6\}$ is the image of $S_5$ under the map $\abs{\cdot}$, i.e., there is an element of order $n$ in $S_5$ for $n = 1,2, \ldots, 6$.
+So $\{1, 2, 3, 4, 5, 6\}$ is the image of $S_5$ under the map $\mathrm{lcm} \circ\phi\circ\nu$, or, by our argument, the image of $S_5$ under $\abs{\cdot}$, so there is an element of order $n$ in $S_5$ for $n = 1,2, \ldots, 6$.
 
 ### Hamilton's quaternion group [@DF04, number 1.5.1]
 
