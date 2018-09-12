@@ -32,11 +32,11 @@ Each element in the domain can be simplified to the identity. So the kernel of $
 
 $GL_n(F)$ is a finite group if and only if $F$ has a finite number of elements.
 
-*Proof.* ($Rightarrow$) Suppose $F$ is finite, say of (prime) order $p$. If $A \in GL_n(F)$, then we'd better have that $\det(A) \neq 0$. We'll enumerate all such possible $A$. 
+*Proof.* ($\Rightarrow$) Suppose $F$ is finite, say of (prime) order $p$. If $A \in GL_n(F)$, then we'd better have that $\det(A) \neq 0$. We'll enumerate all such possible matrices $A$. 
 
-Consider all distinct $n$-tuples of elements in $F$, concretely, they are the functions $f\colon\{1,\ldots,n\} \to F$. There are $\abs{F} = p^n$ such distinct functions. Note only $1$ such function maps each number $j$ to $0$.
+Consider all distinct $n$-tuples of elements in $F$, concretely, they are the functions $f\colon\{1,\ldots,n\} \to F$. There are $\abs{F}^n = p^n$ such distinct functions. Note only one such function maps each number $j$ to $0 \in F$.
 
-Now, minding that $\det(A) \neq 0$, we can populate the first row of $A$ with $p^n -1$ distinct nonzero $n$-tuples from $F$. The second row cannot be a multiple of the first, so we can populate the second row with only $p^n - p$ distinct nonzero $n$-tuples. The $j$the row has in general $p^n - p^j$ possible arrangements. Hence there are $$\prod_{j=0}^{n-1} (p^n - p^j)$$ distinct matrices in $GL_n(F)$. So $GL_n(F)$ is finite.
+Now, minding that $\det(A) \neq 0$, we can populate the first row of $A$ with $p^n -1$ distinct nonzero $n$-tuples with entries from $F$. The second row cannot be a multiple of the first, so we can populate the second row with only $p^n - p$ distinct nonzero $n$-tuples. The $j$th row has in general $p^n - p^j$ possible arrangements. Hence there are $$\prod_{j=0}^{n-1} (p^n - p^j)$$ distinct matrices in $GL_n(F)$. So $GL_n(F)$ is finite.
 
 ($\Leftarrow$) Suppose $F$ is infinite. Then the set of (invertible) diagonal matrices in $GL_n(F)$ is infinite. So $GL_n(F)$ is infinite.\qedsymbol
 
@@ -71,13 +71,13 @@ We conclude that $\abs{g} = \abs{\phi(g)}$, and continue with a corollary. \qeds
 
 Any two isomorphic groups have the same number of elements of order $n$ for each $n \in \NN$. 
 
-*Proof sketch.* $\phi \colon G \to H$ is a bijection. Consider an equivalence relation such that $g E h$ if and only if $\abs{g} = \abs{h}$. Since $\abs{g} = \abs{h}$ if and only if $\abs{\phi(g)} = \abs{\phi(h)}$ we have $g E h$ if and only if $\phi(g) E \phi(h)$. We see that $\phi$ is a bijection that respects membership in the equivalence classes $G/E$ and $H/E$ of elements of order $n$.
+*Proof sketch.* $\phi \colon G \to H$ is a bijection. Consider an equivalence relation such that $g E h$ if and only if $\abs{g} = \abs{h}$. Since $\abs{g} = \abs{h}$ if and only if $\abs{\phi(g)} = \abs{\phi(h)}$ we have $g E h$ if and only if $\phi(g) E \phi(h)$. We see that $\phi$ is a bijection that respects membership in the equivalence classes $G/E$ and $H/E$ of elements of order $n$. \qedsymbol
 
 ### Isomorphism preserves commutativity [@DF04, number 1.6.3]
 
 If $\phi \colon G \to H$ is an isomorphism, then $G$ is abelian if and only if $H$ is abelian. 
 
-*Proof*. ($\Rightarrow$) Suppose that $G$ is abelian. Then each pair of elements $a,b \in G$ commutes. So $ab = ba$. Hence $\phi(a)\phi(b) = \phi(ab) = \phi(ba) = \phi(b)\phi(a)$. Since $\phi$ is surjective, each pair $c,d \in H$ is the image under $\phi$ of commutative elements. So $H$ is abelian. ($\Leftarrow$) Suppose $H$ is abelian. It's the argument with the isomorphism $\phi^{-1}$.
+*Proof*. ($\Rightarrow$) Suppose that $G$ is abelian. Then each pair of elements $a,b \in G$ commutes. So $ab = ba$. Hence $\phi(a)\phi(b) = \phi(ab) = \phi(ba) = \phi(b)\phi(a)$. Since $\phi$ is surjective, each pair $c,d \in H$ is the image under $\phi$ of commutative elements. So $H$ is abelian. ($\Leftarrow$) Suppose $H$ is abelian. It's the same argument with the isomorphism $\phi^{-1}$. \qedsymbol
 
 We state as a corollary, if $G$ is abelian and $\phi \colon G \to H$ is a surjective homomorphism, then $H$ is abelian.
 
@@ -91,7 +91,7 @@ Let $G$ be a group and let $\Aut(G)$ be the set of all isomorphisms from $G$ ont
 
 (G3) Recall that function composition is associative, so the binary operation $\circ$ is associative. 
 (G1) The identity set map $\mathrm{id}_G$ exists and is the identity automorphism.
-(G2) If $\phi \in \Aut(G)$ then $\phi$ is a bijective homomorphism from $G$ to $G$, so its functional inverse $\phi^{-1}$ is a bijective homomorphism with again from $G$ to $G$, thus an automorphism. Hence $\phi^{-1} \in \Aut(G)$. One verifies that $\phi^{-1}$ is the left and right inverse of $\phi$ in the group $\Aut(G)$ by composing on $\phi^{-1}$ the left and right to obtain $\mathrm{id}_G$. \qedsymbol
+(G2) If $\phi \in \Aut(G)$ then $\phi$ is a bijective homomorphism from $G$ to $G$, so its functional inverse $\phi^{-1}$ is a bijective homomorphism with again from $G$ to $G$, thus an automorphism. Hence $\phi^{-1} \in \Aut(G)$. One verifies that $\phi^{-1}$ is the left and right inverse of $\phi$ in the group $\Aut(G)$ by composing $\phi^{-1}$ with $\phi$ on the left and right to obtain $\mathrm{id}_G$. \qedsymbol
 
 ### An automorphism fixed point free [@DF04, number 1.6.23]
 
@@ -121,7 +121,7 @@ Let $G$ be a non-abelian group and let $A = G$. The maps defined by $g\cdot a = 
 
 Let $G$ be a group and let $A = G$. The maps defined by $g\cdot a = ag^{-1}$ for all $g,a \in G$ *do* satisfy axioms of a (left) group action of $G$ on itself.
 
-(GA1) We verify $(gh)\cdot a = a(gh)^{-1} = ah^{-1}g^{-1}$ and $g\cdot(h\cdot a) = g \cdot(ah^{-1}) = ah^{-1} g^{-1}$. (GA2) Furthermore $1 \cdot a = a1^{-1} = a1 = a$.
+(GA1) We verify $(gh)\cdot a = a(gh)^{-1} = ah^{-1}g^{-1}$ and $g\cdot(h\cdot a) = g \cdot(ah^{-1}) = ah^{-1} g^{-1}$. (GA2) Note $1 \cdot a = a1^{-1} = a1 = a$.
 
 ### Orbits under an action [@DF04, number 1.7.18]
 
@@ -129,11 +129,11 @@ Let $H$ be a group acting on a set $A$. The relation $\sim$ on $A$ defined by
 $$a \sim b \text{ if and only if } a = hb \text{ for some $h \in H$}$$
 is an equivalence relation.^[For each $x \in A$ the equivalence class of $x$ under $\sim$ is called the *orbit* of $x$ under the action of $H$. The orbits under the action of $H$ partition the set $A$.]
 
-*Proof.* We verify reflexivity, symmetry, and transitivity for the relation "$a\sim b$ if and only if $a$ and $b$ are in the same orbit under the action of $H$".
+*Proof.* We verify reflexivity, symmetry, and transitivity for the relation "$a\sim b$ if and only if $a$ and $b$ are in the same orbit under the action of $H$". 
 
-- We have $a = 1\cdot a$, so $a\sim a$.
-- We have $a\sim b$ if and only if there's an $h \in H$ such that $a = h\cdot b$. Thence there's an $h^{-1} \in H$ such that $h^{-1} \cdot a = h^{-1}\cdot (h \cdot b) = (h^{-1}h)\cdot b = b$.
-- Suppose $a\sim b$ and $b \sim c$. So there are $g,h \in H$ such that $a = hb$ and $b = gc$. $H$ is closed, so $a = hgc$, hence $a\sim c$.
+- (Reflexivity) We have $a = 1\cdot a$, so $a\sim a$.
+- (Symmetry) We have $a\sim b$ if and only if there's an $h \in H$ such that $a = h\cdot b$. Suppose it is so. Then there's an $h^{-1} \in H$ such that $h^{-1} \cdot a = h^{-1}\cdot (h \cdot b) = (h^{-1}h)\cdot b = b$, implying $b\sim a$.
+- (Transitivity) Suppose $a\sim b$ and $b \sim c$. So there are $g,h \in H$ such that $a = hb$ and $b = gc$. $H$ is closed, so $a = hgc$, hence $a\sim c$.
 
 We've shown that the relation "in the same orbit under the action of $H$" is an equivalence relation, and so gives rise to a partition of $A$ into orbits under $H$. \qedsymbol
 
@@ -143,11 +143,11 @@ Let $H$ be a subgroup of the finite group $G$ and let $H$ act on $G$ by left mul
 $$H \to \sO \text{ defined by } h \mapsto hx$$
 is a bijection (hence all orbits have cardinality $\order{H}$). 
 
-*Proof*. We require that $H$ is a subgroup. The map $H \to \sO$ is surjective (by definition of the equivalence classes) and injective as if $h\cdot x = g\cdot x$, then $$(h^{-1}g)\cdot x = h^{-1} \cdot (g \cdot x) = h^{-1} \cdot (h \cdot x) = (h^{-1}h)\cdot x = 1 \cdot x = x,$$ so $h^{-1}g =1$, hence $g = h$. 
+*Proof*. The map $H \to \sO$ is surjective (by definition of the equivalence classes) and injective as if $h\cdot x = g\cdot x$, then $$(h^{-1}g)\cdot x = h^{-1} \cdot (g \cdot x) = h^{-1} \cdot (h \cdot x) = (h^{-1}h)\cdot x = 1 \cdot x = x,$$ so $h^{-1}g =1$, hence $g = h$. 
 
 Now we state as a theorem, *if $G$ is a finite group and $H$ is a subgroup of $G$ then $\order{H}$ divides $\order{G}$.*
 
-*Proof.* Having a bijection from a subgroup $H$ to the set of orbits $\sO$ under the action of $H$, we assert $\abs{H}  = \abs{\sO}$. Now since $G$ (is finite) and is partitioned by finitely many orbits, we must have that $n \abs{H} = n \abs{\sO} = \abs{G}$. And this implies that the order of a subgroup $\abs{H}$ divides the order of the group $\abs{G}$.
+*Proof.* Having a bijection from a subgroup $H$ to each orbit $\sO$ under the action of $H$, we assert $\abs{H}  = \abs{\sO}$. Now since $G$ (is finite) and is partitioned by finitely many orbits, we must have that $n \abs{H} = n \abs{\sO} = \abs{G}$. This implies that the order of a subgroup $\abs{H}$ divides the order of the group $\abs{G}$. \qedsymbol
 
 
 
