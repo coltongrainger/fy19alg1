@@ -65,9 +65,27 @@ and consider the permutations $\sigma = (1 \, 2 \, 3\, 4)$ and $\tau = (1\, 2\, 
 Let $G$ be a cyclic group of order $n$ and let $k$ be an integer relatively prime to $n$. The map $x \mapsto x^k$ is surjective.
 
 ### [@DF04, number 2.4.3]
+
+If $H$ is an abelian subgroup of a group $G$ then $\langle H, Z(G)\rangle$ is abelian.
+
+We exhibit an abelian subgroup of $H$ of $G$ such that $\langle H, C_G(H)\rangle$ is *not* abelian.
+
 ### [@DF04, number 2.4.12]
+
+The subgroup^[Hint: find the order of this subgroup.] of upper triangular matrices in $GL_3(\FF_2)$ is isomorphic to the dihedral group of order $8$.
+
 ### [@DF04, number 2.4.15]
+
+There's a proper subgroup of $\QQ$ which is not cyclic.
+
 ### [@DF04, number 2.4.16]
+
+A subgroup $M$ of a group $G$ is called a *maximal subgroup* if $M \neq G$ and the only subgroups of $G$ which contain $M$ are $M$ itself and $G$.
+
+(a) If $H$ is a proper subgroup of the finite group $G$, then there is a maximal subgroup of $G$ containing $H$.
+(b) The subgroup of all rotations in a dihedral group is a maximal subgroup.
+(c) If $G = \langle x\rangle$ is a cyclic sugroup of order $n \ge 1$, then a subgroup $H$ is maximal if and only if $H = \langle x^p \rangle$ for some prime $p$ dividing $n$.
+
 ### Maximal subgroups in a finite group
 
 A finite group with no more that two maximal subgroups is cyclic.
