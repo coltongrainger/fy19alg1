@@ -12,14 +12,14 @@ macros: true
 
 ### [@DF04, number 2.1.8]
 
-Let $H$ and $K$ be subgroups of $G$. We have that $H \cup K$ is a subgroup if and only if either $H \subset K$ or $K \subset H$.
+Let $H$ and $K$ be subgroups of $G$. $H \cup K$ is a subgroup if and only if either $H \subset K$ or $K \subset H$.
 
 ### [@DF04, number 2.1.9]
 
 Let $G = GL_n(\FF)$ where $\FF$ is an field. We define the *special linear group* 
 $$SL_n(\FF) = \{A \in GL_n(\FF) : \det(A) =1\}.$$
 
-We have that $SL_n(\FF) \le GL_n(\FF)$.
+Then $SL_n(\FF) \le GL_n(\FF)$.
 
 ### [@DF04, number 2.1.14]
 
@@ -35,9 +35,7 @@ Let $H$ be a subgroup of the group $G$.
 
 ### [@DF04, number 2.2.10]
 
-Let $H$ be a subgroup of order $2$ in $G$. Then $N_G(H) = C_G(H)$.
-
-If $N_G(H) = G$ then $H \le Z(G)$.
+Let $H$ be a subgroup of order $2$ in $G$. Then $N_G(H) = C_G(H)$. Also, if $N_G(H) = G$, then $H \le Z(G)$.
 
 ### [@DF04, number 2.2.12]
 
