@@ -12,7 +12,12 @@ macros: true
 
 ### [@DF04, number 2.1.8]
 
-Let $H$ and $K$ be subgroups of $G$. $H \cup K$ is a subgroup if and only if either $H \subset K$ or $K \subset H$.
+Let $H$ and $K$ be subgroups of a group $G$. $H \cup K$ is a subgroup if and only if either $H \subset K$ or $K \subset H$.
+
+*Proof.* ($\Rightarrow$) If $H \subset H$ or $K\subset H$ then $H \cup K$ is $K$ or $H$, whence $H \cup K$ is a subgroup of $G$.
+
+($\Leftarrow$) Suppose $H \cup K$ is a subgroup of $G$. For contradiction, let $H \not\subset K$ and $K \not\subset H$. Then choose $h \in H\setminus K$ and $k \in K\setminus H$. Because $H \cup K$ is closed as a subgroup, we have $hk \in H \cup K$. But in which set $H$ or $K$ is $hk$ an element? Either $hk \in H$, whence $h^{-1}hk \in H$, whence $k \in H$ or $hk \in K$, whence $hkk^{-1} \in K$, whence $h \in K$. \qedsymbol
+
 
 ### [@DF04, number 2.1.9]
 
