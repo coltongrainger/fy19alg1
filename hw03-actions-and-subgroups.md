@@ -12,12 +12,13 @@ macros: true
 
 ### [@DF04, number 2.1.8]
 
-Let $H$ and $K$ be subgroups of a group $G$. $H \cup K$ is a subgroup if and only if either $H \subset K$ or $K \subset H$.
+Let $H$ and $K$ be subgroups of a group $G$. $H \cup K$ is a subgroup if and only if either $H \subset K$ or $K \subset H$. 
 
-*Proof.* ($\Rightarrow$) If $H \subset H$ or $K\subset H$ then $H \cup K$ is $K$ or $H$, whence $H \cup K$ is a subgroup of $G$.
+*Proof.*[^se] ($\Rightarrow$) If $H \subset H$ or $K\subset H$ then $H \cup K$ is $K$ or $H$, hence $H \cup K$ is a subgroup of $G$.
 
-($\Leftarrow$) Suppose $H \cup K$ is a subgroup of $G$. For contradiction, let $H \not\subset K$ and $K \not\subset H$. Then choose $h \in H\setminus K$ and $k \in K\setminus H$. Because $H \cup K$ is closed as a subgroup, we have $hk \in H \cup K$. But in which set $H$ or $K$ is $hk$ an element? Either $hk \in H$, whence $h^{-1}hk \in H$, whence $k \in H$ or $hk \in K$, whence $hkk^{-1} \in K$, whence $h \in K$. \qedsymbol
+($\Leftarrow$) Suppose $H \cup K$ is a subgroup of $G$. For contradiction, let $H \not\subset K$ and $K \not\subset H$. Then choose $h \in H\setminus K$ and $k \in K\setminus H$. Because $H \cup K$ is closed as a subgroup, we have $hk \in H \cup K$. But in which set $H$ or $K$ is $hk$ an element? Either $hk \in H$, hence $h^{-1}hk \in H$, hence $k \in H$; or $hk \in K$, hence $hkk^{-1} \in K$, hence $h \in K$; which is the desired contradiction. \qedsymbol
 
+[^se]: See <https://math.stackexchange.com/questions/334405/>, "Suppose both $H,K$ are distinct and proper. Then pick $h\in H\setminus K$ and $k\in K\setminus H$. In which of $K$ or $H$ or both does $hk$ lie?"
 
 ### [@DF04, number 2.1.9]
 
@@ -26,9 +27,36 @@ $$SL_n(\FF) = \{A \in GL_n(\FF) : \det(A) =1\}.$$
 
 Then $SL_n(\FF) \le GL_n(\FF)$.
 
+*Proof.* Knowing that $GL_n(\FF)$ is a group of which $SL_n(\FF)$ is a subset, it suffices to show that $SL_n(\FF)$ is nonempty and closed under products and taking inverses.
+
+- (Nonempty) The identity $n\times n$ matrix $I \in SL_n(\FF)$ since $\det(I) = 1^n =1$.
+- (Products) Let $A, B \in SL_n(\FF)$. Then $\det(A) = \det(B) = 1$. So $\det(AB) = \det(A)\det(B) = 1$, thus $AB \in SL_n(\FF)$.
+- (Inverses) Let $A \in SL_n(\FF)$. So $\det(A) = 1$, and since $\det(A^{-1}) = \frac{1}{\det(A)} = 1$, we have $A^{-1} \in SL(\FF)$.
+
+So $SL_n(\FF) \le GL_n(\FF)$. \qedsymbol
+
 ### [@DF04, number 2.1.14]
 
 The set $\{ x \in D_{2n} : x^2 = 1\}$ is not a subgroup of $D_{2n}$ (where $n\ge 3$).
+
+*Key idea*.[^d2n] The elements of the dihedral group of order $1$ or $2$ are
+
+- the identity,
+- any of the $n$ reflections, and 
+- if $n$ is even, the rotation by $\pi$.
+
+The set of such elements is not closed under composition.
+
+*Proof.* Consider the presentation $D_{2n} = \langle r, s : r^n  = s^2 = 1, sr^is = r^{-i}\rangle$. If $x \in D_{2n}$, then $x$ can be written as a product of generators $x = r^{i}s^{j}$ where $i \in \{0, \ldots, n-1\}$ and $j \in \{0,1\}$. 
+
+What is $\{ x \in D_{2n} : x^2 = 1\}$? Or writing the elements of $D_{2n}$ as $r^is^j$, for which powers $i$ and $j$ is it true that $(r^i s^j)^2 =1$?
+
+- When $j =0$, we have $r^{2i} = 1$. Because $i < n$ and $n | 2i$, either $i = 0$ or, if $n$ is even, $i \in \{0,\frac{n}{2}\}$.
+- When $j =1$, we have $(r^is)^2 = 1$ for all $i$, since $r^i(sr^is) = r^i(r^{-i}) = 1$.
+
+So let $A = \{ x \in D_{2n} : x^2 = 1\}$. We've shown $$A = \left\{1, r^k, r^is :k =0 \text{ or, if $n$ is even, } k = \frac{n}{2},  i \in \{0,\ldots, n-1\} \right\}.$$ To see $A$ is not closed, take $r^2s, rs \in A$. But $(r^2s)(rs) = r^2(srs) = r^2r^{-1} = r \notin A$ (when $n \ge 3$). \qedsymbol
+
+[^d2n]: See <https://math.stackexchange.com/questions/126639/>, "We can think of this geometrically, or use a presentation  ..."; see also <https://groupprops.subwiki.org/wiki/Element_structure_of_dihedral_groups>.
 
 ### [@DF04, number 2.2.6]
 
