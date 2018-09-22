@@ -13,13 +13,9 @@ macros: true
 
 ### [@DF04, number 2.5.12]
 
-The group $A = Z_2 \times Z_4 = \langle a,b | a^2 = b^4 =1, ab = ba\rangle$ has order $8$ has three subgroups of order $4$. They are 
+The group $Z_2 \times Z_4 = \langle a,b | a^2 = b^4 =1, ab = ba\rangle$ has order $8$ has three subgroups of order $4$. They are $\langle a,b^2 \rangle \cong V_4$, $\langle b\rangle \cong Z_4$, and $\langle ab\rangle \cong Z_4$.
 
-- $\langle a,b^2 \rangle \cong V_4$, $\langle b\rangle \cong Z_4$, and $\langle ab\rangle \cong Z_4$. 
-
-Now every proper subgroup of $A$ is contained in one of these three. 
-
-We draw the lattice of subgroups of $A$, with each subgroup expressed in terms of at most two generators.
+Here's the lattice^[Should I use TikZ? <https://tex.stackexchange.com/questions/47392/how-to-draw-a-poset-hasse-diagram-using-tikz>.] of subgroups of $Z_2 \times Z_4$, with each subgroup expressed in terms of at most two generators.
 
 ```
          Z_2 x Z_4
@@ -37,11 +33,27 @@ We draw the lattice of subgroups of $A$, with each subgroup expressed in terms o
 
 ### [@DF04, number 2.5.13]
 
-The group $G = Z_2 \times Z_8 = \langle x,y : x^2 = y^8 = 1, xy = yx\rangle$ has order $16$ has three subgroups of order $8$. They are 
+The group $Z_2 \times Z_8 = \langle x,y : x^2 = y^8 = 1, xy = yx\rangle$ has order $16$ has three subgroups of order $8$. They are $\langle x, y^2\rangle \cong Z_2 \times Z_4$, $\langle y \rangle \cong Z_8$, and $\langle xy \rangle \cong Z_8$. 
 
-- $\langle x, y^2\rangle \cong Z_2 \times Z_4$, $\langle y \rangle \cong Z_8$, and $\langle xy \rangle \cong Z_8$.
-
-We draw the lattice of subgroups of $G$, again with each subgroup expressed in terms of at most two generators.
+Here's the lattice of subgroups of $Z_2 \times Z_8$.
+```
+             Z_2 x Z_8
+            /     \   \
+           /       \   \
+        <x,y^2>    <y> <xy>
+       /   |   \    |  /
+      /    |    \   | /
+     /     |     \  |/
+<x,y^4>  <x,y^2>  <y^2>
+  |   \      \    /
+  |    \      \  /
+<x>  <x,y^4>  <y^4>
+  \    |     /
+   \   |    /
+    \  |   /
+     \ |  / 
+      {1}
+```
 
 ### [@DF04, number 2.5.14]
 
