@@ -21,6 +21,20 @@ Now every proper subgroup of $A$ is contained in one of these three.
 
 We draw the lattice of subgroups of $A$, with each subgroup expressed in terms of at most two generators.
 
+```
+         Z_2 x Z_4
+        /     \   \
+       /       \   \
+    <a,b^2>    <b> <ab>
+    /    | \    |  /
+   /     |  \   | /
+<ab^2>  <a>  <b^2>
+    \    |    /
+     \   |   /
+      \  |  /
+        {1}
+```
+
 ### [@DF04, number 2.5.13]
 
 The group $G = Z_2 \times Z_8 = \langle x,y : x^2 = y^8 = 1, xy = yx\rangle$ has order $16$ has three subgroups of order $8$. They are 
