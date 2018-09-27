@@ -184,12 +184,23 @@ There's a proper subgroup of $\QQ$ which is not cyclic.
 
 A subgroup $M$ of a group $G$ is called a *maximal subgroup* if $M \neq G$ and the only subgroups of $G$ which contain $M$ are $M$ itself and $G$.
 
-(a) If $H$ is a proper subgroup of the finite group $G$, then there is a maximal subgroup of $G$ containing $H$.
+(a) If $H$ is a proper subgroup of the finite group $G$, then there is a maximal subgroup of $G$ containing $H$. 
+
+    Consider the elements in $G \setminus H$. Let $\order{ G \setminus H} = \order{G} - \order{H} = m$. There are then $2^m -1$ proper 
+subsets of $G$ containing $H$. Either $H$ is it's own maximal group in $G$, or one of the $2^m -1$ proper subsets is a maximal group.
+
 (b) The subgroup of all rotations in a dihedral group is a maximal subgroup.
+
+    The set of rotations in $D_8$ is a subgroup of order $4$. Now every other subgroup of $D_8$ has an order which divides $8$, of which $4$ is the largest order strictly less than $8$. So the set of rotations is maximal in $D_8$, for the only subgroups it is properly contained in are $D_8$ and itself.
+
 (c) If $G = \langle x\rangle$ is a cyclic sugroup of order $n \ge 1$, then a subgroup $H$ is maximal if and only if $H = \langle x^p \rangle$ for some prime $p$ dividing $n$.
+
+TODO. 
 
 ### Maximal subgroups in a finite group
 
 A finite group with no more that two maximal subgroups is cyclic.
+
+TODO.
 
 ## References
