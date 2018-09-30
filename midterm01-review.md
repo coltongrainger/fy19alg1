@@ -50,3 +50,7 @@ Lastly, a handout and two practice tests.
 - [classifying finite groups](http://math.stanford.edu/~vakil/10-120/diaoFTFAG.pdf)
 - [practice midterm (2014)](http://math.stanford.edu/~vakil/14-120/14-120pmidterm.pdf)
 - [practice midterm (2010)](http://math.stanford.edu/~vakil/10-120/120pmidterm.pdf)
+
+### DPMMS Example Sheets IA Groups
+
+<https://www.dpmms.cam.ac.uk/study/IA/Groups/>
