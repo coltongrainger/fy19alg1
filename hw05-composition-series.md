@@ -134,19 +134,30 @@ Let $G$ be a transitive permutation group on the finite set $A$. A *block* is a 
     
     Now to verify $\Stab{G}{a} \le \Stab{G}{B}$. For $a \in B$, let $\nu \in \Stab{G}{a}$. Then $\nu(a) = a \in B$. Assuming $B$ is a block, we require either $\nu(B) = B$ or $\nu(B) \cap B = \emptyset$. Observing $a = \nu(a) \in \nu(B) \cap B$, it must be that $\nu(B) = B$. We conclude $\nu \in \Stab{G}{B}$. \qedsymbol
 
-(b) If $B$ is a block and $\sigma_1(B), \sigma_2(B), \ldots, \sigma_n(B)$ are all the distinct images of $B$ under the elements of $G$, then these form a partition of $A$.
+(b) If $B$ is a block and $\sigma_1(B), \sigma_2(B), \ldots, \sigma_n(B)$ are *all* the distinct images of $B$ under the elements of $G$, then these form a partition of $A$.
 
     *Proof.* To show by contrapositive that distinct images of $B$ are disjoint. Suppose $\sigma, \tau \in G$ such that $a \in \sigma(B) \cap \tau(B)$. Then $\tau^{-1}(a) \in (\tau^{-1} \circ \sigma)(B) \cap B$. Because $B$ is a block we must have that $(\tau^{-1} \circ \sigma)(B) = B$. Hence $\sigma(B) = \tau(B)$. 
 
-    Now to show the union of the distinct images of $B$ is the whole of $A$. It suffices to argue that if $a \in A$, there exists $j \in \{1, \ldots, n\}$ such that $a \in\sigma_j(B)$. Because $G$ is transitive, there's *some* $\tau \in G$ such that $a \in \tau(B)$. Is $\tau$ one of the $\sigma_i$? Suppose not. Then there's a $b$ point in the (finite) set $A \setminus \cup_1^n \sigma_i(B)$. Because $G$ is transitive, we can map an element of $B$ into 
+    Now to show the union of the distinct images of $B$ is the whole of $A$. It suffices to argue that if $a \in A$, there exists $j \in \{1, \ldots, n\}$ such that $a \in\sigma_j(B)$. Because $G$ is transitive, there's *some* $\tau \in G$ such that $a \in \tau(B)$. Is $\tau$ one of the $\sigma_i$? For contradiction, suppose not. Then $a$ is a point in the set $A \setminus \cup_1^n \sigma_i(B)$. Since $G$ is transitive, we can map an element of $B$ to $a$ under the permutation $\omega$. Because distinct images are disjoint, and we have an image $\omega(B)$ disjoint from each of $\sigma_1(B), \ldots, \sigma_n(B)$; but the $\sigma_i(B)$ are *all* the distinct images of $B$, a contradiction. Therefore $\tau$ is one of the $\sigma_i$. \qedsymbol
 
 (c) A (transitive) group $G$ on a set $A$ is said to be *primitive* if the only blocks in $A$ are the trivial ones, the sets of size $1$ and $\abs{A}$. We demonstrate that $S_4$ is primitive on $A = \{1, 2, 3, 4\}$. Further, $D_8$ is not primitive as a permutation group on the four vertices of a square.
 
-    *Demonstration.*
+    *Demonstration.* Suppose, for contradiction, I have a block of size $2$ or $3$ in $\{1,2,3,4\}$. Since $S_4$ is transitive and contains all permutations of $\{1,2,3,4\}$, there's a $\sigma \in S_4$ that maps one element in the block outside the block, fixing the other(s). Whence the only possible blocks have size $1$ and $4$. (It is trivial to check that indeed the singleton subsets of $A$ and the whole of $A$ are blocks.) So $S_4$ is primitive on $A$. 
 
-(d) The transitive group $G$ is primitive on $A$ if and only if for each $a \in A$, the only subgroups of $G$ containing $\Stab{G}{a}$ are $\Stab{G}{a}$ and $G$ (i.e., $\Stab{G}{A}$ is a *maximal* subgroup of $G$).^[Hint: use part (a).]
+    On the other hand, when $D_8$ acts on $A$, we have the nontrivial blocks $\{1,3\}$ and $\{2,4\}$. To verify, the images of the blocks under action by the generators of $r$ and $s$ of $D_8$ are given
 
-    *Proof.*
+    - $r(\{1,3\}) = \{2,4\}$ and $r(\{2,4\}) = \{1,3\}$,
+    - $s(\{1,3\}) = \{1,3\}$ and $s(\{2,4\}) = \{2,4\}$.
+
+    Now any element of $D_8$ is a finite product of these two generators, whose action on $B$ can be decomposed into repeated applications of the maps above. We conclude $\{1,3\}$ and $\{2,4\}$ are blocks under the action of $D_8$. \qedsymbol
+
+(d) The transitive group $G$ is primitive on $A$ if and only if for each $a \in A$, the only subgroups of $G$ containing $\Stab{G}{a}$ are $\Stab{G}{a}$ and $G$ (i.e., $\Stab{G}{A}$ is a *maximal* subgroup of $G$).
+
+    *Proof.* ($\Rightarrow$) Suppose for all $a \in A$ that $\Stab{G}{a}$ is a maximal subgroup of $G$. We know if $B$ is a block containing $a$, then $\Stab{G}{a} \le \Stab{G}{B}$. But then either $\Stab{G}{B} = G$ or $\Stab{G}{B} = \Stab{G}{a}$. In the former case we have that every $g \in G$ stabilizes $B$, and given that $G$ acts transitively on $A \supset B$, we must have $B = A$. In the later case we have that exactly those elements of $g$ that stabilize $\{a\}$ also stabilize $B$, and further, since $G$ acts transitively on $A\setminus\{a\}$ if $B$ is to be stabilized by $g \in \Stab{G}{a}$ then $B \subset \{a\}$. Since $B \neq \emptyset$, we have $B = \{a\}$. Whence $G$ is primitive on $A$.
+
+    ($\Leftarrow$) Suppose now that $G$ is primitive of $A$. We set out to argue if $H$ is a subgroup such that $\Stab{G}{a} \le H \le G$, then either $H = \Stab{G}{a}$ or $H = G$. Consider $a \in A$. I claim $H(a)$ is a block. Why? Let $g \in G$. Let $$g(H(a)) = \{(gh)(a) : h \in H\}.$$ Since the cosets of $H$ partition $G$, either $gH = H$ or $gH \cap H = \emptyset$. In the former case $g(H(a)) = H(a)$ and in the later $g(H(a)) \cap H(a) =\emptyset$. To verify the later, suppose $g(H(a)) \cap H(a) \neq \emptyset$. Then there exist $h,k \in H$ such that $gh(a) = k(a)$, hence $ghk^{-1}(a) = a$, hence $ghk^{-1} \in \Stab{G}{a} \le H$. It follows that $g \in H$ and so too $gH = H$, but we've already identified this as the former case $g(H(a)) = H(a)$. Therefore $H(a)$ is a block. 
+    
+    Because $G$ is primitive, the block $H(a)$ is either $A$ or $\{a\}$. Because $G$ is *transitive*, we are forced to accept that $H(a) = A$ implies $H = G$, and likewise that $H(a) = \{a\}$ implies $H = \Stab{G}{a}$. \qedsymbol
 
 ### [@DF04, number 4.1.9]
 
@@ -154,7 +165,7 @@ Assume $G$ acts transitively on the finite set $A$ and let $H$ be a normal subgr
 
 (a) $G$ permutes the sets $\sO_1, \sO_2, \ldots, \sO_r$ in the sense that for each $g \in G$ and each $i \in \{1, \ldots, r\}$ there is a $j$ such that $g\sO_i = \sO_j$, where $g\sO = \{g(a) : a \in \sO\}$. Then $G$ is transitive on $\{\sO_1, \ldots, \sO_r\}$. Furthermore, all orbits of $H$ on $A$ have the same cardinality.
 
-    *Proof.*
+    *Proof.* Let $g \in G$
 
 (b) If $a \in \sO_1$, then $\abs{\sO_1} = \abs{H : H \cap \Stab{G}{a}}$. Furthermore, $r = \abs{G : H\Stab{G}{a}}$. [We draw the sublattice describing the second isomorphism theorem for the subgroups of $H$ and $\Stab{G}{a}$ of $G$, noting that $H \cap \Stab{G}{a} = \Stab{H}{a}$.]
 
