@@ -96,31 +96,48 @@ Appealing to the third isomorphism theorem, $PN/N \cong P/ (P \cap N)$ hence $\a
 
 A subgroup $H$ of a finite group $G$ is called a *Hall subgroup* of $G$ if its index in $G$ is relatively prime to its order: $(\abs{G : H}, \abs{H}) = 1$. If $H$ is a Hall subgroup of $G$ and $N \triangleleft G$, then $H \cap N$ is a Hall subgroup of $N$ and $HN/ N$ is a Hall subgroup of $G/N$.
 
-*Proof.*
+*Proof.*^[See also <https://math.stackexchange.com/questions/811039>.] First, since $H\cap N \le H \le G$ it's true that $\abs{H \cap N}$ divides $\abs{H}$. Second, observe $\abs{N : H \cap N} = \abs{HN: H} = \frac{\abs{G :H}}{\abs{G : HN}}$ divides $\abs{G :H}$. (We have $H \le N_G(N) = G$, so by the second isomorphism theorem $\abs{G :HN}$ is an integer.) By assumption, $H$ is a Hall subgroup of $G$, so we must have that $(\abs{N : H \cap N}, \abs{H \cap N}) = 1$.
+
+Now $\abs{HN/N} = \abs{H : H \cap N}$ must divide $\abs{H}$. Also $$\abs{\frac{G}{N} : \abs{HN}{N}} = \abs{\frac{G}{HN}} = \abs{\frac{G:H}{HN:H}}$$ must divide $\abs{G:H}$. Again, because $H$ is a Hall subgroup of $G$, we conclude $(\abs{G/N : HN/N}, \abs{HN/N}) = 1$.  \qedsymbol
 
 ### [@DF04, number 3.4.2]
 
 We exhibit all $3$ composition series for $Q_8$ and all $7$ composition series for $D_8$. We list the composition factors in each case.
 
+*Demonstration*. By inspection, $Q_8$ has composition series
+
+- $Q_8 \triangleright \langle i \rangle \triangleright \langle -1 \rangle \triangleright {1}$
+- $Q_8 \triangleright \langle j \rangle \triangleright \langle -1 \rangle \triangleright {1}$
+- $Q_8 \triangleright \langle k \rangle \triangleright \langle -1 \rangle \triangleright {1}$
+- each with factors $Z_2$, $Z_2$, $Z_2$.
+
+On the other hand, $D_8$ has composition series 
+
+- $D_8 \triangleright \langle s, r^2 \rangle \triangleright \langle s \rangle \triangleright {1}$
+- $D_8 \triangleright \langle s, r^2 \rangle \triangleright \langle r^2s \rangle \triangleright {1}$
+- $D_8 \triangleright \langle s, r^2 \rangle \triangleright \langle r^2 \rangle \triangleright {1}$
+- $D_8 \triangleright \langle r \rangle \triangleright \langle r^2 \rangle \triangleright {1}$
+- $D_8 \triangleright \langle rs,r^2 \rangle \triangleright \langle r^2 \rangle \triangleright {1}$
+- $D_8 \triangleright \langle rs,r^2 \rangle \triangleright \langle r^2 \rangle \triangleright {1}$
+- $D_8 \triangleright \langle rs,r^2 \rangle \triangleright \langle rs \rangle \triangleright {1}$
+- $D_8 \triangleright \langle rs,r^2 \rangle \triangleright \langle r^3s \rangle \triangleright {1}$
+- each with factors $Z_2$, $Z_2$, $Z_2$.
+
 ### [@DF04, number 3.4.7]
 
-If $G$ is a finite group and $H \triangleleft G$, then there is a composition series of $G$ one of whose terms in $H$.
-
-*Proof.*
+If $G$ is a finite group and $H \triangleleft G$, then there is a composition series of $G$ one of whose terms in $H$. TODO
 
 ### [@DF04, number 3.4.11]
 
-If $H$ is a nontrivial normal subgroup of the solvable group $G$, then there is a nontrivial subgroup $A$ of $H$ with $A \triangleleft G$ and $A$ abelian.
-
-*Proof.*
+If $H$ is a nontrivial normal subgroup of the solvable group $G$, then there is a nontrivial subgroup $A$ of $H$ with $A \triangleleft G$ and $A$ abelian. TODO
 
 ### [@DF04, number 3.5.6]
 
-The group $H = \langle (1\, 3), (1\, 2\, 3\, 4)\rangle$ is a proper subgroup of $S_4$. We give the isomorphism type of $H$.
+The group $H = \langle (1\, 3), (1\, 2\, 3\, 4)\rangle$ is a proper subgroup of $S_4$. We give the isomorphism type of $H$. TODO
 
 ### [@DF04, number 3.5.10]
 
-We find a composition series for $A_4$, and argue that $A_4$ is not solvable.
+We find a composition series for $A_4$, and argue that $A_4$ is not solvable. TODO
 
 ### [@DF04, number 4.1.7]
 
@@ -165,10 +182,36 @@ Assume $G$ acts transitively on the finite set $A$ and let $H$ be a normal subgr
 
 (a) $G$ permutes the sets $\sO_1, \sO_2, \ldots, \sO_r$ in the sense that for each $g \in G$ and each $i \in \{1, \ldots, r\}$ there is a $j$ such that $g\sO_i = \sO_j$, where $g\sO = \{g(a) : a \in \sO\}$. Then $G$ is transitive on $\{\sO_1, \ldots, \sO_r\}$. Furthermore, all orbits of $H$ on $A$ have the same cardinality.
 
-    *Proof.* Let $g \in G$
+    *Proof.* We'll immediately show that $G$ permutes the $\sO_i$. Let $g \in G$ and $i \in \{1, \ldots, r\}$. Then 
 
-(b) If $a \in \sO_1$, then $\abs{\sO_1} = \abs{H : H \cap \Stab{G}{a}}$. Furthermore, $r = \abs{G : H\Stab{G}{a}}$. [We draw the sublattice describing the second isomorphism theorem for the subgroups of $H$ and $\Stab{G}{a}$ of $G$, noting that $H \cap \Stab{G}{a} = \Stab{H}{a}$.]
+    \begin{align*}
+    g \sO_i &= gH(a) &\text{ for some $a \in A$}\\
+        &= \{g(h(a)) : h \in H\}\\
+        &= \{(gh)(a) : h \in H\}\\
+        &= \{(h'g)(a): h'\in H\} & \text{ as $H \triangleleft G$, so $gH = Hg$ }\\
+        &= \{h'(g(a)): h'\in H\} \\
+        &= \{h'(b   ): h'\in H\} &\text{ $g(a) = b$, noting $G$ acts transitively } \\
+        &= H(b)\\
+        &= \sO_j
+    \end{align*}
 
-    *Proof.*
+    Now, $G$ not only permutes the orbits $\sO_i$, but acts *transitively* on them. To justify:
+
+    - Given any $a,b \in A$, we can find a $g \in G$ such that $gH(a) = H(b)$. 
+    - The map $A \to \{\sO_i\}_1^r$ defined $a \mapsto H(a)$ is a surjection.
+    - So given any $\sO_i$, we can find $g \in G$ such that $g\sO_i = \sO_j$.
+
+    To show $\abs{\sO_j} = \abs{\sO_i}$ we appeal to the second isomorphism theorem. 
+    Its hypotheses are met: $G$ has subgroups $H$ and $\Stab{G}{a}$, with $\Stab{G}{a} \le N_G(H) = G$ (note also that $\Stab{G}{a} \cap H = \Stab{H}{a}$). 
+    Therefore $H\Stab{G}{a} / H \cong \Stab{G}{a} / \Stab{H}{a}$. 
+    Now by the orbit stabilizer theorem (noting $H$ also acts on $A$), $$\abs{H(a)} = \frac{\abs{H}}{\abs{\Stab{H}{a}}} = \frac{\abs{H\Stab{G}{a}}\abs{H}}{\abs{\Stab{G}{a}}\abs{H}} = \frac{\abs{H\Stab{G}{a}}}{\abs{\Stab{G}{a}}}.$$ 
+    Since $G$ acts transitively on $A$, it seems^[How would one go about proving this?] that size of the stabilizer $\Stab{G}{a}$ is constant for any $a \in A$. 
+    Assuming this is the case, then the cardinality of each orbit $H(a)$ is constant with respect to the choice of element $a  \in A$. Therefore the orbits $\sO_i$ are all of the same cardinality. \qedsymbol
+
+(b) If $a \in \sO_1$, then $\abs{\sO_1} = \abs{H : H \cap \Stab{G}{a}}$. Furthermore, $r = \abs{G : H\Stab{G}{a}}$.
+
+    *Proof.* The first assertion is justified in part (a), given that $\abs{H : H \cap \Stab{G}{a}} = \frac{\abs{H}}{\abs{\Stab{H}{a}}}$ by the second isomorphism theorem. 
+    
+    The second assertion requires us to count the number of orbits of $H$ on $A$. I am guessing this an application of Burnside's lemma, the "orbit counting theorem", but I don't see how to approach a proof.
 
 ## References
