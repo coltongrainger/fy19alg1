@@ -130,11 +130,15 @@ Let $G$ be a transitive permutation group on the finite set $A$. A *block* is a 
 
 (a) If $B$ is a block containing the element $a$ of $A$, then the set $\Stab{G}{B}$ defined by $\{\sigma \in G : \sigma(B) = B\}$ is a subgroup of $G$ containing $\Stab{G}{a}$.
 
-    *Proof.* Let $\sigma, \tau \in \Stab{G}{B}$. We want to show that $\sigma\tau^{-1} \in \Stab{G}{B}$. Well $\sigma(B) =B$ and $\tau(B) =B$. So $\tau^{-1}(B) = B$. By definition of a group action, we can compose $\tau^{-1}$ then $\sigma$ to obtain $\sigma\tau^{-1}(B) = B$, stabilizing $B$. Therefore $\sigma\tau^{-1} \in \Stab{G}{B}$.
+    *Proof.* Let $\sigma, \tau \in \Stab{G}{B}$. To satisfy the subgroup criterion, we want to show that $\sigma\tau^{-1} \in \Stab{G}{B}$. Well $\sigma(B) =B$ and $\tau(B) =B$. So $\tau^{-1}(B) = B$. Now $B$ is stabilized under $\tau^{-1}$, then under $\sigma$. By definition of a group action, $\sigma\tau^{-1}(B) = (\sigma\circ\tau^{-1})(B) = B$. Therefore $\sigma\tau^{-1} \in \Stab{G}{B}$. 
+    
+    Now to verify $\Stab{G}{a} \le \Stab{G}{B}$. For $a \in B$, let $\nu \in \Stab{G}{a}$. Then $\nu(a) = a \in B$. Assuming $B$ is a block, we require either $\nu(B) = B$ or $\nu(B) \cap B = \emptyset$. Observing $a = \nu(a) \in \nu(B) \cap B$, it must be that $\nu(B) = B$. We conclude $\nu \in \Stab{G}{B}$. \qedsymbol
 
 (b) If $B$ is a block and $\sigma_1(B), \sigma_2(B), \ldots, \sigma_n(B)$ are all the distinct images of $B$ under the elements of $G$, then these form a partition of $A$.
 
-    *Proof.*
+    *Proof.* To show by contrapositive that distinct images of $B$ are disjoint. Suppose $\sigma, \tau \in G$ such that $a \in \sigma(B) \cap \tau(B)$. Then $\tau^{-1}(a) \in (\tau^{-1} \circ \sigma)(B) \cap B$. Because $B$ is a block we must have that $(\tau^{-1} \circ \sigma)(B) = B$. Hence $\sigma(B) = \tau(B)$. 
+
+    Now to show the union of the distinct images of $B$ is the whole of $A$. It suffices to argue that if $a \in A$, there exists $j \in \{1, \ldots, n\}$ such that $a \in\sigma_j(B)$. Because $G$ is transitive, there's *some* $\tau \in G$ such that $a \in \tau(B)$. Is $\tau$ one of the $\sigma_i$? Suppose not. Then there's a $b$ point in the (finite) set $A \setminus \cup_1^n \sigma_i(B)$. Because $G$ is transitive, we can map an element of $B$ into 
 
 (c) A (transitive) group $G$ on a set $A$ is said to be *primitive* if the only blocks in $A$ are the trivial ones, the sets of size $1$ and $\abs{A}$. We demonstrate that $S_4$ is primitive on $A = \{1, 2, 3, 4\}$. Further, $D_8$ is not primitive as a permutation group on the four vertices of a square.
 
