@@ -103,7 +103,7 @@ Knowing that $G$ is finite, that $\sigma$ is a bijection, and that each $x^{-1}$
 
 TODO. Show $G$ is abelian.
 
-### Faithful actions of multiplicative groups of fields [@DF04, number 1.7.8] 
+### Faithful actions of multiplicative groups of fields [@DF04, number 1.7.7]
 
 Consider a vector space $V$ over a field $F$. We have then the multiplicative group $F^\times = (F\setminus\{0\}, \cdot)$ acting on the set $V$. 
 
