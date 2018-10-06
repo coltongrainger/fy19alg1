@@ -74,7 +74,9 @@ Let $H$ be a subgroup of order $2$ in $G$. Then $N_G(H) = C_G(H)$.
 
 *Proof by set inclusion.* ($\subset$) Suppose $g \in N_G(H)$. Because $H$ is a group of order $2$, it is $\{1, x\}$ where $x^2 = 1$. If conjugation by $g$ fixes $H$, then $\{g1g^{-1}, gxg^{-1}\} = \{1, x\}$. Whence $\{1, gxg^{-1}\} = \{1, x\}$. For set equality, we must have $gxg^{-1} = x$. So $g \in C_G(H)$. ($\supset$) By definition, if $g \in C_G(H)$, then $g$ fixes each $h \in H$ by conjugation, so $g$ fixes $H$ by conjugation. \qedsymbol
 
-Also, if $N_G(H) = G$, then $H \le Z(G)$. TODO.
+Also, if $N_G(H) = G$, then $H \le Z(G)$. 
+
+*Proof sketch.* Nike. Just do it.
 
 ### [@DF04, number 2.2.12]
 
@@ -178,7 +180,7 @@ One may verify that $A,B$ are generators of $H$. (Note that least integers $m, n
 
 There's a proper subgroup of $\QQ$ which is not cyclic. 
 
-*Demonstration.* Consider the family of cyclic subgroups of $\QQ$ $$\left\{ \left\langle \frac{1}{2^n} \right\rangle : n \in \NN\right\}.$$ If $n \le m$, then $\left\langle \frac{1}{2^n} \right\rangle \le  \left\langle \frac{1}{2^m} \right\rangle$. Then certainly $$\left\langle \frac{1}{2} \right\rangle \le \bigcup_{n \in \NN}  \left\langle \frac{1}{2^n} \right\rangle = H.$$ Now $H$ is the intersection of a family of subgroups, and is therefore a subgroup of $\QQ$. By construction, $H$ is not trivial. Further, $\frac{1}{3} \notin H$, so $H$ is not $\QQ$.
+*Demonstration.* Consider the family of cyclic subgroups of $\QQ$ $$\left\{ \left\langle \frac{1}{2^n} \right\rangle : n \in \NN\right\}.$$ If $n \le m$, then $\left\langle \frac{1}{2^n} \right\rangle \le  \left\langle \frac{1}{2^m} \right\rangle$. Then certainly $$\left\langle \frac{1}{2} \right\rangle \le \bigcap_{n \in \NN}  \left\langle \frac{1}{2^n} \right\rangle = H.$$ Now $H$ is the intersection of a family of subgroups, and is therefore a subgroup of $\QQ$. By construction, $H$ is not trivial. Further, $\frac{1}{3} \notin H$, so $H$ is not $\QQ$.
 
 ### [@DF04, number 2.4.16]
 
