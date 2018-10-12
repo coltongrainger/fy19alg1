@@ -1,0 +1,1359 @@
+ANSWERS TO QUESTIONS ASKED BY STUDENTS in Math H113, Spring 2009, taught
+from Dummit and Foote's "Abstract Algebra", 3rd Edition.
+
+----------------------------------------------------------------------
+Regarding the discussion of well-definedness at the bottom of p.1
+and the top of p.2, you ask when we have to worry about proving
+that a function is well-defined.
+
+In general, if the definition of the function involves some choice,
+one needs to prove that the values assigned by the function do not
+depend on that choice.  In the book's example of a function on
+A = A_1 \cup A_2,  it is not obvious how a choice is involved;
+but in applying that definition to an element, one implicitly says
+"since  x\in A = A_1 \cup A_2,  let it be contained in  A_i,  and then
+define  f(x) as ..."; but this means choosing one of the  A_i  that
+contains it (if it is in both).
+
+I say more about this on p.10 of the handout on Sets and Logic
+(though that page wasn't in today's reading).  Anyway, when cases
+of this sort come up in the course, it will be pointed out very
+explicitly.  If you give a construction that doesn't involve a choice,
+there's no need to say anything about verifying well-definedness.
+
+----------------------------------------------------------------------
+Regarding Proposition 1, p.2, you ask "Why can the map f be injective
+iff f has a left inverse and surjective iff f has a right inverse? Why
+not injective iff it has a right inverse and surjective iff it has a
+left one?"
+
+Well, if these ideas are new to you, I suggest you experiment.
+Take a very simple example of a function that is 1-1 but not onto
+(for example, the function from  \{0, 1\}  to  \{0, 1, 2\}  that
+takes every element to itself), and see whether you can construct a
+right inverse to it, and whether you can construct a left inverse to it.
+This means taking the definition of right inverse (respectively, left
+inverse; but it's best to think about one at a time), and seeing what
+it really means in terms of how the function is to act on elements;
+then trying to get an example with that behavior.
+
+Hopefully, you will find that you can construct a left inverse, but
+cannot construct a right inverse.  Then think about why; and whether
+the reasons you could do one but not the other are not particular to
+this case, but apply whenever a function is one-to-one but not onto.
+If you run into difficulties along the way, ask about them.
+
+If you don't get this e-mail till after class, the question will be
+moot, because I will have discussed the proof in lecture; but the
+above indicates the approach I feel you should have taken.
+
+I also notice that in saying "Why can the map f be injective iff f has
+a left inverse ...", you don't refer to the additional condition that
+the domain be nonempty.  You might have just omitted it for simplicity;
+but if it was because you hadn't corrected the errata on the homework
+sheet -- please remember to do so!
+
+----------------------------------------------------------------------
+You ask about definition (4), p.3, noting that the indexing map
+i |-> A_i  might not be 1-1, and asking whether one should not
+therefore replace "i\neq j" in part (b) by "A_i\neq A_j".
+
+Well, if  P  is a partition of  A,  we can always choose a one-to-one
+indexing of the members of  P,  and then (b) will hold.  So the book's
+definition should be taken as meaning that a partition of  A  is a
+set of subsets of  A  which can be indexed so as to satisfy (a) and (b).
+
+Personally, I prefer to avoid indexing sets except in situations
+where it improves clarity.  So I would prefer to define a
+partition of  A  as a set  P  of nonempty subsets of  A  such that
+\bigcup_{E\in P} E = A,  and such that if  E, F\in P  and  E \neq F,
+then  E\cap F = \emptyset.  This is like your version of the definition,
+but without the subscripts.
+
+----------------------------------------------------------------------
+You note that the word "partition" had a different meaning in
+Math 104 from the one given in this course (p.3, statement (4)),
+and ask whether there are likely to be many such cases.
+
+I'm not sure what the meaning you saw in 104 was.  Most likely
+it was the statement that a "partition" of an interval  [a,b]
+means a sequence of points  a = a_0 _< a_1 _< ... _< a_n = b.
+Note that the purpose of those points was to divide the interval
+up into subintervals  [a_0, a_1], [a_1, a_2], ..., [a_{n-1}, a_n].
+This is very nearly a partition in the sense our book gives.
+It fails to be so in that successive intervals have a single
+point in common, rather than being completely disjoint; but since
+the concept of integration is based on the lengths of intervals,
+and these intersections have length zero, from the point of view
+of what is being done in 104, that distinction is inconsequential.
+It is also true that a partition in that sense doesn't give an
+arbitrary decomposition of the interval into (almost) disjoint
+subsets, but only those decompositions whose component sets are
+intervals.  So in summary, the two definitions are variants of
+the same idea, though differently formulated.  Moreover, in a
+different treatment of the 104 material, a partition might be
+defined as a family of half-open intervals [a_0, a_1), ... ,
+[a_{n-1}, a_n)  whose union gives the half-open interval  [a_0, a_n);
+so in this case, it would precisely fall under the definition we had.
+
+Anyway, throughout mathematics, you will find that different authors
+develop the same concept using slightly different formalisms.  How
+often you are likely to see the same word used in (H)113 and in
+104 with apparently unrelated meanings I'm not sure; probably not
+very often.
+
+----------------------------------------------------------------------
+You ask about the formula  dl = ab  on p.4, relating positive
+integers  a  and  b,  their g.c.d. "d", and their l.c.m. "l".
+
+That's a question I would ordinarily like to answer in lecture; but
+in this reading, the text is rushing through so much important stuff
+that I will almost surely not have time; so I'll answer here.
+
+There are different ways to look at this.  The quickest is to use
+the formula for the g.c.d. that the authors give two pages later,
+at the very bottom of p.6, and the corresponding formula for the
+l.c.m. mentioned right at the top of p.7.  Combining these with
+the general observation  min(x,y) + max(x,y) = x + y,  the desired
+result follows immediately.
+
+For another approach, consider any positive integer  x,  and let
+us look at divisibility relations with  a  and  b.  Note that if
+x  divides  a,  then  ab/x = (a/x)b  is a multiple of  b;  in fact,
+if and only if; and similarly,  x  divides  b  if and only if
+ab/x  is a multiple of  a.  Hence  x  is a common divisor of
+a  and  b  if and only if  ab/x  is a common multiple of  a  and  b.
+So if  x  is the greatest common divisor of  a  and  b,  then
+ab/x  will be the least among all common multiples of  a  and  b
+that can be written  ab/x.  Can every common multiple of  a  and
+b  be so written?  No.  (There are common multiples of  a  and  b
+that are larger than  ab,  and they certainly can't.)  However,
+I say that the least common multiple is among those that can.
+This uses the fact, noted in the book, that the least common multiple
+is not merely least in size; it  divides all common multiples of
+a  and  b.  Now  ab  is a common multiple of  a  and  b,  so the
+least common multiple of  a  and  b  is a divisor of  ab;  hence
+it can be written  ab/x  for some positive integer  x.
+
+Thus, the least common multiple of  a  and  b  is a common
+multiple of  a  and  b  having the form  ab/x,  and being least
+among all common multiples of  a  and  b,  it is certainly among 
+all such common multiples of  a  and  b  having this form; so the  x
+involved must be the largest among the common divisors of  a  and  b.
+So in the symbols the book uses,  l = ab/d,  which is equivalent to
+the formula  dl = ab  that they give.
+
+----------------------------------------------------------------------
+You ask how one proves assertion (1) on p.7, that the Euler
+\phi-function is "multiplicative".
+
+That's quite nontrivial.  It is based on two facts:  (1) if  a  and
+b  are relatively prime, then for every combination of an integer
+i  with  0 _< i < a  and an integer  j  with  0 _< j < b,  there is one
+and only one integer  k  with  0 _< k < ab  whose residue on division
+by  a  is  i  and whose residue on division by  b  is  j  (this fact
+is called the Chinese Remainder Theorem; in a more general form it is
+given on p.265 of the text), and (2) an integer  i  is relatively
+prime to  ab  if and only if it is relatively prime to both  a  and  b.
+Putting these facts together, one finds that the pairs of integers
+(i,j)  with  0 _< i < a  and  0 _< j < b  such that  i  is relatively
+prime to  a  and  j  to  b,  of which there are exactly  \phi(a)\phi(b),
+are in bijective correspondence with the integers  k  with  0 _< k < ab
+that are relatively prime to  ab,  of which there are exactly  \phi(ab).
+so  \phi(a)\phi(b) = \phi(ab).
+
+As an example, you can take  a = 2,  b = 5,  so  ab = 10,  and
+classify the integers  0,...,9  according to their residues on
+division by  2  and  5;  and see that you get all 10 possible
+combinations, each once; and that those that are relative prime to
+10 are the ones with 1st term  1  (not 0) and 2nd term  1,2,3,4
+(not  0); so the total number is  1 . 4 = \phi(2)\phi(5).
+
+----------------------------------------------------------------------
+You ask how the coefficients -7 and 2 in the expression for 1 as a
+linear combination of 60 and 17 in the second example on p.11 were
+obtained.
+
+See point (7) on p.5.  If you have trouble with it, let me know
+where you run into difficulty.
+
+----------------------------------------------------------------------
+You ask whether, in the definition of groups on pp.16-17, there is
+a reason for requiring the operations to be associative, but not
+necessarily commutative.
+
+If  X  is any mathematical object, then the bijective maps  X --> X
+that exactly preserve the given mathematicsl structure can be composed,
+and under this composition they will satisfy the associative identity
+and the other conditions for being a group; so those conditions
+apply to a class of entities appearing in an important way throughout
+mathematics.  Moreover, from these conditions, one can deduce a great
+deal, as we shall see in the next few weeks.  So the concept of "A set
+with a composition operation satisfying the associative law, and having
+an identity element and inverses to every element" constitutes a useful
+and rich sort of mathematical structure, and is given a name.
+
+It is easy to come up with operations that satisfy the commutative
+law but not the associative law; e.g., the real numbers with the
+operation  x * y = x^3 + y^3.  But these turn out to be much less
+important.  Moreover, from the commutative law there is little more
+that one can deduce, while associative law, as I said, has very strong
+consequences.
+
+Sets with a binary operation that is not necessarily associative
+are nevertheless studied.  They are sometimes called "groupoids"
+(though that usage conflicts with another sense of that word); and
+those that satisfy various additional conditions are given special
+names by the people who work with them: "loops", "quasigroups", etc..
+
+If we do assume associativity, but drop or weaken the other two
+conditions in the definition of a group, we get concepts of
+intermediate importance, called (depending on how much one assumes)
+"semigroups" or "monoids".  I hope to say a few words about these
+at some point.
+
+----------------------------------------------------------------------
+Regarding property (4) on p.25, you ask "Given statement (3), shouldn't
+this follow from the fact that |r| = n?"
+
+Yes.  Even without statement (3), it follows from the fact you quote,
+by Prop.2 (1), p.20.  I guess the authors wanted to record this
+step on the way to getting the statement that the elements listed
+in the next line are all distinct (i.e., the word "uniquely" in the
+line following that).  But a more important step toward that statement
+which they left out is that  r^i \neq s r^j  for any  j.  (This can be
+obtained by noting that if we had equality, then multiplying on the
+right by r^{-j},  we'd get a contradiction to (3).)
+
+----------------------------------------------------------------------
+You ask about the statement on p.26, line 6 that  \{r,s\}  is a
+generating set for  D_{2n} "by property (4)".
+
+I looked, and it took me a moment to figure out what the authors
+meant.  They don't mean the statement "sr^i not-= sr^j  ..." with
+which (4) begins, but the display on the next line:  "D_2n = \{...\}".
+Do you see that this indeed tells us that  \{r,s\}  is a generating
+set for  D_{2n}?
+
+----------------------------------------------------------------------
+You ask whether you have correctly summarized the result given on
+pp.38 (bottom) to 39.
+
+The first statement in your summary is correct:
+
+> a) If all the relations in the presentation of G can be satisfied by
+> replacing the elements of G by some arbitrary elements of H, then
+> there is a homomorphism from G to H
+
+-- assuming that where you wrote "the elements of G" you meant "the
+given generators of G".
+
+But in your second statement,
+
+> b) If the order of G and H are equal plus the above condition, then G
+> and H are isomorphic?  ...
+
+you've left out two key conditions:  that  H  be generated by the
+elements the book calls  r_1,...,r_m,  so that the homomorphism  \phi
+will be surjective, and that  H  be finite.
+
+It is easy to give examples where isomorphism fails if surjectivity
+is not assumed.  For example, suppose we write  Z_6  as  <a | a^6 = 1>,
+and map it to  S_3  by sending  a  to  (1 2)  (which has 6th power
+equal to the identity because it actually has square equal to the
+identity).  These groups have the same order, but the map is neither
+one-to-one nor onto, and the groups are non-isomorphic.
+
+For an example where the orders are the same, but infinite, and the
+groups are non-isomorphic, let  G = Z x Z  (see the definition of
+direct product of groups, p.18, item (6)), which can be presented as
+<a, b | ab = ba>,  where  a = (1,0),  b = (0,1)  (and we are using
+multiplicative notation in the presentation, though the group is
+written additively), and let  H = Z.  I don't know whether you have
+seen the fact that  Z x Z  and  Z  have the same cardinality ("order");
+if not, I can show this.  Anyway, we can map  \{a,b\}  to  H  by
+sending  a  to  1  and  b  to  0.  This gives a surjective map  \phi:
+Z x Z -> Z,  but it is not injective, and  Z x Z  and  Z  are not
+isomorphic, since the first group cannot be generated by a single
+element, while the second can.
+
+----------------------------------------------------------------------
+Regarding the analogy between generating sets for groups and bases
+of vector spaces mentioned in the second paragraph on p.39, with
+the comment "(here there are no relations to satisfy)" you ask "What
+would happen if we were to put relations on a basis of a vector space?"
+
+If we present a vector space by generators and relations, then each
+relation can be solved to give an expression for one of our generators
+in terms of the rest; so we can drop one member from our list of
+generators, and the remaining elements will still generate the vector
+space.  When we have dropped enough generators so that none of those
+left can be expressed in terms of the rest, what we have left is a
+basis.  (In this discussion, I'm assuming finitely many generators and
+finitely many relations, for simplicity.)
+
+Vector spaces have much less variety in their possible structures than
+groups do:  Up to isomorphism, there is just one vector space of each
+dimension over a given field.  So one can always describe a vector
+space by a set of generators subject to no relations; i.e., a basis.
+
+Nevertheless, the concept of a vector space presented by generators and
+relations can be of use.  E.g., there might be some vector space that
+is most natural to describe as  <w, x, y, z | w+x+y+z=0 >.  Even though
+it can also be described as having basis  w, x, y,  there may be a
+concept one is studying that is symmetric in  w, x, y and z,  so that
+choosing three of them to form a basis and expressing the fourth in
+terms of those three would be less natural than using all four as
+generators, and remembering that there is a linear dependence relation
+among them.
+
+Also, one generalization of vector space is the concept of a module;
+and for modules, presentations by generators and relations are as
+natural as for groups.  Modules are in the book, and one can read about
+them as soon as one has the concept of ring; but unfortunately, there
+isn't time to work them into H113.
+
+----------------------------------------------------------------------
+Regarding item (i) on p.42, you ask whether a permutation of  A
+means a bijection from  A  to  A.
+
+Did you look in the index of the book?  That's always the first
+thing to do when you come on a word whose meaning you're not sure of.
+If you look for "permutation" in the index, the first reference is to
+p.3, and if you turn to p.3, the first line answers your question.
+
+> I had problems at first at understanding why is the action
+> on a set a permutation of the set. ...
+
+It isn't.  An action of  G  on  A  is a _homomorphism_ from  G  to
+the group  S_A  of permutations of  A.
+
+However, if what you mean is that for each element  g\in G,  the
+map  A -> A  induced by  g  under the action is a permutation,
+then that is correct.
+
+----------------------------------------------------------------------
+Regarding the first two paragraphs on p.43, you write
+
+> The book states that "the actions of a group G on a set A and the
+> homomorphisms from G into the symmetric group S_A are in bijective
+> correspondence". The next statement talks about left and right
+> actions.  Does this statement hold in either case?
+
+Yes and no.
+
+Recall that the key condition in the definition of a left action
+is  g(ha) = (gh)a.  In a right action, the corresponding condition
+is  (ah)g = a(hg).  Thus, when we apply  h  to an element, and
+then apply  g  to the result, in a left action this is equivalent to
+applying  gh  to the element, while in a right action it is equivalent
+to applying  hg  to the element.  That is the only essential difference
+between left and right actions.
+
+Now the definition of composition of permutations that we use is
+based on writing the permutations to the left of their arguments:
+(\sigma\tau)(x) = \sigma(\tau (x)).  If we are given a _right_
+action of  G  on  A,  each  g\in G  will still induce a permutation
+\phi(g)  of  A;  but since we compose permutations under the
+conventions of left actions, and that disagrees with the behavior
+of right actions, we get the rule  \phi(gh) = \phi(h)\phi(g),  which
+does not match the definition of a homomorphism.
+
+This can be handled in various ways.
+
+Some authors consider right actions instead of left actions to begin
+with, and treat permutations by the right-action conventions, writing
+x \sigma  for the image of  x  under  \sigma;  and they compose
+permutations so that first applying  \sigma  and then  \tau  is
+equivalent to applying  \sigma\tau.  For them, right, rather than
+left actions correspond to homomorphisms  G --> S_A.
+
+Another approach is to consider a right action to correspond to an
+"antihomomorphism"  G --> S_A,  meaning a map  \phi  that satisfies
+\phi(gh) = \phi(h)\phi(g).  An antihomomorphism  G --> S_A  can be
+looked at as a homomorphism from the "opposite group",  G^{op},  to
+S_A,  where  G^{op}  is defined to have the same set of elements
+as  G,  but the modified operation  g * h = h . g.
+
+Finally, one can use the fact that every group is "antiisomorphic" to
+itself by the map  g |-> g^{-1},  and so associate to every
+antihomomorphism  \psi: G --> H  the homomorphism  g |-> \psi(g)^{-1}.
+Then a right action of  G  on  A  corresponds to a homomorphism
+\phi: G -> S_A  via the formula  ag = \phi(g)^{-1}(a).
+
+(This last trick works for groups, but it doesn't for semigroups, which
+differ from groups in that elements are not required to have inverses.
+E.g., the maps from a set into itself, not restricted to permutations,
+form a semigroup.  In the theory of semigroups, antihomomorphisms are
+taken seriously, whereas in group theory, they are seldom discussed
+because they can be reduced to homomorphisms by the "inverse" trick
+noted above.)
+
+This is probably more than you wanted to know!
+
+Any group theorist knows how to switch between right and left
+actions when desired.  But in a first introduction to the subject,
+it's best to stick to one sort of action to avoid confusion.
+(However, after writing the above, I looked in the index and found
+that the authors do say more about right actions on pp.128-129.)
+
+----------------------------------------------------------------------
+Regarding the proofs that centralizers, normalizers, etc. are subgroups
+of a group  G  (pp.49-51), you write, "for the axiom about H being
+nonempty, it seems that every proof uses the identity to prove this
+axiom.  Are there situations where it would be easier to use a
+non-identity element?"
+
+The reason for the condition of nonemptiness in the criterion for a
+subset to be a subgroup is to guarantee that  H  contains the identity,
+one of the conditions in the definition of a group.  This is stated as
+"nonemptiness" so as to look more general than "contains 1"; but the
+presence of 1 is such a natural condition that it is hard to think
+of a situation where it would be easier to prove nonemptiness by a
+different route!
+
+Good observation.
+
+----------------------------------------------------------------------
+Regarding the observation on p.50 that  Z(G) = C_G(G), you ask why
+we have two notations for the same object.
+
+I assume that  Z(G)  was the earlier notation; the center is a very
+useful tool in analyzing the structure of a group.  The relative
+concept of the centralizer  C_G(Z)  of a subset  A  of a group came
+later (and got the letter "C" from English "centralizer" in contrast
+to the "Z" from German "Zentrum").  In theory, one could then have
+abandoned "Z(G)" and just written the center of  G  as  C_G(G);  but
+I think the center is so important, and people were so accustomed
+to having the brief symbol  Z(G)  for it, that  C_G(G)  would have
+been felt an unnecessarily roundabout way of expressing it, and
+wasn't adopted.
+
+----------------------------------------------------------------------
+Concerning the comment at the top of p.70 that the subgroup lattice
+of  D_{16}  is not a planar graph, you ask what the condition of having
+a planar subgroup lattice says about the structure of a group.
+
+A Google search for
+
+	"subgroup lattice" planar
+
+gives 584 results; so people have looked at the question of
+characterizing groups with this property.  I don't think the
+question is a really natural one, but it can be approached as
+follows:  It is known that a finite graph is planar if and only
+if it doesn't contain copies of any of a certain small list of
+subgraphs.  So one figures out all ways that such graphs can
+appear in the subgroup lattice of a group, how that is reflected
+in the group structure, and which groups this excludes.
+
+----------------------------------------------------------------------
+You ask why Theorem 3 on p.77 is not just a trivial application
+of Proposition 2 on the preceding page, and in particular, why
+the authors say that it is a generalization of that proposition.
+
+Where they say "generalization", a better word would have been
+"strengthening".  The theorem is stronger than the proposition
+in that it says how cosets are multiplied, in a way that does
+not depend on knowing the map  \phi.  (The proof uses  \phi,
+but the assertion of the result does not.)
+
+I find this section of Dummit and Foote to be very plodding,
+moving one little step at a time (e.g., here, between "we can
+define the operation on cosets by using the operation of
+\phi(G)" to "we can define the operation on cosets by letting
+uK o vK = (uv) K").  But they may have written it this way based
+on experience, that too many students get lost when this topic
+is presented in a concise way.
+
+----------------------------------------------------------------------
+Regarding problems like Exercises 2 and 3 on p.95, you ask how one
+can find all subgroups of a given group.
+
+The method is always one of trying out all possibilities.  As what
+we know of group structure grows, the class of possibilities we have
+to try out shrinks.
+
+Suppose G is a finite group of order  n.  Based on the definition of
+"subgroup", we could consider all  2^n  subsets of  G,  and test each
+of them for the properties defining a subgroup.
+
+After we learned about the subgroup generated by a subset, we could
+streamline that process in various ways.  E.g., we could take some
+element  g\in G, and divide subgroups  H  into those that contain
+g  and those that do not.  In the former, we know that we have the
+whole cyclic subgroup generated by  g,  and also that as soon as
+a subgroup contains another element  h,  it will also contain all
+elements that can be expressed as words in  g  and  h.  In the latter,
+we know that if a subgroup contains an element  h,  then it cannot
+contain, say, anything of the form  h^i g h^j,  since from that and
+h  we could get  g.  So there are much fewer cases to consider.
+
+Now that we have Lagrange's theorem, we can limit attention to subsets
+whose order is a divisor  m  of  n,  and know that a subgroup  H  of
+such an order  m  can only contain elements whose orders are divisors
+of  m.  So problems like exercises 2 and 3 on p.95, which you ask about,
+can be done relatively easily.
+
+----------------------------------------------------------------------
+You ask whether, in contrast with Theorem 22(1) (p.103) infinite groups
+always or sometimes have composition series.
+
+Well, before asking such a question, you should see how far you can
+get on it by straightforward approaches.  What infinite groups do
+you know?  The most obvious example is  Z.  Have you asked yourself
+whether  Z  has a composition series?
+
+If you do, you will (hopefully) find that the answer is "No".  So that
+eliminates the possibility that all infinite groups have composition
+series, and the remaining possibilities are just that some do, or
+that none do.
+
+Note that if an infinite group has a composition series, then
+at least one of the composition factors must be infinite; so
+there must be an infinite simple group.  Conversely, if there is
+an infinite simple group, then it will have a (one-step) composition
+series.  So the question comes down to whether there exist any
+infinite simple groups.
+
+That is not easy to answer from what you have learned, and if you
+had gotten that far, you could have asked that as your question.
+(If not, you could at least have indicated why not all infinite
+groups had compositions series, and asked whether some did.)
+The answer is yes, there are infinite simple groups; but these
+are not easy to describe in a few words at this point.  (But if
+you are interested in the question -- or don't see some of the
+other points I have asserted above -- you can come by office hours,
+and I can show you.)
+
+----------------------------------------------------------------------
+You ask whether the definition of transitivity of group actions, as
+defined on p.115, has anything to do with transitivity of binary
+relations?
+
+Only in the very vague sense, that "transitivity" refers to the
+possibility of getting from one place to another.  So the condition
+on a binary relation says "If you can get from  X  to  Y  and from
+Y  to  Z,  then you can get from  X  to  Z", while the definition of
+a transitive action is "You can get from anywhere to anywhere else".
+They aren't analogous statements; just vaguely of the same sort.
+
+----------------------------------------------------------------------
+You ask about the comment preceding Proposition 10 on p.125
+about conjugation in matrix groups representing change of basis.
+
+Here is my way of looking at it.
+
+A choice of ordered basis  \{v_1,...,v_n\}  of an n-dimensional vector
+space  V  can be thought of as a choice of an isomorphism  i: V =~ F^n:
+Given a basis, we get a way of representing vectors by the n-tuples of
+their coordinates, i.e., of associating to each vector a member of
+F^n,  while given an isomorphism between  V  and  F^n,  we get a basis
+of  V  from the standard basis of  F^n.
+
+Now if  i  is such an isomorphism, then a linear operator  T  on  V
+corresponds to a linear operator  i T i^{-1}  on  F^n.  If we think
+of  n x n  matrices as symbols for linear operators on  F^n,  then
+this is the representation of  T  with respect to the indicated basis.
+
+If we have, not only the basis corresponding to the isomorphism  i,
+but also another basis, corresponding to an isomorphism  j: V =~ F^n,
+then  j i^{-1}  will be a linear operator on  F^n  which clearly
+converts the representation  i v  of a vector  v  with respect to
+the first basis into the representation  j v  of  v  with respect
+to the second.  Writing  j i^{-1}  as a matrix  P,  this is
+the change-of-basis matrix.
+
+Now how do we convert the representation of a linear transformation
+T: V -> V  in terms of the old basis to its representation in terms
+of the new basis?  The former, as noted above, is  i T i^{-1};  the
+latter is therefore  j T j^{-1},  and to get from one to the other,
+we conjugate by  j i^{-1} = P.  Hence the  "P^{-1} A P" formula of
+linear algebra.
+
+Conjugation _also_ has interpretations that don't have to do with
+change of basis.  If a given tranformation  T  takes certain
+vectors  v_1, v_2, ... to certain other vectors  w_1, w_2, ..., then
+for any operator  U,  the transformation  U T U^{-1}  will take
+U v_1, U v_2, ... to  U w_1, U w_2, ...;  in other words, it
+will show a behavior "just like T, but with different vectors in
+the corresponding roles, related to the old vectors by  U".  In
+particular, if the given vector space is  F^n,  then this becomes
+a statement about how a conjugate of a given matrix behaves.  The
+contrast between this and the change-of-basis interpretation of
+conjugation is an instance of the contrast between "alias and alibi"
+which I spoke about briefly in class a few weeks ago.
+
+----------------------------------------------------------------------
+Regarding the paragraph on p.134 after the definition of inner
+automorphisms, you ask how  Inn(G) =~ G/Z(G)  follows "by Corollary 15".
+
+The second statement of the Corollary says that  G/Z(G)  is
+isomorphic to "a subgroup of  Aut(G)".  From the context, we
+know that it is the subgroup of automorphisms given by conjugation
+by elements of  G.  The definition in the middle of p.134 gives that
+subgroup the name  Inn(G),  so the statement of the Corollary becomes
+"G/Z(G) =~ Aut(G)".
+
+Our authors frequently understand the results they state as
+theorems etc. to include more than they actually put into words.
+I think one should generally put such facts into words; but one
+has to get used to "reading between the lines" when authors don't
+do this.
+
+----------------------------------------------------------------------
+> ... p.135, Proposition 16 ...
+>
+> Why is \Psi clearly injective?
+
+In a situation like this, you should show me how far you have been
+able to get by straightforward reasoning, and where you got stuck.
+Straightforward reasoning would begin "Suppose  \Psi_a  and  \Psi_b
+are different automorphisms.  We want to show that the congruence
+classes of  a (mod n)  and  b (mod n)  are different ...", then
+look at how  a  and  b  are determined by the automorphism, and try
+to determine whether their being different automorphisms implies
+that they come from different congruence classes.  Show me where
+this reasoning gets you, and where you run into difficulty.
+
+----------------------------------------------------------------------
+Regarding the proof on p.150 of the simplicity of  A_n,  you ask
+why  \lambda_k \in G_i,  and why  G_i  is isomorphic to  A_{n-1}.
+
+Each  G_i  is the stabilizer of  i  in  G.  Now if  \lambda_k
+= (p q)(r s),  then since  n > 4,  p, q, r  and  s  can't be all the
+members of  \{1,...,n\}.  If we let  i  be some element of that set
+other than  p, q, r, s,  it will be fixed by  \lambda_k = (p q)(r s),
+i.e.,  \lambda_k\in G_i.
+
+Finally, because  G_i  is the group of even permutations of a set of
+n-1  elements, namely, the members of  \{1,...,n\}  other than  i,
+it will be isomorphic to the group of permutations of any set of
+n-1  elements; in particular, to  A_{n-1}.
+
+----------------------------------------------------------------------
+Regarding Theorem 5 on p.161, you ask
+
+> Is a subgroup of a direct product a direct product of subgroups?
+> That is, if P _< A \times B, is P=C \times D, where C _< A, D _< B?
+
+No.  For instance, on p.155, Example (3), it is shown that the group
+E_{p^2} = Z_p x Z_p  has  p+1  subgroups of order  p;  but only two
+of these have the form you describe:  Z_p x 1  and  1 x Z_p.
+
+If one asks whether every subgroup of a direct product is isomorphic
+to a direct product of subgroups, then for finitely generated abelian
+groups the answer is yes; but there are counterexamples for nonabelian
+groups.  For instance, the subgroup of  S_3 x S_3  consisting of all
+elements  (\sigma,\tau)  such that  \epsilon(\sigma) = \epsilon(\tau)
+(where  \epsilon  is the function defined on p.108, Def.(1)) is a group
+of order 18 which is not a direct product of nontrivial subgroups;
+hence certainly not a direct product of subgroups of  S_3.
+
+----------------------------------------------------------------------
+You ask about the number of partitions of an integer  N,  as defined
+at the top of p.162.
+
+The properties of this number as a function of  N  have been studied by
+number theorists.  There are numerous results about it (e.g., how fast
+it grows as  N  increases; what it is congruent to modulo various
+integers); and I'm sure shortcuts to computing these numbers have been
+found; but I believe there is no expression for this function in
+closed form.
+
+Cf. http://en.wikipedia.org/wiki/Partition_function_(number_theory)
+
+----------------------------------------------------------------------
+Regarding Example (2) on p.178, you ask,
+
+> How does "so that x^2 acts as the identity on H" follow from "Define
+> \phi again by mapping x to inversion."?
+
+If  \phi(x)  acts by  h |-> h^{-1},  then  \phi(x^2)  will act by
+h |-> (h^{-1})^{-1} = h.  I.e., when one "squares" the operation
+of inversion, one gets the identity operation.
+
+----------------------------------------------------------------------
+You ask whether "HK", in the statement of Theorem 5.12, p.180,
+denotes the internal direct product of  H  and  K,  as defined
+on p.172.
+
+No, it doesn't!  It's an instance of the general notation introduced
+in the Definition on p.93.  As noted in the bottom paragraph of p.93,
+in general  HK  need not even be a subgroup.  If at least one of
+H  and  K  is normal,  HK will be a subgroup (Cor.4.15, p.94).  If
+they are both normal and intersect trivially, that subgroup will have
+properties that make it isomorphic to  H x K,  and we call it the
+"internal direct product" of  H  and  K.  If we merely assume  H
+normal, and again assume  H  and  K  intersect trivially, then as shown
+here, it gives an "internal semidirect product".
+
+----------------------------------------------------------------------
+You ask why, in part (1) of the second Definition on p.218, they
+specify that  R  should have the property that the least normal
+subgroup containing  R  is the kernel, rather than just the subgroup
+generated by  R.
+
+Well, that would require a lot more generators.  To take an example
+that is a bit unnatural, but illustrates very starkly the difference,
+suppose we want to regard the infinite cyclic group  <x>  as presented
+by two generators  x  and  y  and a relation making  y = 1.  This can
+be written as the quotient of the free group  F(\{x,y\})  by the
+normal closure of  \{y\}.  On the other hand, the subgroup generated
+by  \{y\}  is much smaller that that normal subgroup -- it just
+contains the powers of  y,  but not elements such as  x^n y x^{-n},
+which also must go to the identity in a homomorphic image of
+F(\{x,y\})  where  y  goes to  1.  So if our "presentations" had to
+use sets of relators that actually generated the kernel as a subgroup,
+we would have to use an infinite set of relators to get  <x>  from
+F(\{x,y\}).
+
+To put it briefly:  since we know that the kernel  K  of a homomorphism
+is a normal subgroup, it's natural to describe such a kernel by
+specifying elements which, together with its being a normal subgroup,
+yield all of  K.  If we just specify elements which, together
+with the more restricted information that it is a subgroup, yield  K,
+we are making things hard for ourself by refusing to use information
+that we have.
+
+----------------------------------------------------------------------
+In connection with the concept of finitely presented groups,
+introduced on p.218, you ask whether a finitely presented group
+can be uncountable.
+
+No.  One can show that a group generated by finitely many elements
+must be finite or countably infinity.  (Namely, one can "list"
+the possible words in a finite number of generators, so that list
+is countable.  In a particular group, some of these words may
+represent the same element.  Crossing out such repetitions from
+the countable list leaves a finite or countable list.)  So an
+uncountable group can't be finitely generated, and so a fortiori
+can't satisfy the stronger condition of being finitely presented.
+
+----------------------------------------------------------------------
+You ask about the use of free monoids in theoretical computer
+science, mentioned on p.220 (last paragraph before exercises).
+
+Well, just as one can define an action of a group on a set, so
+one can define an action of a monoid on a set.  In the case of
+a group action, each group element acts as an invertible map
+of the set into itself.  We got invertibility from the fact that
+each group element has an inverse in the group; since this
+is not true in a monoid, an action of a monoid on a set  X
+corresponds to a homomorphism from the given monoid into the
+monoid  E_X  of _all_ (not necessarily invertible) maps  X --> X.
+
+Now if  F(S)  is a free monoid on the set  S,  then a homomorphism
+F(S) -> E_X  is determined by specifying in an arbitrary way
+the member of  E_X  to which each member of  S  is mapped.
+If we take for  X  the set of "states" of a device, and think
+of elements of  S  as "inputs" to the device, then such an
+action is a rule associating to each state and each input the
+state into which the device will go when the given input is
+applied to it.  A device whose behavior is so determined is
+called a "finite state automaton", and is a basic model of
+a computer.
+
+Also, just as the elements of a free group can be written as
+words involving the generators and their inverses, so the
+elements of a free monoid can be written as words in the
+generators, without any inverses (and so without the need for
+rules specifying that a generator should not occur adjacent to
+its inverses).  A "language" in the sense of theoretical computer
+science is a subset of the set of all strings in a set of symbols;
+so languages are studied using the theory of monoids.
+
+----------------------------------------------------------------------
+You ask about the application of polynomial rings to linear algebra
+alluded to in the last paragraph on p.233.
+
+This is too distant from the material we cover for me to talk about it
+in class.  But I can try to sketch it roughly for you here.
+
+I've pointed out that just as we can consider "actions" of groups
+on sets, so one considers "actions" of rings on abelian groups.
+Now suppose  V  is a vector space over a field  K.  That is
+equivalent to saying it is an abelian group with an "action" of  K.
+Suppose further that  T: V -> V  is a linear transformation.  Then in
+the ring of endomorphisms of  V,  we have not only the copy of  K  that
+gives the vector space structure, but also the element  T,  which
+"respects" that structure (because it is a K-linear transformation),
+in other words, which commutes with the actions of all members of  K.
+
+Now -- you need to think about this -- the combination of an action
+of  K  on  V  and this additional element  T  is equivalent to an
+action of  K[x]  on  V,  where  x  acts on  V  as  T.
+
+An abelian group with an action of a ring  R  on it is called an
+"R-module".  (So when  R  is a field, R-module means K-vector space.)
+For  K  a field,  K[x]  is a ring with a structure very much like
+that of  Z,  and one can prove neat results describing all finitely
+generated modules over rings with those properties.  (We will look
+at rings with the properties that  Z  and  K[x]  share -- "principal
+ideal domains" -- in reading #26; but as I have said, we won't be able
+to study modules in this course.)  These results allow one to decompose
+every finitely generated module over such a ring as a direct sum of
+submodules of an elementary form.  When the given module has a certain
+property even stronger than being finitely generated -- which in the
+case  R = Z is that of being finite, and in the case  R = K[x]  is that
+of having finite dimension over  K  -- then we get a result which in
+the  R = Z  case is the primary decomposition theorem for finite groups,
+and in the  R = K[x]  case is the decomposition of  V  into subspaces
+on which  T  acts (if  K  is algebraically closed) by Jordan matrices
+or (in general) by matrices in "rational canonical form".
+
+So that's it, in summary.  Let me know if you want anything clarified.
+
+----------------------------------------------------------------------
+You ask why the definition of polynomial rings on p.234 doesn't allow
+expressions in which  x  occurs with negative as well as positive
+exponent:  a_n x^n + ... + a_0 + ... + a_{-m} x^{-m}.
+
+The idea of a polynomial ring is that one should be able to substitute
+for  x  any element of  R,  or more generally, any element of a
+commutative ring containing  R.  (So, for instance, one asks whether
+the polynomial  x^2 + 1  over the reals has a root -- not necessarily
+in the reals, but in some commutative ring containing the reals.)  This
+substitution operation should be a homomorphism from  R  into the ring
+in question.  If we made  R[x]  contain an inverse to  x,  then we
+could not define homomorphisms  R[x] --> S  that took  x  to
+non-invertible elements; e.g., we couldn't substitute  0  for  x  in
+polynomials over the reals, or substitute  2\in Z  for  x  in
+polynomials over the integers.
+
+Nonetheless, expressions  a_n x^n + ... + a_0 + ... + a_{-m} x^{-m}
+are of interest!  For the reason indicated above, one doesn't include
+them in  R[x];  but one makes another ring out of such expressions,
+written  R[x, x^{-1}],  and called the ring of "Laurent polynomials in
+the indeterminate  x".  This has the property that  x  is invertible,
+and that one can substitute for  x  any invertible element of a ring
+containing  R.
+
+The text does not treat the ring of Laurent polynomials, but it does
+treat an extension thereof, in three exercises distributed over the
+book plus one example near the end that refers to these exercises.  To
+say what this is, I should say first that the ring  R[x]  of
+polynomials can be regarded as a subring of the ring  R[[x]]  of
+"formal power series", defined as formal expressions  a_0 + a_1 x + ...
++ a_n x^n + ...  with no restriction that there be only finitely many
+nonzero terms.  If in addition to the possibly infinitely many terms
+with nonnegative powers of  x,  one allows finitely many terms with
+negative powers of  x,  one has the ring  R((x))  of "formal Laurent
+series".  Although the ring of ordinary Laurent polynomials is a not
+very important modification of the polynomial ring, formal Laurent
+series are more important, because if  R  is a field, then  R((x))  is
+also a field (unlike  R[x],  R[x,x^{-1}],  and  R[[x]]).
+
+You might ask "If we can allow infinitely many positive-exponent terms
+together with finitely many negative-exponent terms, why can't we allow
+infinitely many terms of both sorts?"  The answer is that we then
+can't define multiplication.  E.g., you can see what happens if you
+try to square  ... + x^{-2} + x^{-1} + 1 + x + x^2 + ... .
+
+----------------------------------------------------------------------
+In connection with the observation at the top of p.236 that the
+units of  M_n(R)  are the invertible  n x n  matrices over  R,  you
+ask whether it is common for a ring to have so many units.
+
+Assuming that by "R" you mean (as on the page in question) any ring
+(and not specifically the real numbers), then how common units
+are among members of  M_n(R)  depends on  R.  If  R  is commutative,
+then a matrix over  R  is a unit if and only if its determinant is a
+unit of  R;  so they are a lot more common if  R  is a field such as
+the rationals than if it is, say, the integers, even though there are
+infinitely many in both cases.
+
+Among rings,  Z  is at the extreme low end, in having only finitely
+many units.  If you take  Z[\sqrt D],  where  D  is a nonsquare
+integer, it will have infinitely many units if  D > 0,  finitely
+many if  D < 0.  (You might look for examples of units of infinite
+order in  Z[2]  and  Z[5].)  In algebraic extensions of  Z  more
+complicated than quadratic extensions, one invariably gets an infinite
+group of units.  If  r  is a rational number that is not an integer,
+then  Z[r],  i.e., the subring of  Q  generated by  Z  and  r,  will
+also have an infinite group of units.  (E.g.,  Z[3/2]  contains
+3/2 - 1 = 1/2,  so  2  is a unit, and clearly has infinite order,
+so  <2>  is an infinite subgroup of the group of units of that ring.)
+
+----------------------------------------------------------------------
+You ask why the Second Isomorphism Theorem for Rings (p.246) does not
+have a condition analogous to the statement that  B _< N_G(A)  in the
+Second Isomorphism Theorem for Groups (p. 97).
+
+Good point.
+
+In stating the theorem for groups, I think the authors decided to
+make the statement as strong as they could, despite the fact that this
+made for a less clear statement than the usual formulation, and that
+the "added strength" can be recovered from the usual statement by
+using it appropriately.
+
+The usual version of that theorem is that if  A  and  B  are subgroups
+of  G,  with  B  normal in  G,  then  AB  is a subgroup, and
+AB/B =~ A/(A \intersect B).  This corresponds exactly to the Second
+Isomorphism Theorem for Rings.  To see that the authors' "stronger"
+version is implied by the above version, note that if  B  is not
+necessarily normal in  G,  but  A  lies in  N_G(B),  as in their
+statement, then one can apply the above version with  N_G(B)  in place
+of  G,  and get the desired conclusions.
+
+Inversely, if one wanted to state the Second Isomorphism Theorem
+for Rings in a manner parallel to the authors' version of the
+theorem for groups, one would define the "idealizer" of a subring
+A  of  R  as  \{ r\in R | rA \subset A  and  Ar \subset A \},  (which
+one can see is a subring containing  A),  and then assume, not that
+B  is an ideal of  R,  but that it is contained in the idealizer of  A.
+
+Idealizers are in fact used in noncommutative ring theory; though
+usually not for arbitrary subrings, but for one-sided ideals:  if
+I  is, say, a left ideal of  R,  then its idealizer of  A  is the
+largest subring of  R  in which  A  is a 2-sided ideal.  However, we
+won't be going deeply enough into the theory of noncommutative rings
+in this course to use that concept.
+
+----------------------------------------------------------------------
+You ask about the use of the phrase "finite sums" in defining
+the product ideal  IJ  in the definition on p.247.
+
+The point of "finite" is not to exclude infinite sums -- infinite
+sums simply aren't part of the definition of a ring, so there's
+no way they could occur.  Rather, the authors write "finite sums"
+so that one won't think that "sums" simply means expressions
+a_1 b_1 + a_2 b_2,  but will understand that any finite number
+of summands is allowed.
+
+----------------------------------------------------------------------
+You ask whether there is an analog of Corollary 10, p.253, for group
+homomorphisms.
+
+Yes.  Any nontrivial group homomorphism whose domain is a simple
+group is injective (where "nontrivial" means that it is not the
+homomorphism that sends everything to 1).  Same proof.
+
+----------------------------------------------------------------------
+In connection with the fact that commutative simple rings are fields,
+(Prop.9(2), p.253, you ask whether general simple rings are close to
+fields in properties.
+
+Not very close.  I mentioned in class on Monday that to construct
+the right or left ideal generated by a single element  a  of a
+ring  R  (and hence in the commutative case, the ideal generated
+by  a),  one just had to take all elements  ra,  respectively  ar;
+but that to get the 2-sided ideal generated by  a,  one might
+need arbitrarily long expressions  r_1 a s_1 + ... + r_k a s_k.
+So in the commutative case, to say that every nonzero element
+generates  R  as an ideal (which is equivalent to  R  being simple)
+means that for every nonzero  a  there is an  r  such that  ar = 1;
+i.e., an inverse.  But in the noncommutative case, it says that
+for each  a   there is a  k,  which may depend on  a,  and
+elements  r_1, ..., s_k  such that  1 = r_1 a s_1 + ... + r_k a s_k;
+a much weaker condition.  The example in the paragraph you refer to
+of  M_n(F)  is already pretty different from a field, but there a
+fixed  k  will do, namely  n.  There are examples where the required
+k  is unbounded as a function of  a.
+
+----------------------------------------------------------------------
+You ask about the comment before the Examples on p.906 that the
+representation of an I-tuple depends on a choice of ordering of  I.
+
+I think the authors' point is that the formal definition of an element
+of a cartesian product set, as a function on the index set  I,  does
+not depend on a choice of ordering of  I;  that choice only comes in
+when we decide to write elements of the cartesian product using a
+string of symbols.  We can do so if  I  is reasonably small; e.g.,
+finite, or, using "...", if it is countably infinite.  In doing so,
+we have to decide what order to put the symbols in; but the abstract
+definition of an I-tuple doesn't involve any order.
+
+(Occasionally, we put symbols in a non-linear array; for instance,
+the entries of a matrix.)
+
+----------------------------------------------------------------------
+You ask how one can prove, as asserted in the middle of p.909, that
+one can show that if ZF is consistent, then so are ZF with the
+Axiom of Choice (equivalently Zorn's Lemma) and also ZF with the
+negation of that axiom.
+
+Set theory is far from my field; but my understanding is that
+assuming ZFC is true, one can construct a "model" of set theory
+satisfying ZF but not C (= the axiom of Choice, equivalent to Zorn's
+Lemma), and conversely, that assuming ZF is true but not Choice,
+one can construct a "model" of ZFC.  The "model" in either case
+would consist of a certain subclass of the sets which are to
+be called the "sets" of the model; a relation among these which
+is called "membership" (even if it is not the same as membership
+in the given theory), etc.; and using the axioms that one assumes,
+one proves that the new structure satisfies the modified axioms.
+Hence if one set of axioms is consistent, so is the other.
+
+(This is like the way one approaches various sorts of non-Euclidean
+geometry, by constructing a region of the Euclidean plane, and a
+certain set of curves therein, which one treats as the lines of
+the new geometry, and a certain metric which one calls the "distance"
+function of the new geometry, and then verifies that it satisfies
+appropriate non-Euclidean axioms; hence these axioms are consistent.)
+
+----------------------------------------------------------------------
+You ask whether the concept of prime ideal (p.255) and the construction
+of rings of fractions (pp.260-263) work for noncommutative rings.
+
+The answer to both questions is that in the noncommutative
+context, we have more than one generalization of the concept.
+
+For the concept of prime ideal, the situation is relatively simple.
+In the commutative case, the condition that an ideal  P  be prime
+can be expressed equivalently either as saying that (1) for any two
+elements  x, y,  if neither is in  P,  then their product is not
+in  P,  or (2) for any two ideals  I, J,  if neither is contained
+in  P,  then their product is not contained in  P.  (Proving one
+direction of that equivalence is a problem in the homework I will
+give out today.)  In the noncommutative case, these are two different
+conditions:  Ideals satisfying (2) are called prime; those satisfying
+(1) are "completely prime".  For  P  to be completely prime is
+equivalent to  R/P  being a ring without zero-divisors.  The condition
+that  P  be prime means that in  R/P,  a product of nonzero ideals
+is nonzero.  It's nice to have a completely prime ideal, but one may
+not be able to find them; e.g.,  M_n(Q)  has none.  Prime ideals may
+not be as nice, but they have existence properties analogous to those
+in the commutative case; e.g., every maximal ideal is prime.
+
+The situation for rings of fractions is more complicated.  The
+construction given in the book doesn't work without commutativity:
+the definitions that they give of addition and multiplication aren't
+even well-defined.  There is another approach to the construction in
+the commutative case, described in an unassigned problem on the sheet I
+will give out today, involving maps defined on certain sorts of
+principal ideals in  R.  If for "ideal" one substitutes "left ideal" or
+"right ideal", then there is a nice class of noncommutative rings for
+which the construction works -- the "left Ore rings" and the "right Ore
+rings" respectively.  For rings which are not necessarily left or right
+Ore, there are variants which use non-principal ideals; but when the
+ring is indeed not Ore, the resulting "rings of fractions" are really
+ghastly -- generally much messier than the original rings, rather than
+nicer.  Finally, are two entirely different approaches, one based on
+adjoining inverses by "generators and relations"; the other based on
+adjoining inverses not to certain elements of the ring, but to certain
+square matrices over it.
+
+----------------------------------------------------------------------
+Regarding the construction of rings of fractions (p.261, Theorem 15)
+you ask
+
+> What can we say about the cardinality of Q? It is not |R| x |D|
+> because 1 = d/d = d^2 / d^2. Then what is it?
+
+It will equal both  |R|  and (assuming R infinite)  |R| x |D|.
+
+Infinite cardinalities are not as simple as finite cardinalities
+-- a set and a proper subset, or a set and its image under a
+non-one-to-one map, _can_ have the same cardinality.  (E.g., Z
+and 2Z have the same cardinality, since the map  n |-> 2n  is
+a bijection; but 2Z is a proper subset of Z, and it is also
+the image of Z under the non-one-to-one map sending each even
+integer 2n to itself, and each odd integer 2n-1 to the next
+even integer, 2n.)  For any infinite cardinal  \kappa,  one
+has  \kappa x \kappa = \kappa.  Hence for any infinite ring  R
+and any  D,  we have
+
+	|R| _< |Q| _< |R| x |D| _< |R| x |R| = |R|.
+
+Since the first and last term above are equal, all the terms are equal.
+
+This leaves only the case of finite  R.  One can show that any finite
+integral domain is a field, hence  R = Q  (though for any  D  with
+more than one element,  |R| _< |R| x |D|).
+
+----------------------------------------------------------------------
+In connection with the definition of "norm" on p.270, and my comment
+in the handout that this is just one instance of a wide class of
+uses of the term, you write,
+
+> ... You mentioned ... that norms are "not necessarily
+> integer-valued".  What are the restrictions, if any, for the
+> set that is mapped into?  ...
+
+What I meant was that "norm" is not a single mathematical concept,
+but a useful general term for a function used in a certain way;
+the functions so used and so named in different contexts can
+be very different.  For instance, in H110 we saw that in an inner
+product space, the "norm" of a vector  x  was defined to be  ||x|| =
+sqrt{<x, x>}.  There is a more general concept of a "normed vector
+space", a real or complex vector space with a nonnegative-real-valued
+function "|| ||" which is not necessarily determined by an inner
+product, but has some of the properties of functions defined in that
+way.  The "field norm", also mentioned in the homework errata, has
+a very different sort of codomain.  So the answer is simply "whatever
+sort of set one finds useful".
+
+> ...  Why are norms only defined over domains?
+
+In the context of this chapter, because the norms considered are
+generalizations of Euclidean norms, used to prove that rings have
+certain properties very much like those of  Z,  which non-domains
+don't have.
+
+> Is it possible to "measure" the elements of a ring with 
+> zero divisors?
+
+The term is used in connection with certain rings with zero divisors,
+for very different purposes.  For instance, if  V  is a normed vector
+space and  R  is the ring of "bounded operators" on  V,  that is,
+linear maps  T: V --> V  for which there exists a nonnegative real
+number  c  such that for all  x\in V  one has  ||Tx|| _< c ||x||,
+then the least such  c  is called "the norm of  T".  This is a very
+important tool.
+
+Rings of bounded operators, despite being rings, are more in the
+domain of functional analysis than of algebra.  I don't recall
+any uses of the term "norm" applied in algebra to rings that are not
+domains; but it has probably been so used.
+
+----------------------------------------------------------------------
+You ask for examples of rings in which greatest common divisors
+do not exist, as mentioned on p.274, second sentence before Prop.2
+
+Let  k  be any field, and let  k[x^2, x^3]  be the subring of
+k[x]  generated by  k,  x^2,  and  x^3;  i.e., the ring of all
+polynomials  a_n x^n + a_{n-1} x^{n-1} + ... + a_1 x + a_0  such
+that  a_1 = 0.  Note that in this ring:
+
+	x^m  divides  x^n  if and only if  n = m  or  n >_ m+2.
+
+But  x^m  does not divide  x^{m+1}  (because  x  is not in the ring).
+
+Now note that  a=x^5  and  b=x^6  have  x^2  and  x^3  as common
+divisors; but no larger power of  x  is a common divisor of these
+elements in the ring, from which you can see that they have no
+greatest common divisor.
+
+(The statement "gcd's don't exist" means that, as in the above
+example, there are _some_ pairs of elements that have no gcd, not
+that _no_ pair has a gcd.)
+
+----------------------------------------------------------------------
+You ask whether there are noncommutative analogs of the concept of
+principal ideal domains (p.279).
+
+Yes!
+
+One can look at the condition that right ideals, left ideals, or
+2-sided ideals be principal.
+
+The condition that 2-sided ideals be principal is not very useful,
+because the 2-sided ideal generated by a single element  a  does
+not consist of expressions of a nice form like  xa  or  ax;  rather,
+it involves arbitarily large sums  x_1 a y_1 + ... + x_n a y_n;  so
+to know that for an ideal  I  there exists an  a  such that every
+element of  I  has this form doesn't give us a fact that we can
+easily use.
+
+On the other hand, the conditions that right and/or left ideals are
+all principal are similar in their strength to the PID condition in
+the commutative case (and incidentally imply the above condition that
+every 2-sided ideal is principal, since if  I  is a 2-sided ideal, it
+is in particular a left ideal, and if as such we write it  Ra,
+then  a  will certainly generate it as a 2-sided ideal.)
+
+There is a standard easy class of examples, of which our text gives
+a particular case as Exercise 13 on p.302.  But they make a choice that
+makes that example seem more complicated than it needs to.  The general
+example is based on a field  F  and a one-to-one endomorphism  \alpha
+of  f  (i.e., a one-to-one homomorphism  F --> F); the ring  R  one
+constructs from this will always have left ideals principal, and will
+also have right ideals principal if and only if  \alpha  is onto (hence
+is an automorphism of  F).  The point of their exercise is to show
+that a noncommutative ring can have the principal ideal property on
+one side but not on the other, for which they need a field with an
+endomorphism  \alpha  that is not surjective.  To get this, they
+use the fact that in a field of characteristic  p,  the p-th power
+map  x |-> x^p  is always an endomorphism, and say "Let  F  be a
+field of characteristic  p  in which not every element is a p-th
+power".  The much easier way to get an example is to take any field
+K,  form the field of rational function  K(t)  (i.e., the field of
+fractions of  K[t]), and let  \alpha  be the map that sends  r(t)
+to  r(t^2).  (I am writing "t" rather than "x" for the indeterminate
+because a different "x" is used in the construction.)
+
+So you can look at that exercise; if you have any questions, let me
+know.  Note also that if you merely want to get a noncommutative
+PID, then you can use a nontrivial endomorphism of  F  without
+requiring that it be non-surjective; for instance, you can let
+F  be the field of complex numbers, and  \alpha  be complex
+conjugation.
+
+There are other more subtle noncommutative generalizations of the
+property of being a principal ideal domain.  One of them is the
+condition that every (say) left ideal  I  of  R  have a "basis", i.e.,
+a subset  X  such that every element of  I  can be written uniquely
+as a left linear combination of elements of  X  with coefficients
+in  R.  If  R  is commutative, then given two nonzero elements  a
+and  b  of  I,  the element  0a + ab = ba + 0b  has nonunique
+representation as a left linear combination of them, so the only way an
+ideal can have such a "basis" is if the basis consists of one element,
+i.e., the ideal is principal.  But in the noncommutative case, this
+isn't so, and one gets interesting examples of rings with this
+property, called "free ideal rings" (abbreviated "firs").  My PhD
+thesis concerned these.
+
+----------------------------------------------------------------------
+In connection with the result on p.280 that the gcd of two
+elements of two elements of a PID is a linear combination
+of those elements, you ask about gcd's of larger sets, in
+particular infinite sets.  I answered this in class, but you
+weren't there!
+
+Basically:  The ideal generated by a set  A  will always
+consist of linear combinations of elements of  A;  so if
+R  is a PID, the generator of the ideal  (A)  will constitute
+a gcd of  A,  and will indeed be a linear combination of
+elements of  A.  Note that even if  A  is infinite, every
+linear combination of its elements is a finite linear combination;
+so the gcd of  A  will equal the gcd of some finite subset.
+
+As an example:  suppose  R  is the integers, and  A  is the
+set of all perfect numbers (integers which are equal to the
+sum of their proper factors).  A lot is known about even
+perfect numbers; the first two are  6  and  28;  but it is
+unknown whether there are any odd ones.  So the gcd of the
+set of perfect numbers will be a divisor of  gcd(6,28) = 2,
+i.e., will equal  1  or  2,  depending on whether there are
+any odd perfect numbers.  Whatever the value is, it can be
+expressed as a linear combination of finitely many perfect
+numbers; but there is no finite test which one can be sure
+will tell us whether it is  1  or  2.
+
+----------------------------------------------------------------------
+Regarding Proposition 13 on p.287, you ask whether we can avoid
+using unit factors  u  and  v  by just using variant forms of
+some primes --
+
+> For instance, if R is the integers, if a=3 and b=-3, let
+> p_1=2,
+> p_2=-2,
+> p_3=3,
+> p_4=-3
+
+If you did this, then Proposition 13 would not be true.  E.g., with
+your values of  a  and  b,  we would have
+
+	a = p_3^1 p_4^0,	b = p_3^0 p_4^1
+
+and since no prime appears with positive exponent in both expressions,
+we would get  d = p_3^0 p_4^0 = 1;  but that is not the gcd of  3
+and  -3.
+
+As I discussed in class, where the authors say the primes are
+"distinct", they should say they are "distinct up to unit factors",
+i.e., that none of them is an associate of any other.
+
+----------------------------------------------------------------------
+You ask about the use of the words "variable" vs. "indeterminate"
+both of which occur on pp.295-296.
+
+The term "variable" for the  x  in  R[x]  is not logical in the
+context of ring theory, because we are not considering polynomials
+f(x)  as functions.  We can't, because we don't have a fixed domain
+and codomain.  E.g., if we thought of an element of  (Z/3Z)[x]  as a
+function  Z/3Z -> Z/3Z,  then x^3 - x = x(x-1)(x-2)  would be zero at
+all elements of  Z/3Z, and hence would equal the zero function; yet
+when we adjoin a square root of -1 to that ring, getting  Z[i]/(3),
+then that field has 9 elements, so not all of them are roots of
+x(x-1)(x-2),  and the polynomial would have changed from the zero
+function to a nonzero one.  The construction of the complex numbers is
+based on adjoining a root to  x^2+1 \in R[x];  if we regarded this as a
+function  R -> R  only, how would we interpret the statement that  f(i)
+= 0  in  C?  Finally, one is interested in applying polynomials to
+matrices, as in Math 110, so again it would be too limiting to regard
+them as functions on the given field only.
+
+So we regard polynomials as more abstract entities (from which we
+can obtain functions); and instead of speaking of the  x  as a
+"variable", we introduce the new word "indeterminate", meaning,
+historically, "something that doesn't have a particular value".
+
+However, some people carry the word "variable" from other fields
+into algebra, and use it to mean indeterminate.  The practice of
+extending the meaning of an old term to a new situation (e.g.,
+extending "cyclic" from the case of finite cyclic groups, which
+"look like" cycles, to infinite cyclic groups, which don't) is
+long established, so this use of "variable" is not unreasonable
+if an author makes the usage clear, and the reader keeps in mind
+that in this context, it doesn't have the same meaning as in the
+case of functions.  Generally speaking, modern usage prefers
+"indeterminate", and the authors introduce that term to begin with;
+but, as I say in the notes on today's reading (on the current homework
+sheet), in this section they sometimes slip back to calling them
+"variables".
+
+----------------------------------------------------------------------
+You point out that Corollary 8 on p.305 says that for an arbitrary
+set of indeterminates, "R is a UFD => R[...] is", but doesn't state
+the reverse implication, and ask whether that reverse implication
+can fail.
+
+No!  The implication "R[...] is a UFD => R is" is the easy direction
+in these "<=>" results, and the authors presumably took it for granted
+and didn't think to mention it here; but you should be able to verify
+easily that it is true.  If not, ask for details.
+
+----------------------------------------------------------------------
+You ask what the authors mean by the statement on p.518 (end of
+paragraph after Examples) that the property of being real, which
+distinguishes one cube root of 2 from the two others, involves
+"continuous operations".
+
+As I said in class on Wednesday, the reference to "continuous
+operations" here seems to be mistake.  My best guess as to what
+the authors mean is that the real cube root of 2 is distinguished
+from the complex cube roots of 2 by _limit_ properties; namely the
+former is a limit of rational numbers, while the latter are not.
+
+Their point, in either case, is that limit properties (or continuity
+properties) are not part of algebra, so in algebraic terms, i.e., in
+terms expressible using addition, multiplication, and equalities
+(but not the absolute value function, or the "<" relation), these
+elements are indistinguishable.
+
+----------------------------------------------------------------------
+You ask about the relationship between minimal polynomials in linear
+algebra (Math (H)110) and in the study of field extensions (p.520).
+
+If  R  is any ring with 1 containing a field  F  whose elements
+commute with all elements of  R,  and  \alpha  is any element
+of  R  which, together with  F,  generates a subring  F[\alpha]
+finite-dimensional over  F,  then one can see that the infinitely many
+powers of  \alpha  must be linearly dependent over  F  (otherwise
+F[\alpha]  would be infinite-dimensional), hence  \alpha  satisfies
+a polynomial.
+
+The set of polynomials that it satisfies will form an ideal  I  of
+F[x],  and  F[\alpha]  will be isomorphic to  F[x]/I  by the First
+Isomorphism Theorem.  Moreover, since  F[x]  is a PID,  I  will be
+a principal ideal generated by some polynomial  m(x).  This will be
+unique if we take it to be monic, and is then called the minimal
+polynomial of  \alpha.
+
+These observations can, in particular, be applied either when  R  is
+the ring of linear operators on a finite-dimensional F-vector-space
+V  (we consider  R  to contain  F  in the guise of the ring of
+scalar multiples of the identity operator) and  \alpha  is any member
+of this ring, or when  R  is a field extension of  F  and  \alpha
+any algebraic element thereof.
+
+The main difference is that when  R  is a field extension of  F,
+it has no zero-divisors, so  m(x)  is necessarily irreducible.  On
+the other hand, in linear algebra, the best case is when  F  is
+algebraically closed, so that  m(x)  factors into linear factors.
+
+There are also minor differences:  In (H)110, we didn't have the
+language of ideals, Euclidean domains, and PID's, so the fact that
+the set of polynomials satisfied by  \alpha  consisted of all
+multiples of  m(x)  had to be proved ad hoc (Friedberg, Insel and
+Spence, Theorem 7.12(a), p. 516.  But note that the method, used there,
+the Euclidean algorithm, is the same one used in this course to
+show  F[x]  is a Euclidean domain).  On the other hand, in this course,
+which doesn't have (H)110 as prerequisite, we can't assume familiarity
+with the determinant function, so we can't get study analog of the
+relation between minimal and characteristic polynomials.
+
+----------------------------------------------------------------------
