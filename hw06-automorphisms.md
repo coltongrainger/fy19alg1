@@ -1,5 +1,5 @@
 ---
-title: Automorphisms
+title: Conjugacy classes and automorphisms
 author: Colton Grainger (MATH 6130 Algebra)
 date: 2018-10-05
 bibliography: /home/colton/Downloads/coltongrainger.bib
@@ -58,7 +58,36 @@ We'll now argue $\pi(x)$ is a product of $m$ $n$-cycles by writing each element 
 
 ### Classification of simple groups of size less than 60
  
-If a simple group has order less than $60$, then it is abelian.^[Hint: Catalog groups by order, prime and not prime.]
+If a simple group has order less than $60$, then it is abelian.
+
+*Given.* The set $\sS$ of all groups $G$ such that $1 \le \abs{G} \le 59$.
+
+*To show.* Exhaustively, that each group $G$ in $\sS$ is abelian or not simple. 
+
+*Demonstration.*
+
+- The trivial group $\{1\}$ is not simple, by definition of simple as having no *nontrivial* proper normal subgroup.
+- By Lagrange's theorem, groups of prime order are cyclic, therefore abelian.
+- By the class equation, groups of prime power order $p^\alpha$ for $p$ prime and $\alpha \in \ZZ_{\ge 0}$ have non-trivial centers.
+    - Either center of the group is the group itself and the group is abelian, or
+    - or the center of the group is a (normal) nontrivial proper subgroup, in which case the group is not simple.
+- By Lemma 1, groups of order $pq$   (where $p$ and $q$ are primes) are not simple.
+- By Lemma 2, groups of order $p^2q$  (where $p$ and $q$ are primes) are not simple.
+- What orders of groups in $\sS$ remain to be discussed?
+
+order | prime factorization
+----- | -------------------
+24 | $2^3 \cdot 3$
+30 | $2 \cdot 3 \cdot 5$
+36 | $2^2 \cdot 3^2$
+40 | $2^2 \cdot 3^2$
+42 | $2 \cdot 3 \cdot 7$
+48 | $2^4 \cdot 3$
+60 | $2^2\cdot 3 \cdot 7$
+
+*Lemma 1*.
+
+*Lemma 2*.
 
 ### [@DF04, number 4.3.13]
 
