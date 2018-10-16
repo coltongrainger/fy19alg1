@@ -4,6 +4,7 @@ author: Colton Grainger (MATH 6130 Algebra)
 date: 2018-10-05
 bibliography: /home/colton/Downloads/coltongrainger.bib
 macros: true
+tikz: true
 ---
 
 \providecommand{\Aut}[1]{\mathrm{Aut}\left({ #1 }\right)}
@@ -22,13 +23,7 @@ If $p$ is a prime and $G$ is a group of order $p^\alpha$ for some $\alpha \in \N
 
 *Proof à la carte.* (We proved this in class as an application of the third isomorphism theorem; it's also in the text as a corollary of Cayley's theorem.)
 
-- Suppose $H \le G$ and $\abs{G : H} = p$. 
-- Let $\pi_H$ be the permutation representation $\pi \colon G \to S_G$ afforded by left multiplication of the cosets of $H$ in $G$, let $K = \ker \pi_H$, and let $\abs{H:K} = k$.
-- Now $\abs{G:K} = \abs{G:H}\abs{H:K} = pk$. Since $H$ has $p$ left cosets, $G/K$ is isomorphic to a subgroup of $S_p$ be the first isomorphism theorem. 
-- By Lagrange's theorem, $pk = \abs{G/K}$ divides $p = \abs{G/H}$.
-- Thus $k$ divides $(p-1)!$
-- But all the prime divisors of $k$ are at least as large as $p$.
-- With $p$ chosen minimally, we're forced to accept $k = 1$, so $K = H$, and therefore $H \triangleleft G$. \qedsymbol
+Suppose $H \le G$ and $\abs{G : H} = p$. Let $\pi_H$ be the permutation representation $\pi \colon G \to S_G$ afforded by left multiplication of the cosets of $H$ in $G$, let $K = \ker \pi_H$, and let $\abs{H:K} = k$. Now $\abs{G:K} = \abs{G:H}\abs{H:K} = pk$. Since $H$ has $p$ left cosets, $G/K$ is isomorphic to a subgroup of $S_p$ be the first isomorphism theorem. By Lagrange's theorem, $pk = \abs{G/K}$ divides $p = \abs{G/H}$. Thus $k$ divides $(p-1)!$ But all the prime divisors of $k$ are at least as large as $p$. With $p$ chosen minimally, we're forced to accept $k = 1$, so $K = H$, and therefore $H \triangleleft G$. \qedsymbol
 
 *Given.* A group $G$ of order $p^2$.
 
@@ -52,7 +47,7 @@ We'll now argue $\pi(x)$ is a product of $m$ $n$-cycles by writing each element 
 
 *Proof.* With the lemma below, $\pi(x)$ is odd if and only if its cycle type contains an odd number of even integers, which occurs precisely when the disjoint cycle representation of $\pi(x)$ is a factorization containing an odd number of even length cycles. Well, borrowing notation from the proof above, $$\text{ the cycle type of $\pi(x)$ is $\underbrace{(n,n, \ldots, n)}_{m \text{ times}}$.}$$ So $\pi(x)$ is odd if and only if $\abs{G}/\abs{x} = m$ is odd and $\abs{x} = n$ is even. \qedsymbol
 
-*Lemma*. A permutation $\sigma \in S_G$ is odd if an only if an odd number of the $\tau_i$ in the disjoint cycle decomposition of $\sigma$ have even cycle length.
+**Lemma**. A permutation $\sigma \in S_G$ is odd if an only if an odd number of the $\tau_i$ in the disjoint cycle decomposition of $\sigma$ have even cycle length.
 
 *Proof*. The sign of a permutation is a group homomorphism $\epsilon \colon S_G \to \{-1,1\}$. Now for $\sigma \in S_G$ with disjoint cycle decomposition $\sigma = \tau_1 \tau_2 \cdots \tau_m$, we have $\epsilon(\sigma) = -1$ if and only if $\epsilon(\tau_1)\epsilon(\tau_2) \cdots \epsilon(\tau_m) = -1$ if and only if an odd number of the $\tau_i$ are of even cycle length. \qedsymbol
 
@@ -71,8 +66,8 @@ If a simple group has order less than $60$, then it is abelian.
 - By the class equation, groups of prime power order $p^\alpha$ for $p$ prime and $\alpha \in \ZZ_{\ge 0}$ have non-trivial centers.
     - Either center of the group is the group itself and the group is abelian, or
     - or the center of the group is a (normal) nontrivial proper subgroup, in which case the group is not simple.
-- By Lemma 1, groups of order $pq$   (where $p$ and $q$ are primes) are not simple.
-- By Lemma 2, groups of order $p^2q$  (where $p$ and $q$ are primes) are not simple.
+- By the lemma below, groups of order $pq$   (where $p$ and $q$ are primes) are not simple.
+- By the lemma below, groups of order $p^2q$  (where $p$ and $q$ are primes) are not simple.
 - What orders of groups in $\sS$ remain to be discussed?
 
 order | prime factorization
@@ -85,9 +80,13 @@ order | prime factorization
 48 | $2^4 \cdot 3$
 60 | $2^2\cdot 3 \cdot 7$
 
-*Lemma 1*.
+**Lemma.** Groups of order $pq$ (where $p$ and $q$ are primes) are not simple. Moreover, groups of order $p^2q$ are also not simple.
 
-*Lemma 2*.
+*Given.* Primes $p$ and $q$ (WLOG $p < q$), a group $G$ of order $pq$, a group $K$ of order $p^2q$.
+
+*To prove.* Both $G$ and $K$ posses normal nontrivial proper subgroups.
+
+*Proof.*
 
 ### [@DF04, number 4.3.13]
 
@@ -105,11 +104,70 @@ So for both of the representatives $g_i$ in $G$, we have $C_G(g) = {1, g}$. Cert
 
 ### [@DF04, number 4.3.19]
 
-Assume $H$ is a normal subgroup of $G$, $\sK$ is a conjugacy class of $G$ contained in $H$ and $x \in \sK$. We show $\sK$ is a union of $k$ conjugacy classes of equal size in $H$, where $k = \abs{G : HC_G(x)}$. We then show^[Letting $A = C_G(x)$ and $B = H$ so $A \cap B = C_H(x)$, drawing the lattice diagram associated to the second isomorphism theorem, and interpreting the appropriate indices.] a conjugacy class in $S_n$ that consists of even permutations is either a single conjugacy class under the action of $A_n$ or is a union of two classes of the same size in $A_n$. 
+Assume $H$ is a normal subgroup of $G$, $\sK$ is a conjugacy class of $G$ contained in $H$ and $x \in \sK$. We show $\sK$ is a union of $k$ conjugacy classes of equal size in $H$, where $k = \abs{G : HC_G(x)}$. 
+
+*Given*. $H \triangleleft G$, $\sK$ a conjugacy class of $G$, $\sK \subset H$.
+
+*To prove*. For $x \in \sK$, we have that $\sK$ is a union of $k = \abs{G : H C_G(x)}$ conjugacy classes in $H$.
+
+*Proof.* $G$ acts transitively by conjugation on $\sK$---for every pair of elements $a$ and $b$ in $\sK$ is conjugate to the other in $G$. Now recall from the previous assignment [@DF04, number 4.1.9]:
+
+> [When] $G$ acts transitively on the finite set $A$ and $H$ is a normal subgroup of $G$, with $\sO_1, \sO_2, \ldots, \sO_k$ the distinct orbits of $H$ on $A$, we have that 
+>
+> (a) $G$ is transitive on $\{\sO_1, \ldots, \sO_k\}$ and all orbits of $H$ on $A$ have the same cardinality.
+
+Therefore, in our specific case, $G$ acts transitively on the orbits of the conjugation action of $H$ on $\sK$. If these orbits of $H$ on $\sK$ are denoted $\sO_1, \ldots,\sO_k$, then $\abs{\sO_1} = \cdots = \abs{\sO_k}$.
+
+We now want to show that the number of such orbits $k = \abs{G : HC_G(x)}$. Perhaps relabelling indices, let $x \in \sO_1 \subset \sK$. Citing again [@DF04, number 4.1.9], we have:
+
+> (b) If $a \in \sO_1$, then $\abs{\sO_1} = \abs{H : H \cap \Stab{G}{a}}$. Furthermore, $k = \abs{G : H\Stab{G}{a}}$.
+
+In our specific case, both $G$ and $H$ act on $\sK$ by conjugation. We thus recognize $\Stab{G}{a} = C_G(a)$ for points $a$ in $\sK$. That $k = \abs{G : HC_G(x)}$ is immediate. For clarity of argument, however, we'll find $k$ directly from the diamond isomorphism theorem, ignoring^[I had to revise it anyways.] the result [@DF04, number 4.1.9] (b) .
+
+Onwards! Consider the centralizer of $x$ in $G$ and $C_G(x)$ and $H \triangleleft G$. Now by the diamond isomorphism theorem we have the lattice
+
+\begin{center}
+\begin{tikzpicture}[every node/.style={fill=white}] % white fill keeps lines from running into labels
+
+	\draw[double] (0,6) -- (2,4);
+    \draw (2,4) -- (0,2);
+    \draw (0,6) -- (-2,4);
+	\draw[double]  (-2,4) -- (0,2);
+
+	\node at (0,6) {$HC_G(x)$};
+	\node at (2,4) {$H$};
+	\node at (-2,4){$C_G(x)$};
+	\node at (0,2) {$C_H(x)$};
+
+\end{tikzpicture}
+\end{center}
+
+where we've observed that $C_H(x) = \{h \in H: hx = xh\} = \{g \in G: g \in H \text{ and } gx = xg\} = H \cap C_G(x)$ for the bottom node. As a consequence of the diamond isomorphism theorem, 
+$$\frac{HC_G(x)}{H} \cong \frac{C_G(x)}{C_H(x)} \quad\text{ therefore }\quad \abs{HC_G(x)} = \frac{\abs{C_G(x)}\abs{H}}{\abs{C_H(x)}}.$$ 
+By orbit stabilizer for the action of $G$ and $H$ on $\sK$,
+$$\abs{\sK} = \frac{\abs{G}}{\abs{C_G(x)}} \quad\text{ and, zooming in to action of $H$, }\quad \abs{\sO_1} = \frac{\abs{H}}{\abs{C_H(x)}}.$$
+Noting $\sK$ is the union of disjoint orbits $\sO_i$ of the same size, we find $k = \frac{\abs{\sK}}{\abs{\sO_1}}$ as follows
+\begin{align*}
+k &= \abs{\sK}\cdot\frac{1}{\abs{\sO_1}}\\
+  &= \frac{\abs{G}}{\abs{C_G(x)}} \cdot \frac{\abs{C_H(x)}}{\abs{H}}\\
+  &= \frac{\abs{G}}{\abs{HC_G(x)}}\\
+  &= \abs{G : HC_G(x)}.
+\end{align*}
+Therefore $\sK$ is the union of $\abs{G:HC_G(x)}$ equally sized orbits of $H$. \qedsymbol
+
+**Corollary.** A conjugacy class in $S_n$ that consists of even permutations is either a single conjugacy class under the action of $A_n$ or is a union of two classes of the same size in $A_n$.
+
+*Proof.* Say that $\sK$ is a conjugacy class of $S_n$ that consists of only even permutations. We recognize $A_n$ is normal in $S_n$, so the hypotheses of the previous result are satisfied our specific case. Thus, $\sK$ is the union $\abs{A_nC_G(x)}$ equally sized orbits of $A_n$ acting by conjugation on $\sK$. Since $$\frac{n!}{2} = \abs{A_n} \le \abs{A_nC_G(x)}$$ we must have the index of $A_n C_G(x)$ in $S_n$ either $1$ or $2$. \qedsymbol
 
 ### [@DF04, number 4.3.23]
 
 If $M$ is a maximal subgroup of $G$ then either $N_G(M) = M$ or $N_G(M) = G$. Therefore, if $M$ is a maximal subgroup of $G$ that is not normal in $G$ then the number of nonidentity elements of $G$ that are contained in conjugates of $M$ is at most $(\abs{M} -1)\cdot \abs{G:M}$.
+
+*Given.* A maximal subgroup $M$ of $G$. 
+
+*To prove.* Either $N_G(M) = M$ or $N_G(M) = G$. Also, the number of non-identity elements of $G$ that are contained contained in conjugates of $M$ is at most $(\abs{M} -1)\cdot \abs{G:M}$.
+
+*Proof.* Since $M \le N_G(M) \le G$ and $M$ is maximal in $G$, either $N_G(M) = M$ or $N_G(M) = G$. Now to put an upper bound on the number of nonidentity elements of $G$ contained in conjugates of $M$, assuming $M$ is *not* normal in $G$. If 
 
 ### [@DF04, number 4.3.24]
 
