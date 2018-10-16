@@ -167,15 +167,34 @@ If $M$ is a maximal subgroup of $G$ then either $N_G(M) = M$ or $N_G(M) = G$. Th
 
 *To prove.* Either $N_G(M) = M$ or $N_G(M) = G$. Also, the number of non-identity elements of $G$ that are contained contained in conjugates of $M$ is at most $(\abs{M} -1)\cdot \abs{G:M}$.
 
-*Proof.* Since $M \le N_G(M) \le G$ and $M$ is maximal in $G$, either $N_G(M) = M$ or $N_G(M) = G$. Now to put an upper bound on the number of nonidentity elements of $G$ contained in conjugates of $M$, assuming $M$ is *not* normal in $G$. If 
+*Proof.* Since $M \le N_G(M) \le G$ and $M$ is maximal in $G$, either $N_G(M) = M$ or $N_G(M) = G$. Now to put an upper bound on the number of nonidentity elements of $G$ contained in conjugates of $M$, assuming $M$ is *not* normal in $G$. The key idea is to note that conjugation is an automorphism of $G$, so any conjugate $gMg^{-1}$ is isomorphic to $M$. Since the identity is only conjugate to itself, the number of non-identity elements in each conjugate $gMg^{-1}$ is $\abs{M}-1$. We can partition $G$ into $\abs{G: M}$ disjoint left cosets of $M$, but we can't partition $G$ into conjugates of $M$, for conjugation fixes the identity element. So we have at most $(\abs{M} - 1)$ non-identity elements of $M$ to work with. Since the index of $M$ in $G$ is $\abs{G : M}$, we conclude there are at most $(\abs{M} - 1)\abs{G : M}$ distinct non-identity elements of $G$ in conjugates of $M$. \qedsymbol
 
 ### [@DF04, number 4.3.24]
 
-Assume $H$ is a proper subgroup of the finite group $G$. Then $G$ is not the union of the conjugates of any proper subgroup,^[Hint: put $H$ in some maximal subgroup and use the previous exercise.] i.e., $$G \neq \bigcup_{g \in G} gHg^{-1}.$$
+Assume $H$ is a proper subgroup of the finite group $G$. Then $G$ is not the union of the conjugates of any proper subgroup, i.e., $$G \neq \bigcup_{g \in G} gHg^{-1}.$$
+
+*Proof.* If $G$ is a proper subgroup of $G$, then $H \le M$ for some maximal subgroup $M \le G$. By [@DF04, 4.3.23], 
+
+\begin{align*}
+\abs{ \bigcup_{g \in G} gHg^{-1} } &\le (\abs{M} -1)\abs{G : M}\\
+    &= \abs{G} \cdot \frac{\abs{M}-1}{\abs{M}}\\ 
+    &< \abs{G}.
+\end{align*}
+We conclude that $G$ is not the union of conjugates of the proper subgroup $H$. \qedsymbol
 
 ### The size of each conjugacy class in $S_n$ [@DF04, number 4.3.33]
 
-Let $\sigma$ be a permutation in $S_n$ and let $m_1, \ldots, m_s$ be *distinct* integers that appear in the cycle type of $\sigma$ (including $1$-cycles). For each $i \in \{1, 2, \ldots, s\}$ assume $\sigma$ has $k_i$ cycles of length $m_i$ (so that $\sum_{i=1}^s k_i m_i = n$). Then the number of conjugates^[If $n \ge m$ then the number of $m$-cycles in $S_n$ is given by $$\frac{n(n-1)(n-2)\ldots(n-m+1)}{m}.$$ For another example, if $n \ge 4$ then the number of permutations in $S_n$ that are the product of two disjoint $2$-cycles is $n(n-1)(n-2)(n-3)/8$.] of $\sigma$ is $$\frac{n!}{(k_1!m_1^{k_1})(k_2!m_2^{k_2})\cdots(k_s!m_s^{k_s})}.$$
+Let $\sigma$ be a permutation in $S_n$ and let $m_1, \ldots, m_s$ be *distinct* integers that appear in the cycle type of $\sigma$ (including $1$-cycles). For each $i \in \{1, 2, \ldots, s\}$ assume $\sigma$ has $k_i$ cycles of length $m_i$ (so that $\sum_{i=1}^s k_i m_i = n$). Then the number of conjugates of $\sigma$ is $$\frac{n!}{(k_1!m_1^{k_1})(k_2!m_2^{k_2})\cdots(k_s!m_s^{k_s})}.$$
+
+*Proof.* Suppose $\sigma \in S_n$ is as described above. Place out parentheses according to the cycle type of $\sigma$. There are $n!$ ordered arrangements of exactly $n$ distinct indices without repetition into the parentheses.^[Being polite: We assume the parentheses are not nested, we require there are $n$ total positions in between all the pairs, and we also assume that the parentheses are open and closed ecumenically.]  
+
+Now cyclic permutations of indices in a set of parentheses are equivalent, so for each $m_i$ cycle in $\sigma$ we mod out the $n!$ arrangements by $m_i^{k_i}$, the number of cyclic permutations of indices affecting equivalent arrangements of the indices in the $m_i$ cycles.
+
+Furthermore, permutations of the order in which order disjoint cycles are listed in the cycle decomposition of $\sigma$ are equivalent, so for each $k_i$, we mod out $n! \big/ \left(\prod_{i=1}^s m_i^{k_i}\right)$ by the possible reorderings $k_i!$ for each $k_i$ that's the number of $m_i$-length cycles appearing in the decomposition of $\sigma$.
+
+Therefore, the number of distinct conjugates of $\sigma$ in $S_n$ is given by $$n\big/ \left(\prod_{i=1}^s k_i! m_i^{k_i}\right) = \frac{n!}{(k_1!m_1^{k_1})(k_2!m_2^{k_2})\cdots(k_s!m_s^{k_s})}.$$
+
+**Examples.** If $n \ge m$ then the number of $m$-cycles in $S_n$ is given by $$\frac{n(n-1)(n-2)\ldots(n-m+1)}{m}.$$ If $n \ge 4$ then the number of permutations in $S_n$ that are the product of two disjoint $2$-cycles is $n(n-1)(n-2)(n-3)/8$.
 
 ### [@DF04, number 4.4.3]
 
@@ -210,6 +229,10 @@ For any finite group $P$, let $d(P)$ be the minimum^[For example, $d(P) = 1$ if 
 - $D_{16}$
 - $QD_{16}$ (the quasidihedral group of order $16$)
 
+
+## References
+
+<!---
 ### Keywords
 
 - automorphisms
@@ -228,9 +251,6 @@ For any finite group $P$, let $d(P)$ be the minimum^[For example, $d(P) = 1$ if 
     - *abelian*
     - *characteristic*
 
-## References
-
-<!---
 ### [@DF04, number 3.5.13]
 
 Every element of order $2$ in $A_n$ is the square of an element of order $4$ is $S_n$. An element of order $2$ in $A_n$ is a product of $2k$ commuting transpositions.
