@@ -194,30 +194,88 @@ Furthermore, permutations of the order in which order disjoint cycles are listed
 
 Therefore, the number of distinct conjugates of $\sigma$ in $S_n$ is given by $$n\big/ \left(\prod_{i=1}^s k_i! m_i^{k_i}\right) = \frac{n!}{(k_1!m_1^{k_1})(k_2!m_2^{k_2})\cdots(k_s!m_s^{k_s})}.$$
 
-**Examples.** If $n \ge m$ then the number of $m$-cycles in $S_n$ is given by $$\frac{n(n-1)(n-2)\ldots(n-m+1)}{m}.$$ If $n \ge 4$ then the number of permutations in $S_n$ that are the product of two disjoint $2$-cycles is $n(n-1)(n-2)(n-3)/8$.
+**Examples.** If $n \ge m$ then the number of $m$-cycles in $S_n$ is given by $$\frac{n(n-1)(n-2)\ldots(n-m+1)}{m}.$$ If $n \ge 4$ then the number of permutations in $S_n$ that are the product of two disjoint $2$-cycles is $n(n-1)(n-2)(n-3)/8$. The later will come into use as a base case for determining the order of the conjugacy classes of elements with order $2$ in $S_n$
 
 ### [@DF04, number 4.4.3]
 
+\providecommand{\Aut}[1]{\mathrm{Aut}\left( #1 \right)}
+\providecommand{\inn}[1]{\mathrm{inn}\left( #1 \right)}
+\providecommand{\Inn}[1]{\mathrm{Inn}\left( #1 \right)}
+
 Under any automorphism of $D_8$, $r$ has at most $2$ possible images and $s$ has at most $4$ possible images. Thence $\abs{\Aut{D_8}} \le 8$.
+
+*Demonstration.* Suppose $\phi$ is an automorphism of $D_8$. Now $\phi$ preserves some structural group properties, e.g., elements of an order are mapped to elements of the same order. Hence 
+$$ r \mapsto r \text{ or } r^3 \text{, which are elements of order $4$}.$$ 
+Note we cannot have $s \mapsto r^2$ for then $$\phi(\underbrace{rs}_{\abs{rs} = 2}) \neq \phi(r)\phi(s) = \underbrace{r^3 \text{ or } r}_{\text{order }4}.$$
+
+Therefore, by order considerations
+$$ s \mapsto s, rs, r^2s, r^3s.$$
+
+Now $\phi$ is determined by the images of the generators $r$ and $s$. Observe the are at most $2\cdot 4$ distinct choices for these images. Hence $\abs{\Aut{D_8}} \le 8$. \qedsymbol
 
 ### [@DF04, number 4.4.8]
 
 Suppose $G$ is a group with subgroups $H$ and $K$ where $H \le K$.
 
-(a) If $H$ is characteristic in $K$ and $K$ is normal in $G$, then $H$ is normal in $G$. (*optional*)
 (b) If $H$ is characteristic in $K$ and $K$ is characteristic in $G$, then $H$ is characteristic in $G$. Thence the *Viergruppe* $V_4$ is characteristic in $S_4$.
+
+*Proof.* For each $\phi \in \Aut{G}$, observe $\phi \vert_K$ is automorphism of $K$. Note $\phi\vert_K(H) = H$ because $H \mathrm{char} K$. Extending back to $\phi$, we have $\phi(H) = H$, as desired to show $H \mathrm{char} G$. \qedsymbol
+
+In the specific case of $V_4$ characteristic in $A_4$, characteristic in $S_4$, transitivity implies $V_4$ is characteristic in $S_4$.
+
+To show the first two relations, say $\phi \in \Aut{G}$. Note $V_4 = \langle (1 \, 2)(3\, 4), (1\,3)(2\,4)\rangle$. The automorphism $\phi$ maps conjugate elements to eachother. By the lattice isomorphism theorem, $V_4  = \phi(V_4) = \langle \phi((1 \, 2)(3\, 4)), \phi((1\,3)(2\,4))\rangle$. For the second relation, suppose $\psi \in \Aut{S_4}$. By order considerations, $\psi$ must map any two distinct $3$-cycles in $A_4$ to other distinct $3$-cycles in $A_4$. Therefore $\psi(A_4) = \langle \psi((i_1 i_2 i_3)), \psi((j_1 j_2 j_3)) \rangle = A_4$, since $3$-cycles generate $A_4$. 
+
+We have seen $V_4$ is characteristic in $A_4$ is characteristic in $S_4$. Hence $V_4$ is characteristic in $S_4$.
+
 (c) If $H$ is normal in $K$ and $K$ is characteristic in $G$, then $H$ need not be normal in $G$.
+
+Consider $H = \langle (1\, 2)(3\, 4)\rangle$, $K = V_4$, and $G = A_4$. Since $V_4$ is abelian, $H$ is normal in $V_4$. Yet for $\sigma = (1\, 2\, 3) \in A_4$, conjugation by $\sigma$ of $H$ produces the element $(1\,3)(2\,4) \notin H$. So $H \not\triangleleft A_4$.
 
 ### [@DF04, number 4.4.18]
 
 For $n \neq 6$ every automorphism of $S_n$ is inner. Fix an integer $n \ge 2$ with $n \neq 6$.
 
 (a) The automorphism group of a group $G$ permutes the conjugacy classes of $G$, i.e., for each $\sigma \in \Aut{G}$ and each conjugacy class $\sK$ of $G$ the set $\sigma(\sK)$ is also a conjugacy class of $G$.
+
+*Given.* A group $G$, its automorphism group $\Aut{G}$, and the collection $\Omega = \{ \sK:\text{ conjugacy classes in $G$} \}$.
+
+*To prove.* If $\sigma \in \Aut{G}$ and $\sK \in \Omega$, then $\sigma(\sK) \in \Omega$.
+
+*Proof.* Suppose $a$ and $b$ are conjugate elements in $G$. Then for some $g \in G$, $a = gbg^{-1}$. Consider the image under automorphism, $\sigma(a) = \sigma(g)\sigma(b)\sigma(g)^{-1}$. So $\sigma(a)$ and $\sigma(b)$ are conjugate. 
+
+Pairwise conjugacy of the points in the image of $\sK$ under $\sigma$ implies $\sigma(\sK) \subset \sF \in \Omega$. Now to show $\sF \subset \sigma(\sK)$. Let $c \in \sF$. Then $\sigma(a) = hch^{-1}$ for some $h \in G$. Applying the inverse automorphism $\sigma^{-1}$, we see $a$ is conjugate to $\sigma^{-1}(c)$, thus $\sigma^{-1}(c) \in \sK$. Thus $\sigma^{-1}(\sF) \subset \sK$. Applying $\sigma$, we conclude $\sF \subset \sigma(\sK)$.
+
 (b) Let $\sK$ be the conjugacy class of transpositions in $S_n$ and let $\sK'$ be the conjugacy class of any element of order $2$ in $S_n$ that is not a transposition. Then $\abs{\sK} \neq \abs{\sK'}$. Furthermore, any automorphism of $S_n$ sends transpositions to transpositions. 
+
+
+If $n < 4$ the only elements of order $2$ are transpositions. Therefore $\sK' = \emptyset$. So suppose $n \ge 4$. Elements of order $2$ in $S_n$ that are not transpositions are products of $k$ many disjoint $2$-cycles. We observe $2 \le 2 \le \left \lceil{n}\right \rceil$. 
+
+We now show $\abs{\sK} \neq \abs{\sK '}$ for all $n, k$ with the exception of $(n,k) = (6,3)$, for which there are $15$ elements in both the conjugacy class $\sK$ of transpositions and in the class $\sK' = \{\text{products of $3$ disjoint $2$-cycles}\}$.
+
+We generate a heatmap plot of the value $\abs{\sK'} - \abs{\sK}$, where both are defined:
+
+```
+dim = 10
+A = np.full([dim,dim], float('nan'))
+for n in np.arange(2,b):
+    for k in np.arange(2,int(n/2.0)+1):
+        A[n,k] = -(n*(n-1)/2) + np.math.factorial(n)/(np.math.factorial(k)*2**k)
+```
+
+![heat](/home/colton/fy/19/alg1/size-diff.png)
+
+By previous exercise, we have $$\abs{\sK} = \frac{n(n-1)}{2} \quad \text{ and } \quad \abs{\sK'} = \frac{n!}{k!2^k}.$$
+
+The heatmap provides a base case, and it's clear that $\abs{\sK'}$ strictly dominates $\abs{\sK}$ for, say, $n \ge 9$ and $k \ge 4$. 
+
+Since $\sigma$ must preserve the order of both conjugacy classes and elements in them, we see that $\sigma$ stabilizes the set $\sK$ of transpositions, as desired.
+
 (c) For each $\sigma \in \Aut{S_n}$ we have $$\sigma \colon (1\, 2) \mapsto (a\, b_2), \quad\quad \sigma \colon (1\, 3) \mapsto (a\, b_3), \quad\ldots, \quad \sigma \colon (1\, n) \mapsto (a\, b_n)$$ for some distinct integers $a, b_2, b_3, \ldots, b_n \in \{1, 2, \ldots, n\}$.
 (d) Therefore $(1\, 2), (1\, 3), \ldots, (1\, n)$ generate $S_n$. Furthermore $S_n$ is uniquely determined by its action on these elements. Then by (c), $S_n$ has at *most* $n!$ automorphisms. We conclude that $\Aut{S_n} = \mathrm{Inn}(S_n)$ for $n \neq 6$.
 
 ### [@DF04, number 4.4.20]
+
+TODO 
 
 For any finite group $P$, let $d(P)$ be the minimum^[For example, $d(P) = 1$ if and only if $P$ is a nontrivial cyclic group and $d(Q_8) = 2$.] number of generators of $P$. Let $m(P)$ be the maximum of the integers $d(A)$ as $A$ runs^[For example, $m(Q_8) = 1$ and $m(D_8) = 2$.] over all *abelian* subgroups of $P$. Define the *Thompson subgroup* of $P$ as $$J(P) = \langle A : A \text{ is an abelian subgroup of $P$ with } d(A) = m(P)\rangle.$$
 
