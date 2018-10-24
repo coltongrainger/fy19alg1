@@ -4,6 +4,7 @@ author: Colton Grainger
 date: 2018-10-18
 bibliography: /home/colton/Downloads/coltongrainger.bib
 macros: true
+tikz: true
 ---
 
 \setcounter{section}{6}
@@ -21,7 +22,7 @@ Let $\abs{G} = pqr$ where $p$, $q$ and $r$ are primes with $p < q < r$. Then $G$
 
 *Given.* The number of Sylow subgroups for each prime respectively denoted $n_p$, $n_q$, and $n_r$. 
 
-*To prove.* One of $n_p$, $n_q$, or $n_r$ is $1$, forcing a normal Sylow subgroup. 
+*To prove.* $n_p = 1$, $n_q = 1$, or $n_r = 1$, forcing a normal Sylow subgroup. 
 
 *Proof by contradiction.* Assume $n_p, n_q$, and $n_r$ are all strictly greater than $1$. To achieve a contradiction, let $k,s,t \in \NN$ parameterize $$n_p = kp + 1,\quad n_q = sq + 1, \quad n_r = tr+1.$$ For the largest prime $r$, from $tr+1 | pq$ we deduce $tr + 1 = pq$. For the middle prime $q$, we have $sq + 1 = r \text{ or } pr$. For the least prime $p$, we don't have much restriction, and in turn $kp + 1 = q \text{ or } r \text{ or } qr$.
 
@@ -69,25 +70,80 @@ There are $n_7\cdot(7-1) = 42$ elements of order $7$. One can show in general th
 
 Let $P$ be a Sylow $p$-subgroup of $H$ and let $H$ be a subgroup of $K$. If $P \triangleleft H$ and $H \triangleleft K$, then $P$ is normal in $K$. Therefore, if $P \in \Syl p G$ and $H = \N G P$, then $\N G H = H$.
 
-*Given.* $P \triangleleft H \triangleleft K$. $P \in \Syl p G$ and $H = \N G P$.
+*Given.* $P \triangleleft H \triangleleft K$, with $P \in \Syl p G$ 
 
-*To prove.* $P \trivial K$.
+*To prove.* $P \triangleleft K$, also $\N G {\N G P} = \N G P$.
 
-*Proof.* 
+*Proof.* Suppose $\sigma \in \Aut{H}$. Say $\abs{P} = p^\alpha$. Then $\abs{\sigma(P)} = p^\alpha$ as well. Normality of $P \in \Syl p G$ implies there's only one Sylow $p$-subgroup in $G$. Therefore $\sigma(P) = P$. So $P$ is characteristic in $H$. With $H \triangleleft K$, we have $P \triangleleft K$ transitively.
+
+Now specify $H = \N G P$. We'll argue $\N G H = H$. Since $\N G P \cap P = P$, we can set up a trivial application of the diamond isomorphism theorem:
+
+
+\begin{center}
+\begin{tikzpicture}[every node/.style={fill=white}] % white fill keeps lines from running into labels
+
+	\draw[double] (0,3) -- (1,2);
+    \draw (1,2) -- (0,1);
+    \draw (0,3) -- (-1,2);
+	\draw[double]  (-1,2) -- (0,1);
+
+	\node at (0,3) {$\N G H$};
+	\node at (1,2) {$\N G P$};
+	\node at (-1,2){$P$};
+	\node at (0,1) {$P \cap \N G P$};
+
+\end{tikzpicture}
+\end{center}
+
+Having the $\{1\cdot (P \cap \N G P)\} = P / (P \cap \N G P) \cong \N G H / \N G P$, we must have $[\N G {\N G P} : \N G P] = 1$. Given that $\N G {\N G P} \subset \N G P$, the result follows: normalizers of Sylow $P$ groups are *self-normalizing*.
 
 ### [@DF04, number 4.5.35] 
 
-Let $P \in \Syl p G$ and let $H \le G$. We have that $gPg^{-1} \cap H$ is a Sylow $p$-subgroup of $H$ for some $g \in G$. We exhibit that $hPh^{-1} \cap H$ is not necessarily a Sylow $p$-subgroup of $H$ for any $h \in H$. (In particular, we cannot always take $g = 1$ in the first part of the problem, as we could when $H$ was normal in $G$.)
+Let $P \in \Syl p G$ and $H \le G$. Then $gPg^{-1} \cap H$ is a Sylow $p$-subgroup of $H$ for some $g \in G$. 
+
+*Given.* $H \le G$, groups, with $P \in \Syl p G$. 
+
+*To prove.* $\Syl p H$ contains $g^{-1} P g \cap H$ for a choice of $g \in G$.
+
+*Proof.* Let $H$ act on the coset space $G/P$ by left multiplication. Now since $\abs{G/P}$ does not divide $p$, we know $\abs{H(gP)}$ does not divide $p$.
+
+By orbit-stabilizer [@CoSylowApp, page 9] $$\abs{\Stab{H}{gP}} = \abs{H}/\abs{H(gP)},$$ so $\abs{\Stab{H}{gP}}$ is a subgroup of $H$ containing the maximal power of $p$ in $\abs{H}$. 
+
+Say the order of $\Stab{H}{gP}$ is $p^ak$. We want to show $k=1$. So consider $$\Stab{H}{gP} = \{h \in H : hgP = gP\} = \{h \in H: g^{-1}hg \in P\} = \underbrace{H \cap g^{-1}P g}_{\text{a $p$-group}}.$$ So $k = 1$, therefore $\Syl p H \ni \Stab{H}{gP} = g^{-1}P g \cap H$. \qedsymbol
+
+We exhibit that $hPh^{-1} \cap H$ is not necessarily a Sylow $p$-subgroup of $H$ for any $h \in H$.
+
+*Demo.* Consider the subgroup $P = \langle (1\, 2) \rangle$ where $P \in \Syl 2 { S_3 }$. For all $h \in \langle (2\, 3)\rangle$, we have $H \cap hPh^{-1} = \emptyset$.
 
 ### [@DF04, number 4.5.44]
 
 Let $p$ be the smallest prime dividing the order of the finite group $G$. If $P \in \Syl p G$ and $P$ is cyclic, then $\N G P = \C G P$.
 
-I referred to outside sources^[Discussion here: <https://math.stackexchange.com/questions/1554316>, <https://math.stackexchange.com/questions/985346>, and <https://math.stackexchange.com/questions/2229117>.] to see applications of the "normalizer-centralizer theorem" in the context of this problem.
+
+*Given.* Suppose $p$ is the smallest prime dividing $\abs{G} = p^\alpha m$, where $G$ is finite group and $p \not\vert m$. Let $P \in \Syl p G$, and suppose $P$ cyclic.
+
+*To prove.* $\N G P = \C G P$.
+
+*Proof.*^[I referred to outside sources (see discussion at <https://math.stackexchange.com/questions/1554316>, <https://math.stackexchange.com/questions/985346>, and <https://math.stackexchange.com/questions/2229117>) to see applications of the "normalizer-centralizer theorem" in the context of this problem.] Clearly $P$ is abelian, so $P \le \C G P \triangleleft N G P$. Consider the quotient [@DF04, chapter 4.4] $$\N G P / \C G P \cong K \le \Aut{P} \cong (\ZZ/p\ZZ)^\times.$$
+
+Observe $[\N G P : \C G P]$ divides $p^\alpha(p-1)$. Yet $p$ *does not divide* $\abs{\N G P} / \abs{ \C G P}$ because 
+
+- both $N$ and $C$ contain $P \in \Syl p G$, of maximal prime power order, and
+- $C \le N$, leaving no powers of $p$ in the quotient.
+
+We're forced by the "$N/C$-corollary" to accept that $[\N G P : \C G P]$ divides $(p-1)$. Now, $[\N G P : \C G P]$ also divides $\abs{G}$. Because $p$ is the minimal prime divisor of $\abs{G}$, we obtain $[\N G P : \C G P] = 1$. \qedsymbol
 
 ### [@DF04, number 4.6.4]
 
-$A_n$ is generated by the set of all $3$-cycles for each $n \ge 3$.
+$A_n$ is generated by the set of all $3$-cycles for each $n \ge 3$. Cf. [@Be00].
+
+*Given.* Some $n \ge 3$, an arbitrary permutation $x \in A_n$, and the collection $\Sigma$ of all $3$-cycles in $A_n$.
+
+*To prove.* $x$ can be written as a finite product of terms in $\Sigma$.
+
+*Proof.* First we'll argue: for any $x \in A_n$ that moves at least three elements, there's a $\sigma \in \Sigma$ such that $\sigma^{-1} x$ moves fewer than $3$ elements.^[Intuitively, we might imagine that $\sigma$ "dampens" the oscillation of $x$ acting on $A_n$.] With the $a_i$ denoting elements of $\{1, \ldots, n\}$, perhaps relabelling, we know $x$ moves $a_1$ to $a_2$, and also $a_3$ somewhere. So let $\sigma = ( a_1\, a_2\, a_3)$. Then the product $$\sigma^{-1}x = (a_1\, a_3\, a_2) (a_1\, a_2\, \ldots = (a_1) \ldots$$ moves strictly fewer elements than $x$, notably fixing $a_1$.
+
+To find a representation of an arbitrary $x \in A_n$ we proceed by strong induction on the number of elements that $x$ moves. For the base case, observe that if $x \in A_n$ moves fewer than three elements, then $x = \mathrm{id}$, and we're done. Now take $x$ to move finitely many elements. Now, there's a $\sigma_r \in \Sigma$ such that $\sigma_r^{-1} x$ can be represented as a finite product of $3$-cycles in $\Sigma$, e.g., $$\sigma_r^{-1} x = \sigma_1 \sigma_2 \cdots \sigma_{r-1}, \quad\text{ thus }\quad x =\sigma_1 \cdots \sigma_{r}.\qedsymbol$$
 
 ### [@DF04, number 5.1.4]
 
@@ -111,6 +167,12 @@ Now $P$ is a subgroup with the same order as the direct product, so $$P = \prod_
 ### [@DF04, number 5.4.15]
 
 If $A$ and $B$ are normal subgroups of $G$ such that $G/A$ and $G/B$ are both abelian, then $G / (A \cap B)$ is abelian.
+
+*Given.* Groups $A \triangleleft G$ and $B \triangleleft G$ such that $G/A$ and $G/B$ abelian.
+
+*To prove.* That $A \cap B$ produces an abelian quotient of $G$.
+
+*Proof.* By minimality of the commutator $G'$, we have $G' \le A$ and $G' \le B$. Therefore $G' \le A \cap B$. So $G / A \cap B$ is abelian. \qedsymbol
 
 ### [@DF04, number 5.4.19]
 
