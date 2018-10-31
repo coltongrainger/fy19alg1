@@ -91,3 +91,9 @@ Let $K$ and $L$ be groups, let $n$ be a positive integer, let $\rho \colon K \to
 (a) Assume $K$ and $L$ are finite groups and $\rho$ is the left regular representation of $K$. We find $\abs{L \wr K}$ in terms of $\abs{K}$ and $\abs{L}$.
 
 (b) Let $p$ be a prime, let $K = L = Z_p$. Suppose $\rho$ is the left regular representation of $K$. Then $Z_p \wr Z_p$ is a non-abelian subgroup of order $p^{p+1}$ and is isomorphic to a Sylow $p$-subgroup of $S_{p^2}$. [The $p$ copies of $Z_p$ whose direct products makes up $H$ may be represented by $p$ disjoint $p$-cycles; these are cyclically permuted by $K$.]
+
+
+
+### Characters of finite abelian groups [@CoCharthy]
+
+2. Let $G$ be a finite nonabelian simple group. Show the only group homomorphism $\chi\colon G \to S_1$ is the trivial map.
