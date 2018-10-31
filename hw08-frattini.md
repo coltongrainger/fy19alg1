@@ -7,44 +7,85 @@ macros: true
 tikz: true
 ---
 
-\setcounter{section}{6}
+\setcounter{section}{7}
 
 ## Assignment due 2018-10-31
 
 ### [@DF04, number 5.2.8]
 
-Let $A$ be a finite abelian group (written multiplicatively) and let $p$ be a prime. Suppose $$A^p = \{ a^p : a \in A\} \quad\text{ and }\quad A_p = \{x : x^p= 1\}\},$$ so that $A^p$ and $A_p$ are the image and kernel of the $p$th power map $$\phi \colon A \to A \quad \text{ such that }\quad \phi x \mapsto x^p.$$
+Let $A$ be a finite abelian group (written multiplicatively) and let $p$ be a prime. Suppose $$A^p = \{ a^p : a \in A\} \quad\text{ and }\quad A_p = \{x : x^p= 1\},$$ so that $A^p$ and $A_p$ are the image and kernel of the $p$th power map $$\phi \colon A \to A \quad \text{ such that }\quad \phi \colon x \mapsto x^p.$$
 
 (a) Prove that $A/A^p \cong A_p$ by showing both are elementary abelian and of the same order.
+
+    *Proof.*^[See also <https://math.stackexchange.com/questions/413470/>, <https://math.stackexchange.com/questions/142589/>.] Observe $A_p = \ker \phi$ and $A/A^p = \mathrm{coker} \phi$. We anticipate a line of argument similar to the rank-nullity theorem from linear algebra.
+
+    By the first isomorphism theorem, $$A/\ker \phi \cong \mathrm{im} \phi \quad \text{ that is } \quad A/A_p \cong A^p \quad \text{ so } \quad \abs{A/A^p} = \abs{A_p}.$$
+
+    To see that both $A_p$ and $A/A^p$ are elementary abelian $p$-groups, check:
+
+    - $A_p \ni x$ implies $x^p = 1$.
+    - $A/A^p \ni xA^p$ implies $(xA^p)^p = x^pA^p = 1\cdot A^p$.
+    - Since $p$ is prime, the only element in $A_p$, $A/A^p$ of order less than $p$ is the identity.
+
+    We conclude $A_p \cong A/A^p$ as both are elementary abelian $p$-groups of the same order, say, both isomorphic to $(\FF_p)^n$. \qedsymbol
+
 (b) Prove that the number of subgroups of $A$ of order $p$ equals the number of subgroups of $A$ of index $p$, by reducing to the case where $A$ is an elementary abelian $p$-group.
 
-^[<https://math.stackexchange.com/questions/413470/>, <https://math.stackexchange.com/questions/142589/>]
+    *Proof.* Since each subgroup of $\ker \phi = A_p$ is cyclic $p$, and each subgroup of $A$ of order $p$ is in $\ker \phi$, our proof reduces to considering the order $p$ subgroups of $A_p$. 
 
-[@Pr11, page 3-5]
+    At the same time, we want to show if $H \le A$ is a subgroup of index $p$, then $A^p \le H$. So let $x \in A^p$. Then $x = a^p$ for some $a$. Suppose by way of contradiction that $x \notin H$. We must then have $a^p \notin H$, whence $a \notin H$ (by closure). Now the quotient group $A/H$ is of order $p$ and cyclic. With $a \notin H$, we can populate the coset space $A/H$ with $\langle a\rangle = H$. But then $$H = (aH)^p = a^p H \quad \text{ implies } \quad a^p \in H, \quad \text{ and so } \quad x \in H,$$
+    a contradiction. Thus we must have $A^p \le H$. (By line of reasoning similar to the proof of the universal property for the abelianization of a group by quotienting out the commutator) the third isomorphism theorem implies $$A/H \cong (A/A^p) / (H/A^p).$$ 
+    So just as with the kernel $A_p$, with the cokernel $A/A_p$ it suffices to consider the number of index $p$ subgroups in $A/A^p$ to find the number of index $p$ subgroups in $A$.
+
+    Now $A_p \cong A/A^p \cong (\FF_p)^n$. We need show the number of subgroups of order $p$ is the same as the number of subgroups of index $p$. But this boils down to showing that the number of $1$-dimensional  $\FF_p$-vector spaces in $(\FF_p)^n$ is equal to the number of $1$-codimensional (i.e., $n-1$-dimensional) $\FF_p$-vector spaces in $(\FF_p)^n$. Observe both numbers are given by the gaussian binomial coefficient [@Pr11, page 3-5], which is a center symmetric quantity: $${n \choose n-1}_p = {n \choose 1}_p = \frac{1-p^n}{1-p},$$
+    as desired. \qedsymbol
 
 ### [@DF04, number 5.2.14]
 
 For any group $G$ define the *dual group* $\hat{G}$ of $G$ to be the set of all homomorphisms from $G$ into the multiplicative group of roots of unity in $\CC$. Define a group operation in $\hat{G}$ by pointwise multiplication of functions: if $\chi$ and $\psi$ are homomorphisms from $G$ into the group of roots of unity, then $\chi\psi$ is the homomorphism given by $( \chi\psi)(g) = \chi(g)\psi(g)$ for all $g \in G$.
 
-(a) Show that this operation on $\hat{G}$ makes $\hat{G}$ into an abelian group. 
+(a) This operation on $\hat{G}$ makes $\hat{G}$ into an abelian group. 
 
-    Hint: show that the identity is the map $g \mapsto 1$ for all $g \in G$ and that the inverse of $\chi \in \hat{G}$ is the map $g \mapsto \chi(g)^{-1}$.
+    *Proof.* To verify that $\hat{G}$ is abelian.
 
-(b) If $G$ is a finite abelian group, prove that $\hat{G} \cong G$. 
+    - $\hat{G}$ is a set closed under the binary operation given by pointwise multiplication.
+    - Associativity and commutativity of elements in $\hat{G}$ follows from the same properties of elements in $\CC$.
+    - The homomorphism $\mathbf{1}_G \in \hat{G}$ that sends $g \in G$ to $1 \in \CC$ is the identity. 
+        - One may check that for all $\chi \in \hat{G}$ and all $g \in G$, $$\mathbf{1}_G\chi(g) = \chi(g) = \chi\mathbf{1}_G(g).$$
+    - For each $\chi \in \hat{G}$, the map $\chi^{-1} \in \hat{G}$ given by $g \mapsto (\chi(g))^{-1}$ is the (left and right) inverse to $\chi$. 
+        - One may check that for all $g \in G$, $$\chi\chi^{-1}(g) = \mathbf{1}_G(g) = \chi^{-1}\chi(g).$$
 
-    Hint: Write $G$ as $\langle x_1\rangle \times \cdots \times \langle x_r \rangle$ and if $n_i = \abs{x_i}$, define $\chi_i$ to be the homomorphism which sends $x_i$ to $e^{2\pi i/n_i}$ and sends $x_j$ to $1$ for all $j \neq i$. Then show that $\chi_i$ has order $n_i$ in $\hat{G}$ and that $\hat{G} = \langle \chi_1 \rangle \times \cdots \times \langle x_r \rangle$.
+    As desired, $\hat{G}$ is seen to be an abelian group. \qedsymbol
 
-[@CoCharacters]
+(b) If $G$ is a finite abelian group, then $\hat{G} \cong G$. 
+
+    *Proof.* $G$ is a finite abelian group, whence by the fundamental theorem of finitely generated abelian groups $$G = \prod_{j=1}^r\langle x_j \rangle.$$ Suppose $n_i = \abs{x_i}$ and define for each $i$, $$\chi_i \in \hat{G} \quad \text{ such that }\quad \chi_i \colon \prod_{j=1}^{i-1} 1 \times x_j \times \prod_{j=i+1}^r 1 \mapsto e^{2\pi i/n_i}$$ and that $$\prod_{j=1}^{k-1} 1 \times x_k \times \prod_{j=k+1}^r 1 \mapsto e^{0} = 1 \quad \text{ for $k\neq i$}.$$
+
+    We've defined $\chi_i$ on generators of $G$, so on each element of $G$. Now we want to show $\chi_i$ has order $n_i$. Let $g \in G$ and $b \in \NN$. Consider $$\chi_i^b(g) = (\chi_i(g))^b = e^{2\pi i b/n_i} = 1,$$ occurring if and only if $b$ is a multiple of $n_i$. So $\abs{\chi_i} = \min\{ b \in \NN : b = kn_i\} = n_i$. We now identify each $x_i$ with $\prod 1 \times x_i \prod 1$, the coordinate axis generators. 
+    
+    Observe if $\psi \in \hat{G}$, then we can write $\psi$ uniquely as the product of the $\chi_i$. That is, we consider the image under $\psi$ of each coordinate generator $x_i$: $\psi(x_i) = e^{2 \pi i/ c_i/n_i}$ for some $c_i \in \{0, \ldots, n_i - 1\}$ (if $\psi$ did not map $x_i$ to such a multiple of $e^{2\pi i / n_i}$, we'd obtain the contradiction $1 \neq ( \psi(x_i) )^{n_i} = \psi(1) = 1$. 
+
+    If follows that $\psi = \chi^{c_1}_1\chi^{c_2}_2\cdots \chi^{c_r}_r$. By the recognition theorem for direct products, $$\bigcap_{j=1}^r \langle \chi_j \rangle \{ \mathrm{1}_G\}$$ and $\langle \chi_j \rangle \triangleleft \hat{G}$, so $$\hat{G} = \langle \chi_1 \rangle \times \cdots \times \langle \chi_r \rangle.$$ Now each coordinate axis subgroup of the same index $i$ in $G$ and $\hat{G}$ are isomorphic to $C_{n_i}$, so $G \cong \hat{G}$. See also [@CoCharacters]. \qedsymbol
 
 ### [@DF04, number 6.1.7]
 
-Subgroups and quotient groups of nilpotent groups are^[Even in the infinite case.] nilpotent. We exhibit a group $G$ which possesses a normal subgroup $H$ such that both $H$ and $G/H$ are nilpotent but $G$ is not nilpotent.
+Subgroups and quotient groups of nilpotent groups are^[Even in the infinite case.] nilpotent. 
 
-[@CoSolvable]
+*Proof.* We proceed by lower central series. Let $G$ be nilpotent of class $c$. Then $\gamma_c(G) = \{1\}$. If $H \le G$, then $\gamma_c(H)$ is also trivial. Well, observe that $\gamma_0(H) \le \gamma_0(G)$ and for all $n \ge 1$ we have $$\gamma_n(H) = [H, \gamma_{n-1}(H)] \le [G, \gamma_{n-1}(G)] = \gamma_n(G).$$ So if $\gamma_c(G) = \{1\}$, then $\gamma_c(H) = \{1\}$. Therefore $H$ is nilpotent, of class at most $c$.  
+
+For the quotient, let $N \triangleleft G$ and consider the canonical projection $\pi \colon G \to G/N$. For all $gN \in \gamma_n(G/N)$ there's a $g \in \gamma_n(G)$ such that $g \mapsto_\pi gN$. So the map from $\gamma_n(G)/N$ to $\gamma_n(G/N)$ is onto for all $n$. Whence $G/N$ is nilpotent whenever $G$ is. See also [@CoSolvable]. \qedsymbol
+
+We exhibit a group $G$ which possesses a normal subgroup $H$ such that both $H$ and $G/H$ are nilpotent but $G$ is not nilpotent.
+
+*Demo.* Try $S_3$. Clearly $S_3 / A_3 \cong \ZZ/2\ZZ$ and $A_3 \cong \ZZ/3\ZZ$ are nilpotent. Yet $[S_3, S_3] = A_3$ and $[S_3, A_3] = A_3$, so the lower central series stabilizes away from $\{1\}$.
 
 ### [@DF04, number 6.1.10]
 
-$D_{2n}$ is nilpotent if and only if^[Hint: if $G$ is a finite group, $\{p_i\}_1^s$ is the set of distinct primes dividing $\abs{G}$, and $P_i \in \Syl{p_i}G$, then $P_i \triangleleft G$. Recall that [@DF04, page 192] a finite group $G$ is nilpotent if and only if whenever $a,b \in G$ with $(\abs{a},\abs{b}) = 1$, then $ab = ba$.] $n$ is a power of $2$.
+$D_{2n}$ is nilpotent if and only if $n$ is a power of $2$.
+
+*Proof.* We know $D_{2n} \cong C_2 \rtimes C_n$. For contradiction, suppose $n \neq 2^a$ for any $a \in \ZZ_{\ge 0}$ and $D_2n$ is nilpotent. Now if $s,r \in D_{2n}$ and $\abs{s} =2$, $\abs{r} = n$, since $n \neq 2^a$, there's $r \in C_n$ such that $(\abs{s}, \abs{r}) = 1$. But then $rs = sr$, a contradiction. (See [@DF04, page 192] a finite group $G$ is nilpotent if and only if whenever $a,b \in G$ with $(\abs{a},\abs{b}) = 1$, then $ab = ba$.) So $D_{2n}$ isn't nilpotent.
+
+On the other hand, if $n = 2^a$ for some nonnegative integer $a$, then $D_{2n}$ is the direct product of its Sylow subgroups, hence nilpotent. \qedsymbol
 
 ### [@DF04, number 6.1.20]
 
