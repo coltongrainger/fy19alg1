@@ -11,9 +11,19 @@ tikz: true
 
 ## Assignment due 2018-11-07
 
-### [@DF04, number 6.2.4]
+### 10 push-ups [@DF04, number 6.2.4]
 
-There are no simple groups of order $80, 351, 3875, 5313$. (Count elements.)
+There are no simple groups of order $80, 351, 3875, 5313$.
+
+*Demonstration.* Suppose for contradiction that $G$ is a simple group of order $80, 351, 3875$, or $5313$. Applying Sylow's theorem and counting elements, we see:
+
+- $80 = 2^4 \cdot 5$. Then $n_2 = 5$ and $n_5 = 16$. How many elements in $G$ are *not* of order $5$? Precisely $80 - 64 = 16$. Since a Sylow $2$ subgroup contains $16$ elements (none of which have order $5$), we must have $n_2 = 1$, a contradiction.
+
+- $351 = 3^3 \cdot 13$. Then $n_3 = 13$ and $n_13 = 27$. How many elements are not of order $13$? Precisely $351 = 324 = 27$. Yet each Sylow $3$-subgroup has $27$ elements. So $n_3$ must be $1$, a contradiction.
+
+- $3875 = 5^3 \cdot 31$. Then $n_5 = 31$ and $n_31 = 125$. Now there are $3875 - 3750$ elements of order $31$. We're forced to accept $n_5 = 1$, a contradiction.
+
+- $5313 = 3 \cdot 7 \cdot 11 \cdot 23$. Then $n_7 \ge 253$, $n_11 \ge 23$, and $n_23 \ge 231$. Then the number of non-identity elements in $G$ from the Sylow $7$, $11$, and $23$ subgroups must be greater than or equal to $6600$---that's too big!
 
 ### A special case of Burnside's N/C theorem [@DF04, number 6.2.5]
 
