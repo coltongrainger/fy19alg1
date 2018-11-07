@@ -93,6 +93,12 @@ Let $K$ and $L$ be groups, let $n$ be a positive integer, let $\rho \colon K \to
 (b) Let $p$ be a prime, let $K = L = Z_p$. Suppose $\rho$ is the left regular representation of $K$. Then $Z_p \wr Z_p$ is a non-abelian subgroup of order $p^{p+1}$ and is isomorphic to a Sylow $p$-subgroup of $S_{p^2}$. [The $p$ copies of $Z_p$ whose direct products makes up $H$ may be represented by $p$ disjoint $p$-cycles; these are cyclically permuted by $K$.]
 
 
+### [@DF04, number 6.1.20]
+
+Let $p$ be a prime, let $P$ be a $p$-subgroup of the finite group $G$, let $N$ be a normal subgroup of $G$ whose order is relatively prime to $p$, and let $\bar{G} = G/N$. 
+
+(a) With Frattini's argument, $\N { \bar{G} } { \bar{P} } = \overline{\N G P}$.
+(b) From above, $\N{\bar{G}}{\bar{P}} = \overline{\N G P}$.
 
 ### Characters of finite abelian groups [@CoCharthy]
 
