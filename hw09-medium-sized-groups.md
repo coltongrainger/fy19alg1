@@ -29,6 +29,10 @@ There are no simple groups of order $80, 351, 3875, 5313$.
 
 Let $G$ be a solvable group of order $pm$, where $p$ is a prime not dividing $m$, and let $P \in \Syl p G$. If $\N G P = P$, then $G$ has a normal subgroup of order $m$. (How is the hypothesis of the solvability of $G$ used?)
 
+*Proof.* We observe $n_p = [G : \N G P] = m$. So counting elements, there are $m(p-1)$ elements of order $p \in G$. Thus $\abs{G} - m(p-1) = m$ *not* of order $p$ in $G$. Hall's theorem states that a group $G$ is solvable if and only if for every divisor $n$ of $\abs{G}$ such that $\left(n, \frac{\abs{G}}{n} \right) = 1$, $G$ has a subgroup of order $n$. Applied to this problem, the $m$ elements in $G$ *not* of order $p$ must constitute a subgroup $H$.
+
+To show that $H$ is normal, we'll show it's characteristic. Note that every element in $G \setminus H$ has order $p$, so its image under any $\sigma \in \Aut{G}$ will also have order $p$. Thus $\sigma(G\setminus H) \subset G\setminus H$. Since $\sigma$ is a bijection, we see $\sigma(G\setminus H) = G\setminus H$ and, taking complements, $\sigma(H) = H$. So $H \triangleleft G$. \qedsymbol 
+
 ### Exploiting subgroups of small index [@DF04, number 6.2.6]
 
 There are no simple groups of order $2205, 4125, 5103, 6545$, or $6435$.
@@ -114,13 +118,19 @@ There are no simple groups of order $9555$.
 
 Suppose over all pairs of distinct Sylow $p$-subgroups of $G$, we have $P$ and $R$ chosen with $\abs{P \cap R}$ maximal. Then $\N G {P \cap R}$ is **NOT** a $p$-group.
 
+*Proof.* Since $P$ and $R$ are $p$-groups, and $P \cap R$ is maximal in both $P$ and $R$, by Theorem 5.1(5) $P, R \le \N G {P \cap R}$. Now if $\N G { P \cap R}$ was a $p$-subgroup, then $\abs{P} = \abs{R} = \abs{\N G {P \cap R}}$ (Sylow subgroups are maximal $p$-groups in $G$). This would imply $P = R$---a contradiction. So $\N G { P \cap R}$ is *not* a $p$-subgroup of $G$. \qedsymbol
+
 ### [@DF04, number 6.2.25]
 
-Let $G$ be a simple group of order $p^2qr$ where all $p, q, r$ are prime. Then $\abs{G} = 60$. (So $G \cong A_5$.)
+Let $G$ be a simple group of order $p^2qr$ where all $p, q, r$ are prime. Then $\abs{G} = 60$.
+
+*Proof sketch.* By Feit-Thomposon, $G$ must be of even order. Suppose that $p$ is not $2$. Then by "Erik's lemma", if $G$ is a group of order $2k$ where $k$ is odd, then $G$ has a normal subgroup. Considering that $p^2qr$ could be written as $2k$ with $k$ odd if $p \neq 2$, we must have $p = 2$. 
+
+Without loss of generality, assume $q < r$. We can thus bound $n_r \in \{ 2q, 4q\}$. We want to show $n_r  = 2q$. If we *could do so*, then we'd be able to consider $P \in \Syl 2 G$. From here, we *could* argue that $p^2 \equiv 1 \pmod q$. Thence we'd find $q \mid (p-1)$ or $q \mid (p + 1)$. Lastly, we'd observe $q = 2 + 1$. Moreover, if we could limit $n_r$ to be $2q$, then we'd be forced by congruence, namely $rn + 1 = 2q$, to accept that $r = 5$. \qedsymbol
 
 ### [@DF04, number 6.3.10]
 
-We aim to exhibit an outer automorphism of $S_6$. Let 
+To exhibit an outer automorphism of $S_6$. Let 
 \begin{align*}
 t_1' &= (1\, 2)(3\, 4)(5\, 6), \\
 t_2' &= (1\, 4)(2\, 5)(3\, 6),\\
@@ -129,20 +139,52 @@ t_4' &= (1\, 2)(3\, 6)(4\, 5),\\
 t_5' &= (1\, 4)(2\, 3)(5\, 6).
 \end{align*}
 
-We claim $t_1', \ldots, t_5'$ satisfy the following relations:
+I claim $t_1', \ldots, t_5'$ satisfies the following relations:
 \begin{align*}
 (t_i')^2 &= 1 \text{ for all $i$},\\
 (t_i't_j')^2 &= 1 \text{ for all $i$ and $j$ with $\abs{i - j} \ge 2$, and} \\
 (t_i't_{i+1}')^3 &=1 \text{ for all $i \in \{1,2,3,4\}$}
 \end{align*}
 
-Further, $S_6 = \langle t_1', \ldots, t_5' \rangle$ and the map 
+Let $S'$ denote the set of the $t_i'$. We'll verify that elements in $S'$ satisfy the relations for the presentation of $S_6$ given in lecture:
+
+> What's the Coxeter presentation for $S_n = \langle s_1, \ldots, s_{n-1} \rangle$ where the $s_i$ are simple transpositions $s_i = (i, i+1)$? Consider three cases: $s_i^2 =1$ (transpositions invert themselves), $s_is_j = s_js_i$ if $\abs{i - j} > 1$ (they commute if disjoint), $s_is_{i+1}s_i = s_{i+1}s_is_{i+1}$ (they satisfy the braid relation). Whence define the Coxeter matrix $m(s_i, s_i) = 1$, $m(s_i, s_j) = 2$, and $m(s_i, s_{i+1}) = 3$.
+
+Now $(t_i')^2 = 1$ is clear as elements in $S'$ have cycle type $(2,2,2)$. One must perform nontrivial computations to check $(t_i't_j')^2 = 1 \text{ for all $i$ and $j$ with $\abs{i - j} \ge 2$}$. Yet, one finds that $t_i't_j'$ has cycle type $(2,2)$ (and thus order $2$). Lastly, for $(t_i't_{i+1}')^3 =1 \text{ for all $i \in \{1,2,3,4\}$}$. In this case we see $t_i' t_{i+1}'$ has cycle type $(3,3)$ (thus order $3$).
+
+Now elements in $S'$ satisfy the same relations as the simple transpositions in the Coxeter presentation of $S_6$. Moreover, $\langle S' \rangle = S_6$ as $t_1't_3't_5'$ is a $2$-cycle and $t_2't_4't_5'\rangle$ is a $6$-cycle (which is sufficient to generate the simple transpositions). 
+
+\providecommand{\Inn}[1]{\mathrm{Inn} \left( #1 \right)}
+
+It follows that $\phi \to S_6 \to S'$ defined *on generators* by 
 $$(1\,2) \mapsto t_1', \quad (2\, 3) \mapsto t_2', \quad (3\, 4) \mapsto t_3', \quad (4\, 5) \mapsto t_4', \quad (5\,6) \mapsto t_5'$$ 
-extends to an automorphism of $S_6$ (which is not inner).
+extends to an automorphism of $S_6$. Observe that $\phi$ does not fix conjugacy classes, and thus is and element of $\langle \Aut{S_6} \setminus \Inn{S_6} \rangle \cong C_2$.
 
 ### [@DF04, number 6.3.12]
 
 Let $S$ be a set and $c$ a positive integer. Formulate the notion of a free nilpotent group on $S$ of nilpotence class $c$ and prove it has the appropriate universal property with respect to the nilpotent groups of class less than or equal to $c$.
+
+*Formulation*. The free nilpotent group on $S$ of nilpotence class $c$, denoted $N_c(S)$, ought to be given by the presentation $\langle S \vert \gamma_c(F(S)) \rangle$ where $\gamma_c(F(S)) = [F(S), \gamma_{c-1}(S)]$. From the presentation, there's a surjection $\pi \colon F(S) \to N_c(S)$.
+
+*Universal property*. Let $G$ be a nilpotent group of class $c$. Let $\phi \colon S \to G$ be a map of sets. Then there's a unique $\Psi \colon N_c(S) \to G$ such that the following diagram commutes:
+
+\begin{center}
+\begin{tikzpicture}[every node/.style={fill=white}] % white fill keeps lines from running into labels
+\draw[->] (-2,2) -- (1.3,2);
+\draw[->] (-2,2) -- (1.3,0.2);
+\draw[->,dashed] (2,2) -- (2,0.5);
+
+\node at (-2,2) {$S$};
+\node at (0,2.3) {$\pi\circ \iota$};
+\node at (2,2) {$N_c(S)$};
+\node at (2,0) {$G$};
+\node at (2.5,1) {$\exists ! \Psi$};
+\node at (-0.5,0.7) {$\phi$};
+
+\end{tikzpicture}
+\end{center}
+
+*Proof.*^[I consulted Erik, Hunter, Chris, and <https://terrytao.wordpress.com/2009/12/21/the-free-nilpotent-group/> for this problem. The proof here is hardly sufficient, I'll admit---something to revise.] Observe $\Phi(\gamma_c(F(S))) \le \gamma_{c}(G)$ as $\Phi([F(S), \gamma_{c-1}(F(S))]) = [\Phi(F(S)), \Phi(\gamma_{c-1}(F(S)))] \le \gamma_c (G) = 1$. \qedsymbol
 
 ### [@DF04, number 6.3.14]
 
