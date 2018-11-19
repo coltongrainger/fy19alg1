@@ -2,7 +2,7 @@
 
 Course with [Nat Thiem](https://www.colorado.edu/math/nathaniel-thiem). 
 
-- Lecture notes: <http://quamash.net/prelims/algebra>
+- Lecture notes: <http://quamash.net/alg1>
 - Citations: <http://www.citeulike.org/user/coltongrainger/tag/alg1>
 - Bookmarks: <https://pinboard.in/u:coltongrainger/t:alg1/>
 
