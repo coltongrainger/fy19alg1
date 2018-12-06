@@ -1,0 +1,656 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm} 
+\usepackage{thmtools}
+\usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{bold-extra}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage[makeroom]{cancel}
+\usepackage{hanging}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{color, soul}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{graphicx}
+\usepackage{mathdots}
+
+\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
+\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}
+\DeclareMathSymbol{\vardiamond}{\mathalpha}{extraup}{87}
+
+\geometry{a4paper,total={168mm,248mm},left=21mm,top=22mm}
+
+%theorems, etc.
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}[section]
+%\numberwithin{thm}{subsection}
+\newtheorem{lem}[thm]{Lemma}
+%\numberwithin{lem}{subsection}
+\newtheorem{prop}[thm]{Proposition}
+%\numberwithin{prop}{subsection}
+\newtheorem{cor}[thm]{Corollary}
+%\numberwithin{cor}{subsection}
+\newtheorem{defn}[thm]{Definition}
+%\numberwithin{defn}{subsection}
+\newtheorem{conj}[thm]{Conjecture}
+%\numberwithin{conj}{subsection}
+\newtheorem{exam}[thm]{Example}
+%\numberwithin{exam}{subsection}
+\newtheorem{alg}[thm]{Algorithm}
+%\numberwithin{alg}{subsection}
+\newtheorem{hw}[thm]{Exercise}
+\newtheorem{note}[thm]{Note}
+%\numberwithin{note}{subsection}
+\newtheorem{rem}[thm]{Remark}
+%\numberwithin{rem}{subsection}
+
+\newcommand{\dfn}{\textbf{Definition. }}
+
+
+%\numberwithin{equation}{section}
+
+\usepackage[colorlinks]{hyperref}
+\usepackage[nameinlink,capitalize]{cleveref}
+
+
+%\titleformat{<command>}[<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
+
+\setlength\parindent{0pt}
+
+
+%========= Spacing and format
+\newcommand{\cen}{\centerline}
+\newcommand{\hang}{\hangindent=0.8cm}
+\newcommand{\nhang}{\hangindent=0cm}
+\newcommand{\nf}{\normalfont}
+\newcommand{\fl}{\noindent}
+\newcommand{\vs}{\vspace{0.7em}}
+\newcommand{\vv}{\\\vs}
+\newcommand{\nl}{\textcolor{white}{nothing}}
+
+
+
+%========= Common Math commands
+\newcommand{\ex}{\exists}
+\newcommand{\nin}{\not\in}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\La}{\Leftarrow}
+\newcommand{\oa}{\overrightarrow}
+\newcommand{\lbb}{\llbracket}
+\newcommand{\rbb}{\rrbracket}
+\newcommand{\p}{\prime}
+\newcommand{\wh}{\widehat}
+\newcommand{\os}{\overset}
+\newcommand{\us}{\underset}
+\newcommand{\mf}{\mathfrak}
+\newcommand{\ol}{\overline}
+\newcommand{\td}{\widetilde}
+\newcommand{\seq}{\subseteq}
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\im}{\text{im}}
+\newcommand{\inv}{^{-1}}
+
+
+
+
+%========= Math letters
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\fs}{\mathscr{S}} %fancy S
+\newcommand{\ff}{\mathscr{F}} %fancy F
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\FF}{\mathcal{F}}
+\newcommand{\bs}{\mathbb{S}}
+
+
+\newcommand{\fg}{\mathfrak{g}}
+\newcommand{\LL}{\mathcal{L}}
+\newcommand{\fke}{\mathfrak{e}}
+\newcommand{\al}{\alpha}
+\newcommand{\ga}{\gamma}
+\newcommand{\de}{\delta}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\be}{\beta}
+\newcommand{\Lm}{\Lambda}
+\newcommand{\lm}{\lambda}
+\newcommand{\Sig}{\Sigma}
+\newcommand{\sig}{\sigma}
+\newcommand{\Tht}{\Theta}
+\newcommand{\tht}{\theta}
+\newcommand{\vphi}{\varphi}
+\newcommand{\vep}{\varepsilon}
+
+
+
+%========= Linear Algebra
+\newcommand{\bpm}{\begin{pmatrix}}
+\newcommand{\epm}{\end{pmatrix}}
+\newcommand{\bsm}{\left( \begin{smallmatrix}}
+\newcommand{\esm}{\end{smallmatrix}\right)}
+\newcommand{\hh}{\hspace{2em}}
+\newcommand{\vect}{\overset{\rightharpoonup}}
+
+
+%========= Algebra notation
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Inn}{\text{Inn}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\End}{\text{End}}
+\newcommand{\Gal}{\text{Gal}}
+\newcommand{\Fix}{\text{Fix}}
+
+
+%========= Analysis notation
+\newcommand{\M}{\mathcal{M}} 
+
+
+
+%========= Topology notation
+\newcommand{\YY}{\mathcal{Y}}
+\newcommand{\PP}{\mathcal{P}}
+\newcommand{\BB}{\mathcal{B}}
+\newcommand{\CS}{\mathcal{S}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\FB}{\mathfrak{B}}
+\newcommand{\EE}{\mathcal{E}}
+\newcommand{\wt}{\widetilde}
+\newcommand{\es}{\varnothing}
+
+
+
+%========= Diff. Geo Shorthand
+\newcommand{\bv}{\textbf{v}}
+\newcommand{\bw}{\textbf{w}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\BS}{\mathbb{S}}
+\newcommand{\BSS}{\mathbb{S}^1}
+\newcommand{\BSN}{\mathbb{S}^n}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\RP}{\mathbb{RP}}
+\newcommand{\Cin}{C^\infty}
+\newcommand{\px}{\widehat{x}}
+\newcommand{\lh}  %left hook
+{\mathbin{\mathpalette\blh\relax}}
+\newcommand{\blh}[2]{\raisebox{\depth}{\scalebox{1}[-1]{$#1\lnot$}}} 
+
+
+
+
+
+\titleformat{\section}[hang]{\centering\large\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}[runin]{\large\itshape}{- }{0em}{}[ -]
+
+\fancyhf{} %these three lines put the page number at the bottom right
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+
+
+\pagestyle{fancy}
+
+\renewcommand{\qedsymbol}{$\clubsuit$}
+
+
+\begin{document}
+
+\section{Introduction to Rings}
+
+\setcounter{thm}{0}
+
+\begin{defn}\nl
+\begin{enumerate}
+\item a ring $R$ is a set together with two binary operations $+$ and $\times$ satisfying the following axioms
+\begin{enumerate}
+\item $(R, +)$ is an abelian group 
+\item $\times$ is associative 
+\item the distributive laws hold in $R$
+\end{enumerate}
+\item The ring $R$ is commutative if $\times$ is commutative
+\item The ring $R$ is said to have identity if there is an element $1\in R$.
+\end{enumerate}
+
+\end{defn}
+
+\nl
+
+\begin{defn}
+A ring with identity $R$ is said to be a \textit{division ring} if very nonzero element has a multiplicative inverse. A commutative division ring is called a \textit{field}.
+\end{defn}
+
+\nl
+
+\begin{defn}\nl
+\begin{enumerate}
+\item A nonzero element $a$ of $R$ is called a \textit{zero divisor} if there is a nonzero element $b\in R$ such that $ab = 0$ or $ba = 0$.
+\item Assume that $R$ has identity $1\neq 0$. An element $u$ of $R$ is called a \textit{\textbf{unit}} in $R$ if there is some $v$ in $R$ such that $uv=vu=1$. The set of units is denoted $R^\times$.
+\end{enumerate}
+\end{defn}
+
+\nl
+
+\begin{defn}
+\hl{A commutative ring with identity is called an \textit{\textbf{integral domain}} if it has no zero divisors.}
+\end{defn}
+
+\nl
+
+\begin{prop}
+Assume that $a,b,$ and $c$ are elements of any ring with $a$ not a zero divisor. If $ab=ac$ then either $a=0$ or $b=c$.
+\end{prop}
+
+\nl
+
+\begin{cor}
+Any finite integral domain is a field.
+\end{cor}
+
+\nl
+
+\begin{defn}
+A \textit{subring} of the ring $R$ is \hl{a subgroup of $R$ that is closed under multiplication.}
+\end{defn}
+
+\nl
+
+\begin{prop}
+Let $R$ be an integral domain and let $p(x), q(x)$ be nonzero elements of $R[x]$. Then
+\begin{enumerate}
+\item $deg(p(x)q(x)) = deg (p(x)) + deg(q(x))$,
+\item the units of $R[x]$ are just the units of $R$,
+\item $R[x]$ is an integral domain.
+\end{enumerate}
+\end{prop}
+
+\nl
+
+\begin{defn}
+Let $R$ and $S$ be rings.
+\begin{enumerate}
+\item A \textit{ring homomorphism} is a map $\vphi: R\ra S$ satisfying
+\begin{enumerate}
+\item $\vphi(a+b) = \vphi(a)+\vphi(b)$ for all $a,b\in R$, and 
+\item $\vphi(ab) = \vphi(a)\vphi(b)$ for all $a,b\in R$
+\end{enumerate}
+\item The \textit{kernel} of the ring homomorphism $\vphi$ is the set of elements that map to $0_S$.
+\item A bijective ring homomorphism is called an isomorphism.
+\end{enumerate}
+\end{defn}
+
+\nl
+
+\begin{prop}
+Let $R$ and $S$ be rings and let $\vphi:R\ra S$ be a homomorphism.
+\begin{enumerate}
+\item The image of $\vphi$ is a subring of $S$.
+\item The kernel of $\vphi$ is a subring of $R$. Furthermore, \hl{if $\al\in\ker(\vphi)$ then $r\al$ and $\al r$ are in $\ker(\vphi)$ for every $r\in R$.}
+\end{enumerate}
+\end{prop}
+
+\nl
+
+\begin{defn}
+Let $R$ be a ring, let $I$ be a subset of $R$ and let $r\in R$.
+\begin{enumerate}
+\item $rI = \{ra\ |\ a\in I\}$
+\item A subset $I$ of $R$ is a \textit{\textbf{left ideal}} of $R$ if 
+\begin{enumerate}
+\item $I$ is a subring of $R$, and
+\item $I$ is closed under left multiplication by elements from $R$, i.e., $rI\seq I$ for all $r\in R$.
+\end{enumerate}
+There is a similar definition for a right ideal.
+\item A subset $I$ that is both a left ideal and a right ideal is called an ideal of $R$.
+\end{enumerate}
+\end{defn}
+
+\nl
+
+\begin{prop}
+Let $R$ be a ring and let $I$ be an ideal of $R$. Then the (additive) quotient group $R/I$ is a ring under the binary operations:
+\[(r+I)+(s+I) = (r+s)+I\qquad\text{and}\qquad(r+I)\times(s+I)=(rs)+I\]
+for all $r,s\in R$. Conversely if $I$ is any subgroup such that the above operations are well defined, then $I$ is an ideal of $R$.
+\end{prop}
+
+\nl
+
+\begin{defn}
+When $I$ is an ideal of $R$ the ring $R/I$ with the operations in the previous proposition is called the \textit{\textbf{quotient ring}} of $R$ by $I$.
+\end{defn}
+
+\nl
+
+\begin{thm}\nl
+\begin{enumerate}
+\item \textit{(The First Isomorphism Theorem for Ring)} If $\vphi:R\ra S$ is a homomorphism of rings, then the kernel of $\vphi$ is an ideal of $R$, the image of $\vphi$ is a subring of $S$, and $R/\ker(\vphi)$ is isomorphic as a ring to $\vphi(R)$.
+\item If $I$ is any ideal of $R$, then the map 
+\[R\ra R/I\qquad\text{defined by}\qquad r\mapsto r+I\]
+is a surjective homomorphism with kernel $I$. Thus every ideal is the kernel of a ring homomorphism and vice versa.
+\end{enumerate}
+\end{thm}
+
+\nl
+
+\begin{thm}\nl
+\begin{enumerate}
+\item \textit{(The Second Isomorphism Theorem for Rings)} Let $A$ be a subring and let $B$ be an ideal of $R$. Then $A+B = \{a + b\ |\ a\in A, \ b\in B\}$ is a subring of $R$, $A\cap B$ is an ideal of $A$, and $(A+B)/B\cong A/(A\cap B)$.
+\item \textit{(The Third Isomorphism Theorem for Rings)} Let $I$ and $J$ be ideals of $R$ with $I\seq J$. Then $J/I$ is an ideal of $R/I$ and $(R/I)/(J/I)\cong R/J$.
+\item \textit{(The Fourth or Lattice Isomorphism Theorem for Rings)} Let $I$ be an ideal of $R$. The correspondence $A\leftrightarrow A/I$ is an inclusion preserving bijection between the set of subrings $A$ of $R$ that contain $I$ and the set of subrings of $R/I$ Furthermore, $A$ is an ideal of $R$ if and only if $A/I$ is an ideal of $R/I$.
+\end{enumerate}
+\end{thm}
+
+\nl
+
+\begin{defn}
+Let $R$ be a ring. Then the \hl{\textit{\textbf{characteristic}}} of the ring $R$ is the smallest number $n$ such that $n1 = 1+1+1+\cdots+1 = 0$. If this never happens, then the characteristic of $R$ is said to be $0$.
+\end{defn}
+
+\nl
+
+\begin{prop}
+\hl{Let $R$ be an integral domain. Then $char(R)$ is either prime or 0.}
+\end{prop}
+
+\nl
+
+\begin{defn}
+Let $A$ be any subset of the ring $R$.
+\begin{enumerate}
+\item Let $(A)$ denote the smallest ideal of $R$ containing $A$, called \textbf{\textit{the ideal generated by $A$}}.
+\item Let $RA$ denote the set of all finite sums of elements of the form $ra$ with $r\in R$ and $a\in A$.
+\item \hl{An ideal generated by a single element is called a \textit{\textbf{principal ideal}}.}
+\item An ideal generated by a finite set is called a \textbf{\textit{finitely generated ideal}}.
+\end{enumerate}
+\end{defn}
+
+\nl
+
+\begin{prop}
+Let $I$ be an ideal of $R$.
+\begin{enumerate}
+\item \hl{$I = R$ if and only if $I$ contains a unit.}
+\item Assume $R$ is commutative. Then $R$ is a field if and only if its only ideals are $0$ and $R$.
+\end{enumerate}
+\end{prop}
+
+\nl
+
+\begin{cor}
+If $R$ is a field then any nonzero ring homomorphism from $R$ into another ring is an injection (the kernel of the ring homomorphism is an ideal).
+\end{cor}
+
+\nl
+
+\begin{defn}
+An ideal $M$ in an arbitrary ring $S$ is called a \textbf{\textit{maximal ideal}} if $M\neq S$ and the only ideals containing $M$ are $M$ and $S$.
+\end{defn}
+
+\nl
+
+\begin{prop}
+In a ring with identity every proper ideal is contained in a maximal ideal. [NB: This is important because this means ideals in a ring with identity satisfy the ascending chain condition. This becomes really important in the study of infinite rings like the power series ring $\Z\lbb x\rbb$.]
+\end{prop}
+
+\nl
+
+\begin{prop}
+\hl{Assume $R$ is commutative. The ideal $M$ is maximal if and only if the quotient ring $R/M$ is a field.}
+\end{prop}
+
+\nl
+
+\begin{defn}
+Assume $R$ is commutative. An ideal $P$ is called a \hl{\textit{\textbf{prime ideal}}} if $P\neq R$ and whenever the product $ab$ of two elements $a,b\in R$ is an element of $P$, then at least one of $a$ and $b$ is an element of $P$.
+\end{defn}
+
+\nl
+
+\begin{prop}
+\hl{Assume $R$ is commutative. Then the ideal $P$ is a prime ideal in $R$ if and only if the quotient ring $R/P$ is an integral domain.}
+\end{prop}
+
+\nl
+
+\begin{cor}
+Assume $R$ is commutative. Every maximal ideal of $R$ is a prime ideal.
+\end{cor}
+
+\nl
+
+\begin{thm}
+Let $R$ be a commutative ring. Let $D$ be any nonempty subset of $R$ that does not contain 0, does not contain any zero divisors, and is closed under multiplication. Then there is a commutative ring $Q$ with 1 such that $Q$ contains $R$ as a subring and every element of $D$ is a unit in $Q$. The ring $Q$ has the following additional properties:
+\begin{enumerate}
+\item every element of $Q$ is of the form $rd\inv$ for some $r\in R$ and $d\in D$. In particular, if $D = R\backslash\{0\}$ then $Q$ is a field.
+\item (uniqueness of $Q$) The ring $Q$ is the \textit{"smallest"} ring containing $R$ in which all the elements of $D$ become units, in the following sense. Let $S$ be any commutative ring with identity and let $\vphi:R\ra S$ be any injective ring homomorphism such that $\vphi(d)$ is a unit in $S$ for every $d\in D$. Then there is an injective homomorphism $\Phi:Q\ra S$ such that $\Phi|_R = \vphi$. In other words, any ring containing an isomorphic copy of $R$ in which all the elements of $D$ become units must also contain an isomorphic copy of $Q$.
+\end{enumerate}
+\end{thm}
+
+\nl
+
+\begin{defn}
+Let $R$, $D$, and $Q$ be as in the above theorem.
+\begin{enumerate}
+\item The ring $Q$ is called the \textit{\textbf{ring of fractions}} of $D$ with respect to $R$ and is denoted $D\inv R$.
+\item If $R$ is an integral domain and $D = R\backslash\{0\}$, $Q$ is called the \textit{\textbf{field of fractions}} or \textit{quotient field} of $R$.
+\end{enumerate}
+\end{defn}
+
+\nl
+
+\begin{cor}
+Let $R$ be an integral domain and let $Q$ be the field of fractions of $R$. If a field $F$ contains a subring $R^\p$ isomorphic to $R$ then the subfield of $F$ generated by $R^\p$ is isomorphic to $Q$.
+\end{cor}
+
+\nl
+
+\begin{defn}
+The ideals $A$ and $B$ of the ring $R$ are said to be \textbf{\textit{comaximal}} if $A + B = R$.
+\end{defn}
+
+\nl
+
+\begin{thm}\hl{\textit{(Chinese Remainder Theorem)}} Let $A_1,A_2,\ldots,A_k$ be ideals in $R$. The map
+\[R\ra R/A_1\times R/A_2\times\cdots\times R/A_k\quad\text{defined by}\quad r\mapsto(r+A_1,r+A_2,\ldots,r+A_k)\]
+is a ring homomorphism with kernel $\cap A_i$. If for each $i,j\in\{1,2,\ldots,k\}$ with $i\neq j$ the ideals $A_i$ and $A_j$ are comaximal, then this map is surjective and $A_1\cap A_2\cap\cdots\cap A_k = A_1A_2\cdots A_k$, so
+\[R/(A_1A_2\cdots A_k) = R/(A_1\cap A_2\cap\cdots\cap A_k) \cong R/A_1\times R/A_2\times\cdots\times R/A_k.\]
+\end{thm}
+
+\nl
+
+\begin{cor}
+Let $n$ be a positive integer and let $p_1^{\al_1}p_2^{\al_2}\cdots p_k^{\al_k}$ be its factorization into powers of distinct primes. Then
+\[Z/n\Z \cong (\Z/p_1^{\al_1}\Z)\times(\Z/p_2^{\al_2}\Z)\times\cdots\times (\Z/p_k^{\al_k}\Z),\]
+as rings, so in particular we have the following isomorphism of multiplicative groups:
+\[(Z/n\Z)^\times \cong (\Z/p_1^{\al_1}\Z)^\times\times(\Z/p_2^{\al_2}\Z)^\times\times\cdots\times (\Z/p_k^{\al_k}\Z)^\times.\]
+\end{cor}
+
+\nl
+
+\begin{cor}
+Let $a,b\in \Z$ then
+\[\Z/(m)\times \Z/(n) \cong \Z/(\gcd(m,n))\times \Z/(\text{lcm}(m,n))\]
+\end{cor}
+
+\section{Euclidean Domains, Principal Ideal Domains, and Unique Factorization Domains}
+
+\hl{All rings in this section are commutative.}
+
+\nl
+
+\begin{defn}
+Any function $N:R\ra \Z_{\geq 0}$ with $N(0) = 0$ is called a \textit{\textbf{norm}} on the integral domain $R$. If $N(a)> 0$ for all $a\neq 0$ define $N$ to be a \textit{positive norm}.
+\end{defn}
+
+\nl
+
+\begin{defn}
+The integral domain $R$ is said to be a \hl{\textit{\textbf{Euclidean Domain}}} if there is a norm $N$ on $R$ such that for any two elements $a$ and $b$ of $R$ with $b\neq 0$ there exist elements $q$ and $r$ in $R$ with 
+\[a = qb + r\qquad \text{with } r = 0 \text{ or } N(r)<N(b).\]
+\end{defn}
+
+\nl
+
+\begin{defn}
+Let $R$ be a commutative ring and let $a,b\in R$ with $b\neq 0$.
+\begin{enumerate}
+\item $a$ is said to be a \textbf{\textit{multiple}} of $b$ if $a = bx$ for some $x\in R$. In this case $b$ is said to divide or be a divisor of $a$, written $b\ |\ a$.
+\item A \textbf{\textit{greatest common divisor}} of $a$ and $b$ is a nonzero element $d$ such that 
+\begin{enumerate}
+\item $d\ |\ a$ and $d\ |\ b$, and 
+\item if $d^\p\ |\ a$ and $d^\p\ |\ b$ then $d\ |\ d^\p$.
+\end{enumerate}
+A greatest common divisor of $a$ and $b$ will be denoted by $\gcd(a,b)$.
+\end{enumerate}
+\end{defn}
+
+\nl
+
+\begin{prop}
+If $a$ and $b$ are nonzero elements in the commutative ring $R$ such that the ideal generated by $a$ and $b$ is a principal ideal $(d)$, then $d$ is a greatest common divisor of $a$ and $b$.
+\end{prop}
+
+\nl
+
+\begin{prop}
+Let $R$ be an integral domain. If two elements $d$ and $d^\p$ of $R$ generate the same principal ideal, then $d^\p = ud$ for some unit $u\in R$. In particular, if $d$ and $d^\p$ are both greatest common divisors of $a$ and $b$, then $d^\p = ud$ for some unit $u$.
+\end{prop}
+
+\nl
+
+\begin{thm}
+Let $R$ be a Euclidean Domain and let $a$ and $b$ be nonzero elements of $R$. Let $d = r_n$ be the last nonzero remainder in the Euclidean Algorithm for $a$ and $b$. Then
+\begin{enumerate}
+\item $d$ is a greatest common divisor of $a$ and $b$, and 
+\item the principal ideal $(d)$ is the ideal generated by $a$ and $b$. In particular, $d$ can be written as an $R$\textbf{\textit{-linear combination}} of $a$ and $b$, i.e., there are elements $x$ and $y$ in $R$ such that 
+\[d = ax + by.\]
+\end{enumerate}
+\end{thm}
+
+\nl
+
+\begin{defn}
+A domain $R$ in which every ideal is principal is called a \textbf{\textit{Principal Ideal Domain}} (PID).
+\end{defn}
+
+\nl
+
+\begin{prop}
+Let $R$ be a PID and let $a$ and $b$ be nonzero elements of $R$. Let $d$ be a generator for the principal ideal generated by $a$ and $b$. Then
+\begin{enumerate}
+\item $d$ is a greatest common divisor of $a$ and $b$
+\item $d$ can be written as an $R$-\textit{linear combination} of $a$ and $b$, i.e., there are elements $x$ and $y$ in $R$ with 
+\[d = ax + by\]
+\item $d$ is unique up to multiplication by a unit in $R$.
+\end{enumerate}
+\end{prop}
+
+\nl
+
+\begin{prop}
+\hl{Every nonzero prime ideal in a PID is a maximal ideal.} 
+\end{prop}
+
+\nl
+
+\begin{cor}
+If $R$ is any commutative ring such that the polynomial ring $R[x]$ is a PID (or Euclidean Domain), then $R$ is necessarily a field.
+\end{cor}
+
+\nl
+
+\begin{defn}
+Let $R$ be an integral domain
+\begin{enumerate}
+\item Suppose $r\in R$ is nonzero and is not a unit. Then $r$ is called \textit{\textbf{irreducible}} if $R$ if whenever $r = ab$ with $a,b\in R$ at least one of $a$ or $b$ is a unit in $R$.
+\item The nonzero element $p\in R$ is called \textbf{\textit{prime}} in $R$ it the ideal $(p)$ generated by $p$ is a prime ideal. In other words, for any $a,b\in R$ if $p\ |\ ab$ then either $p\ |\ a$ or $p\ |\ b$.
+\item Two elements $a,b\in R$ differing by a unit are said to be \textit{\textbf{associate}} in $R$.
+\end{enumerate}
+\end{defn}
+
+\nl
+
+\begin{prop}
+\hl{In an integral domain a prime element is always irreducible.}
+\end{prop}
+
+\nl
+
+\begin{prop}
+In a PID a nonzero element is prime if and only if it is irreducible.
+\end{prop}
+
+\nl
+
+\begin{defn}
+A \hl{\textit{\textbf{Unique Factorization Domain (UFD)}}} is an integral domain $R$ in which every nonzero element $r\in R$ which is not a unit has the following two properties:
+\begin{enumerate}
+\item $r$ can be written as the finite product of irreducibles $p_i$ of $R$: $r = p_1p_2\cdots p_n$ and
+\item the decomposition given in (1) is unique up to associates. 
+\end{enumerate}
+\end{defn}
+
+\nl
+
+\begin{prop}
+\hl{In a UFD a nonzero element is a prime if and only if it is irreducible.}
+\end{prop}
+
+\nl
+
+\begin{prop}
+Let $a$ and $b$ be two nonzero elements of the UFD $R$ and suppose
+\[a = u\ p_1^{e_1}p_2^{e_2}p_3^{e_3}\cdots p_n^{e_n}\qquad\text{and}\qquad b = v\ p_1^{f_1}p_2^{f_2}p_3^{f_3}\cdots p_n^{f_n}\]
+are prime factorizations for $a$ and $b$, where $u$ and $v$ are units, the primes $p_1,p_2,\ldots,p_n$ are \textit{distinct} and the exponents $e_i$ and $f_i$ are $\geq 0$. Then the element 
+\[d = p_1^{\min(e_1,f_1)}p_2^{\min(e_2,f_2)}p_3^{\min(e_3,f_3)}\cdots p_n^{\min(e_n,f_n)}\]
+is a greatest common divisor of $a$ and $b$. 
+\end{prop}
+
+\nl
+
+\begin{thm}
+Every PID is a UFD. In particular, every Euclidean Domain is a UFD. 
+\end{thm}
+
+\nl
+
+\begin{lem}
+The prime number $p\in \Z$ divides an integer of the form $n^2 + 1$ if and only if $p$ is either 2 or is an odd prime congruent to $1\mod 4$.
+\end{lem}
+
+\nl
+
+\begin{prop}\nl
+\begin{enumerate}
+\item \textit{(Fermat's Theorem on sums of squares)} The prime $p$ is the sum of two integer squares, $p = a^2 + b^2$ if and only if $p = 2$ or $p\equiv 1\mod 4$. Except for the interchanging $a$ and $b$, the representation of $p$ as the sum of two squares is unique. 
+\item The irreducible elements in the Gaussian integers $\Z[i]$ are as follows
+\begin{enumerate}
+\item $1 + i$
+\item the primes $p\in \Z$ with $p\equiv 3\mod 4$
+\item $a + bi,\ a-bi$, the distinct irreducible factors of $p = a^2 + b^2$ for the primes $p\in \Z$ with $p\equiv 1\mod 4$.
+\end{enumerate}
+\end{enumerate}
+\end{prop}
+
+
+\end{document}
