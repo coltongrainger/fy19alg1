@@ -136,20 +136,16 @@ Absurd!---$\{p_1(x), \ldots, p_n(x)\}$ is supposed to be the exhaustive set of p
 
 *To find.* The greatest common divisor of $m(x) = x^3 + 4x^2 + x - 6$ and $n(x) = x^5 - 6x + 5$ in $\QQ[x]$, expressed as a $\QQ[x]$-linear combination of $m(x)$ and $n(x)$.
 
-*Demonstration*. A GCD of $n(x)$ and $m(x)$ is $x-1$. It's the last nonzero remainder in the extended Euclidean algorithm. To wit:
+*Demonstration*. A GCD of $n(x)$ and $m(x)$ is $x-1$. It's the last nonzero remainder in the extended Euclidean algorithm. In gruesome hard-coded detail (*feel free to skim to the next page*).
 
 ```python
 >>> R.<x> = PolynomialRing(QQ, sparse=True)
+>>> # n.quo_rem(m) long divides n by m and returns (quotient, remainder) 
 >>> (x^5 - 6*x + 5).quo_rem(x^3 + 4*x^2 + x - 6)
-
 (x^2 - 4*x + 15, -50*x^2 - 45*x + 95)
-
 >>> (x^3 + 4*x^2 + x - 6).quo_rem(-50*x^2 - 45*x + 95)
-
 (-1/50*x - 31/500, 11/100*x - 11/100)
-
 >>> (-50*x^2 - 45*x + 95).quo_rem(11/100*x - 11/100)
-
 (-5000/11*x - 9500/11, 0)
 ```
 
@@ -182,11 +178,12 @@ We also want Bézout coefficients, to see that $x - 1$ is a linear combination o
 >>>     return r[-2], s[-2], t[-2]
 ```
 
-Why is this procedure meaningful?
+Why is this procedure meaningful? Because we can quickly find a polynomial $n(x)s(x) + m(x)t(x)$ that's an associate of $x-1 \in \mathrm{GCD}\{n(x), m(x)\}$, i.e., we may find "scalars" $s$ and $t$ to form linear combination of $n(x)$ and $m(x)$ that generates the ideal $(x-1)$.
 
 ```python
 >>> n = x^5 - 6*x + 5
 >>> m = x^3 + 4*x^2 + x - 6
+>>> ### extgcd returns a 3-tuple
 >>> (gcd, s, t) = extgcd(n,m)
 >>> print(gcd, s, t)
 
@@ -201,7 +198,18 @@ True
 
 \gvn Let $F$ be a field. 
 
-\wts The set $R$ of polynomials in $F[x]$ whose coefficient of $X$ is equal to $0$ is a subring of $F[x]$ and $R$ is not a UFD. (Hint: show that $x^6 = (x^2)^3 = (x^3)^2$ gives two distinct factorization of $x^6$ into irreducibles.)
+\wts The set $R$ of polynomials in $F[x]$ whose coefficient of $x$ is equal to $0$ is a subring of $F[x]$. Moreover, $R$ is not a UFD.
+
+\pf Say $r(x), s(x) \in R$. Subtracting like powers, $r(x) - s(x) \in R$. Hence $(R, +)$ is an abelian subgroup of $F[x]$. Say that $r(x) = \sum_{i=0}^n r_i x^i$ and $s(x) = \sum_{j=0}^m s_j x^j$. Then 
+$$r(x)s(x) = \sum_{k=0}^{mn} \sum_{i+j = k} r_i s_j x^k = r_0s_0 + \underbrace{r_1s_0 + r_0s_1}_{\text{ just }0}x + \text{ higher order terms } \in R.$$
+We conclude $(R, \cdot)$ is a semigroup under the associative multiplication inherited from $F[x]$. (We could also say $1 \in R$.) So $R$ is a subring of $F[x]$.
+
+Now consider $x^6 \in R$. Observe $(x^3)^2 = (x^2)^3 = x^6$. We'll show $x^2$ and $x^3$ are irreducible in $R$. Consider the possible factorizations, up to associates, of $x^2$ and $x^3$:
+
+- $x^3 = x^0 x^3 = x^2 x^1$. The first factorization is not into irreducibles and the later is not in $R$.
+- $x^2 = x^0 x^2 = x^2 x^1$. Dido. 
+
+We conclude that $x^6$ has two distinct factorizations; therefore $R$ is not a UFD. \qedsymbol
 
 ### [@DF04, number 9.4.7]
 
@@ -209,25 +217,53 @@ True
 
 \wts $\RR[x]/(x^2 + 1)$ is a field that's isomorphic to the complex numbers.
 
+\pf We exhibit an isomorphism. Define $\phi \colon \CC \to \RR[x] / (x^2 + 1)$ by $a + bi \mapsto \bar{a} + \bar{bx}$ for all $a,b \in \RR$.
+
+- $\phi$ is a well defined ring homomorphism. Additivity is clear, $\phi(\vec{u}) + \phi(\vec{v}) = \phi(\vec{u} + \vec{v})$. For multiplicativity, note in $\bar{\RR[x]}$ $\bar{0} = \bar{bd(x^2 + 1)}$. Exploit this! 
+    \begin{align*}\phi(a+bi)\phi(c +di) &= \bar{ac} + \bar{adx} + \bar{bcx} + \bar{bdx^2}\\ &= \bar{ac - bd} + \bar{(ad + bc)x}\\ &= \phi((a+bi)(c + di)).\end{align*}
+- $\phi$ is injective. For say (real numbers) $a \neq c$ or $b \ne d$. Then $\phi(a + bi) = \bar{a} + \bar{bx} \neq \bar{c} + \bar{dx} = \phi(c + di)$.
+- $\phi$ is surjective by lemma. Recall for each $\bar{g(x)} \in R[x] / (x^2 + 1)$ there's a unique $r(x)$ of degree less than $2$ such that $\bar{r(x)} = \bar{g(x)}$. Whence $\{\bar{1}, \bar{x}\}$ is a basis for the vector space $\RR[x] / (x^2 + 1)$ over $\RR$. $\phi$ is an $\RR$-linear map and takes $1 \mapsto \bar{1}$ and $i \mapsto \bar{x}$.
+
+We conclude the field of complex numbers $\CC$ is the extension of $\RR$ in which the polynomial $x^2 + 1$ has a root. \qedsymbol
+
 ### [@DF04, number 9.4.12]
 
 \gvn The ring of polynomials $\ZZ[x]$ and the polynomial $x^{n-1} + x^{n-2} + \cdots + x + 1$. 
 
 \wts $x^{n-1} + x^{n-2} + \cdots + x + 1$ is irreducible in $\ZZ[x]$ if and only if $n$ is a prime.
 
+*Proof.*^[I consulted: <https://web.archive.org/web/20150524162238/https://crazyproject.wordpress.com/2011/01/03/prove-that-a-given-family-of-polynomials-is-reducible-over-zz/>. The ideal to massage the convolution in the case that $n$ is composite was not my own. The write-up was entirely my own.] \fore Suppose $p$ is prime. Then $\sum_{i=0}^{p-1} x^i = \Phi_p(x)$ is the $p$th cyclotomic polynomial. Consider the transformation $$\Phi_p(x+1) = \frac{(x + 1)^p -1}{x} = \sum_{k=1}^p {p \choose k} x^{k-1}.$$ We see $\Phi_p(x + 1)$ is a monic polynomial, with coefficients $$\frac{p!}{(p-k)!k!} \quad \text{ divisible by $p$ for } \quad k \in \{1, \ldots, p-1\}.$$ Further, $p^2 \nmid p$, the constant coefficient of $\Phi_p(x+1)$. Applying Eisenstein's criterion, we conclude $\Phi_p(x+1)$ (hence $\Phi_p(x) = \sum_{i=0}^{p-1} x^i$) is irreducible over $\ZZ[x]$.
+
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+
+\back Suppose $n$ is composite. Consider $\sum_{i=0}^{n-1} x^i$. We'll reshape the indices of our sum from an $n \times 1$ vector down into a $d \times q$ matrix, where $n = dq$ for integers $d, q > 1$. A naive attempt would be to write $\sum_{i=0}^{d-1} \sum_{j = 0}^{q-1} x^{ij}$. One should verify $ij$ is a poor choice of exponent given that we're trying to establish a one-to-one correspondence between $\{0, \ldots, d - 1\} \times \{0, \ldots, q -1\}$ and $\{0, \ldots, n-1\}$. Rather, we rely on the (non-negative and therefore unique) division algorithm in $\ZZ$ to represent each $N \in \{0, \ldots, n-1\}$ *uniquely* as $N = di + j$ where $0 \le j < d.$ The range of the index $j$ forces $0 \le i \le \floor{\frac{n-1}{q}} = d- 1.$
+
+By order considerations, the injection $(i,j) \mapsto di + j$ is a bijection between
+$\{0, \ldots, d - 1\} \times \{0, \ldots, q -1\}$ and $\{0, \ldots, n-1\}$. We find here a reduction of $1 + x + \ldots + x^{n-1}$ into nonconstant polynomials: $$\sum_{i=0}^{n-1} x^i = \sum_{i=0}^{d-1} \sum_{j = 0}^{q-1} x^{di + j} = \left( \sum_{i=0}^{d-1} x^{di}  \right)\left(\sum_{j = 0}^{q-1} x^{j}\right).\text{ \qedsymbol}$$
+
 ### [@DF04, number 9.4.16]
 
-\gvn Let $F$ be a field and let $f(x)$ be a polynomial of degree $n$ in $F[x]$. The polynomial $g(x) = x^n f(1/x)$ is called the reverse of $f(x)$.
+\gvn Let $F$ be a field and let $a(x)$ be a polynomial of degree $n$ in $F[x]$. The polynomial $b(x) = x^n a(1/x)$ is called the reverse of $a(x)$.
 
-*To demonstrate.*
+*To demonstrate.* (a) Describe the coefficients of $b$ in terms of the coefficients of $a$. (b) $a$ is irreducible if and only if $b$ is irreducible. 
 
-(a) Describe the coefficients of $g$ in terms of the coefficients of $f$.
-(b) $f$ is irreducible if and only if $g$ is irreducible.
+*Demonstration.*
+
+(a) Both $a(x)$ and its reverse $b(x)$ have the same degree, the same number of coefficients, and are elements of the same polynomial ring $F[x]$. Explicitly, when $a(x) = \sum_1^n a_i$, $b_j = a_{n-j}$ and $b(x) = \sum_1^n b_j.$
+
+(b) Say that $a(x)$ is reducible into $d(x)q(x)$, nonconstant polynomials in $F[x]$ of degree $m$ and $\ell$ respectively. Now $d(x)$ and $q(x)$ are nonconstant if and only if $x^m d(1/x)$ and $x^\ell q(1/x)$ are nonconstant (in $F[x]$), which occurs if and only if the reverse $x^{m\ell} a(1/x) = x^m d(1/x) x^\ell q(1/x)$ is reducible into nonconstant polynomials in $F[x]$. \qedsymbol
 
 ### A variant of Eisenstein's Criterion [@DF04, number 9.4.17]
 
-\gvn et $P$ be a prime ideal in the Unique Factorization Domain $R$ and let $f(x) = a_n x^n  + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$ be a polynomial in $R[x]$, $n \ge 1$. Suppose $a_n \notin P$, $a_{n-1}, \ldots, a_0 \in P$ and $a_0 \notin P^2$. 
+\gvn Let $\fp$ be a prime ideal in the Unique Factorization Domain $R$ and let $a(x) = a_n x^n  + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$ be a polynomial in $R[x]$, $n \ge 1$. Suppose $a_n \notin \fp$, $a_{n-1}, \ldots, a_0 \in \fp$ and $a_0 \notin \fp^2$. 
 
-\wts $f(x)$ is irreducible in $F[x]$, where $F$ is the quotient field of $R$.
+\wts $a(x)$ is irreducible in $F[x]$, where $F$ is the quotient field of $R$.
+
+\pf Once we've established that $a(x)$ is irreducible in $R[x]$, by (the contrapositive to) Gauss' lemma, $a(x)$ will be irreducible in $F[x]$. So let $R$ and $\fp$ be as above. Let $a(x) \in R[x]$ with coefficients as above. To argue that $a(x)$ is irreducible in $R[x]$, we suppose it's not and approach a contradiction. So let $a(x) = b(x)c(x)$ for nonconstant polynomials $b(x),c(x)$ in $R[x]$. Consider residues under the reduction homomorphism $R[x] \to R/\fp [x]$. The equation $$a(x) = b(x)c(x) \quad \text{ in } R[x] \text{ reduces modulo $\fp$ to } \quad a_n x^n + \fp = \left(\sum (b_i + \fp)x^i\right)\left( \sum (c_j + \fp) x^j \right).$$ Because 
+
+- $R/\fp$ is an integral domain^[I don't believe it's a UFD, but I could be wrong. In the case that $R = \ZZ$, reduction mod a prime $p$ *does* produce a UFD $\FF_p$.] and 
+- the reduced polynomials satisfy $\deg \bar {a(x)} = \deg \bar {b(x)}+ \deg \bar{c(x)}$ 
+
+it must be that *both residues* $\bar {b(x)}$ and $\bar {c(x)}$ have zero for their constant terms. That is, in $R/ \fp$, we have $b_0 + \fp = c_0 + \fp = \fp$. Pulling back to $R$, $a_0 = b_0c_0 \in \fp^2$---a contradiction! Our assumption that $a(x)$ is reducible must be faulty. \qedsymbol
 
 ## References
