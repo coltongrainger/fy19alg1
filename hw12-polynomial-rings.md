@@ -76,7 +76,7 @@ It's routine to verify this function is an injection. We now focus to argue each
     We can think of $\fa$ as a sequence of coin flips that forgets at least one outcome. 
     So verify that $$\fa \not\supset (x_1x_2, x_3x_4, x_5x_6,\ldots).$$ 
     In particular, there's some odd positive $i$ for which the product $x_i x_{i+1} \notin \fa$ (one of the events forgotten!). 
-    Quotienting $\fa$ out of $\bar{R}$, the ring $\bar{R} / \fa$ has $\bar{ x_i }$ and $\bar{ x_{i+1} }$ as zero divisors (boo!). 
+    Quotienting $\fa$ out of $\bar{R}$, the ring $\bar{R} / \fa$ has $\bar{ x_i }$ and $\bar{ x_{i+1} }$ as zero divisors. 
     Therefore $\fa$ is not prime. 
     We conclude $(x_{1+e_1}, x_{3+e_2}, x_{5+e_3}, \ldots)$ is a *minimal* prime ideal. \qedsymbol
 
@@ -93,31 +93,109 @@ It's routine to verify this function is an injection. We now focus to argue each
 
 Since the property of being an entire ring is invariant under ring isomorphism, the two quotients cannot be isomorphic. \qedsymbol
 
+**Lemma.** Suppose $F$ is a field. Let $f(x) \in F[x]$ be a polynomial of degree $n \ge 1$ and let bars denote passage to the quotient $F[x]/(f(x))$. For each $\bar{g(x)}$ there's a unique polynomial $r(x)$ of degree strictly less than $n$ such that $\bar{g(x)} = \bar{r(x)}$. 
+
+*Proof.* Let $f(x) \in F[x]$ as above, a nonconstant polynomial. 
+Let $\bar{g(x)} \in F[x] / (f(x))$. 
+There exists $g(x) \in F[x]$ which projects to $\bar{g(x)}$.
+Now $F[x]$ is a Euclidean domain (with a division algorithm that produces *unique* remainders), so divide $g(x)$ by $f(x)$ to obtain unique $a(x), r(x) \in F[x]$ such that 
+$$g(x) = a(x)f(x) + r(x) \quad \text{ where } \quad 0 \le \deg r < \deg f.$$
+The difference $g(x) - r(x) \in (f(x))$, so in the quotient $\bar{g(x)} = \bar{r(x)}$. \qedsymbol
+
+Knowing the lemma holds, we know each for polynomial $\bar{g(x)} \in F[x]/(f(x))$, there's a unique $r(x) \in F[x]$ such that $\bar{g(x)} = \bar{r(x)}$, where $\bar{r(x)}$ is in the span of the elements $\bar{1}, \bar{x}, \ldots, \bar{x^{n-1}}$. To see this span is minimal, consider that its vectors are pairwise orthogonal.
+
 ### [@DF04, number 9.2.2]
-
-**Lemma.** Let $f(x) \in F[x]$ be a polynomial of degree $n \ge 1$ and let bars denote passage to the quotient $F[x]/(f(x))$. For each $\bar{g(x)}$ there's a unique polynomial $g_0(x)$ of degree strictly less than $n$ such that $\bar{g(x)} = \bar{g_0(x)}$. 
-
-Commentary "In other words, the elements $\bar{1}, \bar{x}, \ldots, \bar{x^{n-1}}$ are a basis of the vector space $F[x]/(f(x))$ over $F$."
 
 \gvn Let $F$ be a finite field of order $q$ and let $f(x)$ be a polynomial in $F[x]$ of degree $n \ge 1$. 
 
 \wts $F[x]/(f(x))$ has $q^n$ elements.
 
+\pf We enumerate each distinct vector $\bar{r(x)}$ (of degree strictly less than $n$ as above) in $F[x]/(f(x))$ by the coefficient of its $k$th degree term for $k=0, \ldots, n-1$. But each coefficient is in the finite field $\FF_q$, so the number of distinct coefficients for $\bar{r(x)}$ is $q^n$. By lemma, $\bar{1}, \bar{x}, \ldots, \bar{x^{n-1}}$ is a basis. By considering the distinct coefficients of $\bar{r(x)}$, we've taken exactly all distinct linear combinations of basis vectors. Since each of $n$ basis vectors can be scaled with one of $q$ scalars in the finite field $\FF_q$, we conclude $\abs{F[x]/(f(x))} = q^n$. \qedsymbol
+
 ### [@DF04, number 9.2.3]
 
 \gvn Let $f(x)$ be a polynomial in $F[x]$. 
 
-\wts $F[x]/(f(x))$ is a field if and only if $f(x)$ is irreducible. (Hint: every nonzero prime ideal in a PID is maximal.)
+\wts $F[x]/(f(x))$ is a field if and only if $f(x)$ is irreducible. 
+
+\newcommand{\fore}{($\Rightarrow$)\ }
+\newcommand{\back}{($\Leftarrow$)\ }
+
+\pf We apply the hierarchy theorem in full force to exploit that $F[x]$ is a Euclidean domain. \fore Suppose that $F[x]/(f(x))$ is a field. Then $(f(x))$ is a maximal ideal. As $F[x]$ is an entire ring, $(f(x))$ is prime. Because $F[x]$ is a UFD, $f(x)$ is irreducible. \back Suppose $f(x)$ is irreducible. Then as $F[x]$ is a Euclidean domain, $f(x)$ is prime. Now $(f(x))$ is a prime ideal in a PID, so $(f(x))$ is maximal. Therefore $F[x]/(f(x))$ is a field. \qedsymbol
 
 ### [@DF04, number 9.2.4]
 
 \gvn Let $F$ be a finite field. 
 
-\wts $F[x]$ contains infinitely many primes. (Note that over an infinite field the polynomials of degree $1$ are an infinite set of primes in the ring of polynomials.)
+\wts $F[x]$ contains infinitely many primes.
 
-### [@DF04, number 9.2.10]
+*Proof by contradiction.* Suppose $\{p_1(x), \ldots, p_n(x)\}$ is the finite set of all prime polynomials in $F[x]$. Consider the nonconstant polynomial $$f(x) =  \prod_1^n p_i(x) + 1$$ in $F[x]$. Since none of prime ideals $(p_i(x))$ contain $1$, neither do they contain $f(x)$. But $F[x]$ is a Euclidean domain, so a UFD, and we must have a representation of $$f(x) = \prod_1^m q_j(x)$$ as a product of irreducible, thus prime, polynomials $q_j(x)$. By construction of $f(x)$, $$\{q_1(x), \ldots, q_m(x)\} \text{ and } \{p_1(x), \ldots, p_n(x)\} \text{ are disjoint.}$$
+Absurd!---$\{p_1(x), \ldots, p_n(x)\}$ is supposed to be the exhaustive set of primes! \qedsymbol
 
-*To find.* The greatest common divisor of $a(x) = x^3 + 4x^2 + x - 6$ and $b(x) = x^5 - 6x + 5$ in $\QQ[x]$, expressed as a $\QQ[x]$-linear combination of $a(x)$ and $b(x)$.
+### [@DF04, number 9.2.10 set of primes]
+
+*To find.* The greatest common divisor of $m(x) = x^3 + 4x^2 + x - 6$ and $n(x) = x^5 - 6x + 5$ in $\QQ[x]$, expressed as a $\QQ[x]$-linear combination of $m(x)$ and $n(x)$.
+
+*Demonstration*. A GCD of $n(x)$ and $m(x)$ is $x-1$. It's the last nonzero remainder in the extended Euclidean algorithm. To wit:
+
+```python
+>>> R.<x> = PolynomialRing(QQ, sparse=True)
+>>> (x^5 - 6*x + 5).quo_rem(x^3 + 4*x^2 + x - 6)
+
+(x^2 - 4*x + 15, -50*x^2 - 45*x + 95)
+
+>>> (x^3 + 4*x^2 + x - 6).quo_rem(-50*x^2 - 45*x + 95)
+
+(-1/50*x - 31/500, 11/100*x - 11/100)
+
+>>> (-50*x^2 - 45*x + 95).quo_rem(11/100*x - 11/100)
+
+(-5000/11*x - 9500/11, 0)
+```
+
+We also want Bézout coefficients, to see that $x - 1$ is a linear combination of $n(x)$ and $m(x)$. Here's an imperative implementation^[See <https://doc.sagemath.org/html/en/reference/polynomial_rings/sage/rings/polynomial/polynomial_element_generic.html>, <https://en.wikipedia.org/wiki/Polynomial_greatest_common_divisor>.] of the extended Euclidean algorithm that records the desired coefficients.
+
+```python
+>>> def extgcd(n,m):
+>>> 
+>>>     """a wrapper around SAGE to compute a GCD and Bézout coefficients"""
+>>> 
+>>>     # initialize remainder and Bézout coeff arrays
+>>>     r = []; s = [1,0]; t = [0,1]
+>>> 
+>>>     # we assume deg(n) >= deg(m)
+>>>     r.append(n)
+>>>     r.append(m)
+>>> 
+>>>     # while the last remainder is nonzero
+>>>     while r[-1] != 0:
+>>> 
+>>>         # long divide
+>>>         (quo,rem) = r[-2].quo_rem(r[-1])
+>>> 
+>>>         # append remainder and latest Bézout coeffs
+>>>         r.append(rem)
+>>>         s.append(s[-2] - quo*s[-1])
+>>>         t.append(t[-2] - quo*t[-1])
+>>>     
+>>>     # second to last remainder and coeffs
+>>>     return r[-2], s[-2], t[-2]
+```
+
+Why is this procedure meaningful?
+
+```python
+>>> n = x^5 - 6*x + 5
+>>> m = x^3 + 4*x^2 + x - 6
+>>> (gcd, s, t) = extgcd(n,m)
+>>> print(gcd, s, t)
+
+(11/100*x - 11/100, 1/50*x + 31/500, -1/50*x^3 + 9/500*x^2 - 13/250*x + 7/100)
+
+>>> n*s + m*t == gcd
+
+True
+```
 
 ### [@DF04, number 9.3.3]
 
