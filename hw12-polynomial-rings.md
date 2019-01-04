@@ -241,6 +241,14 @@ We conclude the field of complex numbers $\CC$ is the extension of $\RR$ in whic
 By order considerations, the injection $(i,j) \mapsto di + j$ is a bijection between
 $\{0, \ldots, d - 1\} \times \{0, \ldots, q -1\}$ and $\{0, \ldots, n-1\}$. We find here a reduction of $1 + x + \ldots + x^{n-1}$ into nonconstant polynomials: $$\sum_{i=0}^{n-1} x^i = \sum_{i=0}^{d-1} \sum_{j = 0}^{q-1} x^{di + j} = \left( \sum_{i=0}^{d-1} x^{di}  \right)\left(\sum_{j = 0}^{q-1} x^{j}\right).\text{ \qedsymbol}$$
 
+<!--
+EX: Suppose $n$ is composite. Why is the polynomial $\sum_{i=0}^{n-1} x^i$ reducible in $\ZZ[x]$? ... There are indices $j, k$ such that $$\sum_{i=0}^{n-1} x^i = \left( \sum_{j=0}^{d-1} x^{dj}  \right)\left(\sum_{k = 0}^{q-1} x^{k}\right).$$
+
+EX: Say $n$ is composite. Why are there indices $j, k$ such that $$\sum_{i=0}^{n-1} x^i = \left( \sum_{j=0}^{d-1} x^{dj}  \right)\left(\sum_{k = 0}^{q-1} x^{k}\right)?$$ ... Use the division algorithm in $\ZZ$ to write each $N \in \{0, \ldots, n-1\}$ uniquely as $N = di + j$. 
+-->
+
+We'll reshape the indices of our sum from an $n \times 1$ vector down into a $d \times q$ matrix, where $n = dq$ for integers $d, q > 1$
+
 ### [@DF04, number 9.4.16]
 
 \gvn Let $F$ be a field and let $a(x)$ be a polynomial of degree $n$ in $F[x]$. The polynomial $b(x) = x^n a(1/x)$ is called the reverse of $a(x)$.
